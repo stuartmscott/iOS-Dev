@@ -12,7 +12,14 @@
 @interface HighscoresViewController : UIViewController {
     
 }
-@property (retain) NSArray* menuItems;
+@property (retain) NSArray* itemsByTime;
+@property (retain) NSArray* itemsByMoves;
+@property (retain) NSArray* tableItems;
 @property (retain,nonatomic) IBOutlet UITableView* table;
+@property (nonatomic, retain) IBOutlet UITabBar *selectionBar;
+@property (nonatomic, retain) IBOutlet UITabBarItem *byTimeItem;
+@property (nonatomic, retain) IBOutlet UITabBarItem *byMovesItem;
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item;
 
 @end

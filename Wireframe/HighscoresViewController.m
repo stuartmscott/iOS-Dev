@@ -12,7 +12,12 @@
 @implementation HighscoresViewController
 
 @synthesize table;
-@synthesize menuItems;
+@synthesize selectionBar;
+@synthesize byTimeItem;
+@synthesize byMovesItem;
+@synthesize tableItems;
+@synthesize itemsByTime;
+@synthesize itemsByMoves;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +31,12 @@
 - (void)dealloc
 {
     [table release];
-    [menuItems release];
+    [tableItems release];
+    [itemsByTime release];
+    [itemsByMoves release];
+    [selectionBar release];
+    [byTimeItem release];
+    [byMovesItem release];
     [super dealloc];
 }
 
@@ -40,19 +50,40 @@
 
 #pragma mark - View lifecycle
 
+- (void)showItemsByTime
+{
+    self.tableItems = itemsByTime;
+    [table reloadData];
+}
+
+- (void)showItemsByMoves
+{
+    self.tableItems = itemsByMoves;
+    [table reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Main menu";
-    self.menuItems = [NSArray arrayWithObjects:
-                      @"New game",@"Highscores",@"Exit",nil];
-    [table reloadData];
+    self.title = @"Highscores";
+    self.itemsByTime = [NSArray arrayWithObjects:
+     @"1. Kostadin 1:06:03",@"2. Stuart 1:07:01",nil];
+    self.itemsByMoves = [NSArray arrayWithObjects:
+                    @"1. Stuart 16",@"2. Kostadin 22",nil];
+    [self.selectionBar setSelectedItem:byTimeItem];
+    [self tabBar:selectionBar didSelectItem:byTimeItem];
 }
 
 - (void)viewDidUnload
 {
     table = nil;
+    tableItems = nil;
+    itemsByTime = nil;
+    itemsByMoves = nil;
+    selectionBar = nil;
+    [self setByTimeItem:nil];
+    [self setByMovesItem:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -72,7 +103,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [menuItems count];
+    return [tableItems count];
 }
 
 // Customize the appearance of table view cells.
@@ -86,9 +117,20 @@
     }
     
     // Configure the cell.
-    cell.textLabel.text = [menuItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tableItems objectAtIndex:indexPath.row];
     return cell;
 }
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    switch ([item tag]) {
+        case 0:
+            [self showItemsByTime];
+            break;
+        case 1:
+            [self showItemsByMoves];
+            break;
+    }
+}
 
 @end
