@@ -10,9 +10,23 @@
 
 @implementation RootViewController
 
+@synthesize menuItems;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Main menu";
+    self.menuItems = [NSArray arrayWithObjects:
+                             @"New game",@"Highscores",@"Exit",nil];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:
+                                  [[UIScreen mainScreen] applicationFrame] 
+                                   style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [tableView reloadData];
+    self.view = tableView;
+    [tableView release];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -51,7 +65,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [menuItems count];
 }
 
 // Customize the appearance of table view cells.
@@ -65,6 +79,7 @@
     }
 
     // Configure the cell.
+    cell.textLabel.text = [menuItems objectAtIndex:indexPath.row];
     return cell;
 }
 

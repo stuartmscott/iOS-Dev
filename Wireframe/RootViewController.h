@@ -11,6 +11,6 @@
 @interface RootViewController : UITableViewController {
 
 }
-
+@property (retain) NSArray* menuItems;
 
 @end
