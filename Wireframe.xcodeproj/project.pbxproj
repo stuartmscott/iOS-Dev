@@ -16,6 +16,9 @@
 		CE28A56D1477E7B5003FD687 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE28A56B1477E7B5003FD687 /* MainWindow.xib */; };
 		CE28A5701477E7B5003FD687 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE28A56F1477E7B5003FD687 /* RootViewController.m */; };
 		CE28A5731477E7B5003FD687 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE28A5711477E7B5003FD687 /* RootViewController.xib */; };
+		CE2E447E147809970079D0EE /* HighscoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E447C147809970079D0EE /* HighscoresViewController.m */; };
+		CE2E447F147809970079D0EE /* HighscoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2E447D147809970079D0EE /* HighscoresViewController.xib */; };
+		CE2E448714780EC10079D0EE /* ByTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E448614780EC10079D0EE /* ByTimeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,11 @@
 		CE28A56E1477E7B5003FD687 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		CE28A56F1477E7B5003FD687 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		CE28A5721477E7B5003FD687 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		CE2E447B147809970079D0EE /* HighscoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresViewController.h; sourceTree = "<group>"; };
+		CE2E447C147809970079D0EE /* HighscoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresViewController.m; sourceTree = "<group>"; };
+		CE2E447D147809970079D0EE /* HighscoresViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighscoresViewController.xib; sourceTree = "<group>"; };
+		CE2E448514780EC10079D0EE /* ByTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByTimeViewController.h; sourceTree = "<group>"; };
+		CE2E448614780EC10079D0EE /* ByTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ByTimeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,11 @@
 				CE28A56F1477E7B5003FD687 /* RootViewController.m */,
 				CE28A5711477E7B5003FD687 /* RootViewController.xib */,
 				CE28A5601477E7B5003FD687 /* Supporting Files */,
+				CE2E447B147809970079D0EE /* HighscoresViewController.h */,
+				CE2E447C147809970079D0EE /* HighscoresViewController.m */,
+				CE2E447D147809970079D0EE /* HighscoresViewController.xib */,
+				CE2E448514780EC10079D0EE /* ByTimeViewController.h */,
+				CE2E448614780EC10079D0EE /* ByTimeViewController.m */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -151,6 +164,7 @@
 				CE28A5641477E7B5003FD687 /* InfoPlist.strings in Resources */,
 				CE28A56D1477E7B5003FD687 /* MainWindow.xib in Resources */,
 				CE28A5731477E7B5003FD687 /* RootViewController.xib in Resources */,
+				CE2E447F147809970079D0EE /* HighscoresViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +178,8 @@
 				CE28A5671477E7B5003FD687 /* main.m in Sources */,
 				CE28A56A1477E7B5003FD687 /* WireframeAppDelegate.m in Sources */,
 				CE28A5701477E7B5003FD687 /* RootViewController.m in Sources */,
+				CE2E447E147809970079D0EE /* HighscoresViewController.m in Sources */,
+				CE2E448714780EC10079D0EE /* ByTimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +292,7 @@
 				CE28A5781477E7B5003FD687 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "HighscoresViewController.h"
 
 @implementation RootViewController
 
@@ -133,6 +134,22 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 	*/
+    switch (indexPath.row)
+    {
+            UIViewController* controller;
+        case 0:
+            // New game
+            break;
+        case 1:
+            // Highscores
+            controller = [[HighscoresViewController alloc]init];
+            [self.navigationController pushViewController:controller animated:YES];
+            [controller release];
+            break;
+        default:
+            // Exit
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning
