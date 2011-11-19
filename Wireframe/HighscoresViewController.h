@@ -12,5 +12,7 @@
 @interface HighscoresViewController : UIViewController {
     
 }
+@property (retain) NSArray* menuItems;
+@property (retain,nonatomic) IBOutlet UITableView* table;
 
 @end

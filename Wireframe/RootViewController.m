@@ -19,6 +19,7 @@
     self.title = @"Main menu";
     self.menuItems = [NSArray arrayWithObjects:
                              @"New game",@"Highscores",@"Exit",nil];
+    /*
     UITableView *tableView = [[UITableView alloc]initWithFrame:
                                   [[UIScreen mainScreen] applicationFrame] 
                                    style:UITableViewStylePlain];
@@ -27,6 +28,7 @@
     [tableView reloadData];
     self.view = tableView;
     [tableView release];
+     */
 
 }
 
@@ -163,13 +165,14 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    menuItems = nil;
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
 
 - (void)dealloc
 {
+    [menuItems release];
     [super dealloc];
 }
 
