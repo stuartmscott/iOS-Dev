@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "HighscoresViewController.h"
+#import "LevelSelection.h"
 
 @implementation RootViewController
 
@@ -18,7 +19,7 @@
     [super viewDidLoad];
     self.title = @"Main menu";
     self.menuItems = [NSArray arrayWithObjects:
-                             @"New game",@"Highscores",@"Exit",nil];
+                             @"New game",@"Highscores",nil];
     /*
     UITableView *tableView = [[UITableView alloc]initWithFrame:
                                   [[UIScreen mainScreen] applicationFrame] 
@@ -141,6 +142,9 @@
             UIViewController* controller;
         case 0:
             // New game
+            controller = [[LevelSelection alloc]init];
+            [self.navigationController pushViewController:controller animated:YES];
+            [controller release];
             break;
         case 1:
             // Highscores

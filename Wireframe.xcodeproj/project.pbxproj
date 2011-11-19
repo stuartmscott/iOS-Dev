@@ -18,6 +18,8 @@
 		CE28A5731477E7B5003FD687 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE28A5711477E7B5003FD687 /* RootViewController.xib */; };
 		CE2E447E147809970079D0EE /* HighscoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E447C147809970079D0EE /* HighscoresViewController.m */; };
 		CE2E447F147809970079D0EE /* HighscoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2E447D147809970079D0EE /* HighscoresViewController.xib */; };
+		CE2E448B14781F460079D0EE /* LevelSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E448914781F460079D0EE /* LevelSelection.m */; };
+		CE2E448C14781F460079D0EE /* LevelSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2E448A14781F460079D0EE /* LevelSelection.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,9 @@
 		CE2E447B147809970079D0EE /* HighscoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresViewController.h; sourceTree = "<group>"; };
 		CE2E447C147809970079D0EE /* HighscoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresViewController.m; sourceTree = "<group>"; };
 		CE2E447D147809970079D0EE /* HighscoresViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighscoresViewController.xib; sourceTree = "<group>"; };
+		CE2E448814781F460079D0EE /* LevelSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelection.h; sourceTree = "<group>"; };
+		CE2E448914781F460079D0EE /* LevelSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelection.m; sourceTree = "<group>"; };
+		CE2E448A14781F460079D0EE /* LevelSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelSelection.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +99,9 @@
 				CE2E447B147809970079D0EE /* HighscoresViewController.h */,
 				CE2E447C147809970079D0EE /* HighscoresViewController.m */,
 				CE2E447D147809970079D0EE /* HighscoresViewController.xib */,
+				CE2E448814781F460079D0EE /* LevelSelection.h */,
+				CE2E448914781F460079D0EE /* LevelSelection.m */,
+				CE2E448A14781F460079D0EE /* LevelSelection.xib */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 				CE28A56D1477E7B5003FD687 /* MainWindow.xib in Resources */,
 				CE28A5731477E7B5003FD687 /* RootViewController.xib in Resources */,
 				CE2E447F147809970079D0EE /* HighscoresViewController.xib in Resources */,
+				CE2E448C14781F460079D0EE /* LevelSelection.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +183,7 @@
 				CE28A56A1477E7B5003FD687 /* WireframeAppDelegate.m in Sources */,
 				CE28A5701477E7B5003FD687 /* RootViewController.m in Sources */,
 				CE2E447E147809970079D0EE /* HighscoresViewController.m in Sources */,
+				CE2E448B14781F460079D0EE /* LevelSelection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
