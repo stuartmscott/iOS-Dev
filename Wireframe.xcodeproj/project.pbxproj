@@ -20,6 +20,10 @@
 		CE2E447F147809970079D0EE /* HighscoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2E447D147809970079D0EE /* HighscoresViewController.xib */; };
 		CE2E448B14781F460079D0EE /* LevelSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E448914781F460079D0EE /* LevelSelection.m */; };
 		CE2E448C14781F460079D0EE /* LevelSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2E448A14781F460079D0EE /* LevelSelection.xib */; };
+		CE895557149686B50044CF31 /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE895556149686B50044CF31 /* GameModel.m */; };
+		CE89555B149687A60044CF31 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89555A149687A60044CF31 /* GameController.m */; };
+		CE89555F149687FB0044CF31 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89555D149687FB0044CF31 /* GameViewController.m */; };
+		CE895560149687FB0044CF31 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE89555E149687FB0044CF31 /* GameViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,13 @@
 		CE2E448814781F460079D0EE /* LevelSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelection.h; sourceTree = "<group>"; };
 		CE2E448914781F460079D0EE /* LevelSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelection.m; sourceTree = "<group>"; };
 		CE2E448A14781F460079D0EE /* LevelSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelSelection.xib; sourceTree = "<group>"; };
+		CE895555149686B50044CF31 /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		CE895556149686B50044CF31 /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
+		CE895559149687A60044CF31 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		CE89555A149687A60044CF31 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		CE89555C149687FB0044CF31 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		CE89555D149687FB0044CF31 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		CE89555E149687FB0044CF31 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +113,13 @@
 				CE2E448814781F460079D0EE /* LevelSelection.h */,
 				CE2E448914781F460079D0EE /* LevelSelection.m */,
 				CE2E448A14781F460079D0EE /* LevelSelection.xib */,
+				CE895555149686B50044CF31 /* GameModel.h */,
+				CE895556149686B50044CF31 /* GameModel.m */,
+				CE895559149687A60044CF31 /* GameController.h */,
+				CE89555A149687A60044CF31 /* GameController.m */,
+				CE89555C149687FB0044CF31 /* GameViewController.h */,
+				CE89555D149687FB0044CF31 /* GameViewController.m */,
+				CE89555E149687FB0044CF31 /* GameViewController.xib */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -169,6 +187,7 @@
 				CE28A5731477E7B5003FD687 /* RootViewController.xib in Resources */,
 				CE2E447F147809970079D0EE /* HighscoresViewController.xib in Resources */,
 				CE2E448C14781F460079D0EE /* LevelSelection.xib in Resources */,
+				CE895560149687FB0044CF31 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +203,9 @@
 				CE28A5701477E7B5003FD687 /* RootViewController.m in Sources */,
 				CE2E447E147809970079D0EE /* HighscoresViewController.m in Sources */,
 				CE2E448B14781F460079D0EE /* LevelSelection.m in Sources */,
+				CE895557149686B50044CF31 /* GameModel.m in Sources */,
+				CE89555B149687A60044CF31 /* GameController.m in Sources */,
+				CE89555F149687FB0044CF31 /* GameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
