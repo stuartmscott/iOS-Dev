@@ -8,3 +8,10 @@
 
 #include "MeshNode.h"
 
+MeshNode::~MeshNode()
+{
+    free(vertexBuffer);
+    free(normalBuffer);
+    free(texCoordBuffer);
+    free(triangleBuffer);
+}
