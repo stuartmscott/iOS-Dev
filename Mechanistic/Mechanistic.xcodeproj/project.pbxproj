@@ -10,6 +10,7 @@
 		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
 		CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */; };
+		CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE8F574A14BB560600911BA9 /* MeshNode.cpp */; };
 		CEC9D7C914AC9BDB000F7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */; };
 		CEC9D7CB14AC9BDB000F7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */; };
 		CEC9D7CD14AC9BDB000F7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CC14AC9BDB000F7EE1 /* CoreGraphics.framework */; };
@@ -33,6 +34,8 @@
 		CE833C4414BB32A300D0C413 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraphNode.cpp; sourceTree = "<group>"; };
 		CE833C4714BB360900D0C413 /* SceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphNode.h; sourceTree = "<group>"; };
+		CE8F574A14BB560600911BA9 /* MeshNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshNode.cpp; sourceTree = "<group>"; };
+		CE8F574B14BB560600911BA9 /* MeshNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshNode.h; sourceTree = "<group>"; };
 		CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mechanistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,6 +123,8 @@
 				CE833C4414BB32A300D0C413 /* Triangle.h */,
 				CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */,
 				CE833C4714BB360900D0C413 /* SceneGraphNode.h */,
+				CE8F574A14BB560600911BA9 /* MeshNode.cpp */,
+				CE8F574B14BB560600911BA9 /* MeshNode.h */,
 			);
 			path = Mechanistic;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */,
 				CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */,
 				CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */,
+				CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

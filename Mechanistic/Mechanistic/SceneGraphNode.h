@@ -6,9 +6,6 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 #include <vector>
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
-
 
 using namespace std;
 

@@ -8,11 +8,12 @@
 
 #include "Vertex.h"
 #include "Triangle.h"
+#import <OpenGLES/ES2/gl.h>
 
 struct Triangle
 {
-    int	vertexIndices[TRIANGLE_INDEX_COUNT];	
-    float normal[VERTEX_COORD_COUNT];
-    int texCoordIndices[TRIANGLE_INDEX_COUNT];
-    short normalIndices[TRIANGLE_INDEX_COUNT];
+    GLint	vertexIndices[TRIANGLE_INDEX_COUNT];	
+    GLfloat normal[VERTEX_COORD_COUNT];
+    GLint   texCoordIndices[TRIANGLE_INDEX_COUNT];
+    GLshort normalIndices[TRIANGLE_INDEX_COUNT];
 };

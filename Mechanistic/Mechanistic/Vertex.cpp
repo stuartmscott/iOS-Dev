@@ -8,16 +8,17 @@
 
 #include "Vertex.h"
 #include <math.h>
+#import <OpenGLES/ES2/gl.h>
 
 struct Vertex
 {
-    float xyzCoords[VERTEX_COORD_COUNT];
-    float normal[VERTEX_COORD_COUNT];
+    GLfloat xyzCoords[VERTEX_COORD_COUNT];
+    GLfloat normal[VERTEX_COORD_COUNT];
 };
 
 void normaliseNormal(Vertex& v)
 {
-    float magnitude = (float)sqrt(v.normal[0] * v.normal[0] + v.normal[1] * v.normal[1] + v.normal[2] * v.normal[2]);
+    GLfloat magnitude = (GLfloat)sqrt(v.normal[0] * v.normal[0] + v.normal[1] * v.normal[1] + v.normal[2] * v.normal[2]);
     if (magnitude != 0.0f)
     {
         v.normal[0] /= magnitude;
