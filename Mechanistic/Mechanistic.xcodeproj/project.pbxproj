@@ -11,6 +11,9 @@
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
 		CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */; };
 		CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE8F574A14BB560600911BA9 /* MeshNode.cpp */; };
+		CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A314C5EA540051E755 /* Transform.cpp */; };
+		CEBDA5A814C60EAB0051E755 /* Transform.vsh in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A714C60EAB0051E755 /* Transform.vsh */; };
+		CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */; };
 		CEC9D7C914AC9BDB000F7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */; };
 		CEC9D7CB14AC9BDB000F7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */; };
 		CEC9D7CD14AC9BDB000F7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CC14AC9BDB000F7EE1 /* CoreGraphics.framework */; };
@@ -36,6 +39,11 @@
 		CE833C4714BB360900D0C413 /* SceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphNode.h; sourceTree = "<group>"; };
 		CE8F574A14BB560600911BA9 /* MeshNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshNode.cpp; sourceTree = "<group>"; };
 		CE8F574B14BB560600911BA9 /* MeshNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshNode.h; sourceTree = "<group>"; };
+		CEBDA5A314C5EA540051E755 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		CEBDA5A414C5EA540051E755 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		CEBDA5A714C60EAB0051E755 /* Transform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Transform.vsh; sourceTree = "<group>"; };
+		CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EngineUtils.cpp; sourceTree = "<group>"; };
+		CEBDA5AA14C619CC0051E755 /* EngineUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineUtils.h; sourceTree = "<group>"; };
 		CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mechanistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,6 +133,11 @@
 				CE833C4714BB360900D0C413 /* SceneGraphNode.h */,
 				CE8F574A14BB560600911BA9 /* MeshNode.cpp */,
 				CE8F574B14BB560600911BA9 /* MeshNode.h */,
+				CEBDA5A314C5EA540051E755 /* Transform.cpp */,
+				CEBDA5A414C5EA540051E755 /* Transform.h */,
+				CEBDA5A714C60EAB0051E755 /* Transform.vsh */,
+				CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */,
+				CEBDA5AA14C619CC0051E755 /* EngineUtils.h */,
 			);
 			path = Mechanistic;
 			sourceTree = "<group>";
@@ -210,6 +223,9 @@
 				CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */,
 				CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */,
 				CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */,
+				CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */,
+				CEBDA5A814C60EAB0051E755 /* Transform.vsh in Sources */,
+				CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
