@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
+		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
+		CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */; };
+		CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE8F574A14BB560600911BA9 /* MeshNode.cpp */; };
+		CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A314C5EA540051E755 /* Transform.cpp */; };
+		CEBDA5A814C60EAB0051E755 /* Transform.vsh in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A714C60EAB0051E755 /* Transform.vsh */; };
+		CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */; };
+		CEC9D7C914AC9BDB000F7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */; };
+		CEC9D7CB14AC9BDB000F7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */; };
+		CEC9D7CD14AC9BDB000F7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CC14AC9BDB000F7EE1 /* CoreGraphics.framework */; };
+		CEC9D7CF14AC9BDB000F7EE1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CE14AC9BDB000F7EE1 /* QuartzCore.framework */; };
+		CEC9D7D114AC9BDB000F7EE1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7D014AC9BDB000F7EE1 /* OpenGLES.framework */; };
+		CEC9D7D714AC9BDB000F7EE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7D514AC9BDB000F7EE1 /* InfoPlist.strings */; };
+		CEC9D7DA14AC9BDB000F7EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7D914AC9BDB000F7EE1 /* main.m */; };
+		CEC9D7DD14AC9BDB000F7EE1 /* MechanisticAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7DC14AC9BDB000F7EE1 /* MechanisticAppDelegate.m */; };
+		CEC9D7E014AC9BDC000F7EE1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7DE14AC9BDC000F7EE1 /* MainWindow.xib */; };
+		CEC9D7E214AC9BDC000F7EE1 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7E114AC9BDC000F7EE1 /* Shader.fsh */; };
+		CEC9D7E414AC9BDC000F7EE1 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7E314AC9BDC000F7EE1 /* Shader.vsh */; };
+		CEC9D7E714AC9BDC000F7EE1 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */; };
+		CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */; };
+		CEC9D7ED14AC9BDC000F7EE1 /* MechanisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE833C3F14BB102B00D0C413 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
+		CE833C4014BB102B00D0C413 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		CE833C4314BB32A300D0C413 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		CE833C4414BB32A300D0C413 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
+		CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraphNode.cpp; sourceTree = "<group>"; };
+		CE833C4714BB360900D0C413 /* SceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphNode.h; sourceTree = "<group>"; };
+		CE8F574A14BB560600911BA9 /* MeshNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshNode.cpp; sourceTree = "<group>"; };
+		CE8F574B14BB560600911BA9 /* MeshNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshNode.h; sourceTree = "<group>"; };
+		CEBDA5A314C5EA540051E755 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		CEBDA5A414C5EA540051E755 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		CEBDA5A714C60EAB0051E755 /* Transform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Transform.vsh; sourceTree = "<group>"; };
+		CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EngineUtils.cpp; sourceTree = "<group>"; };
+		CEBDA5AA14C619CC0051E755 /* EngineUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineUtils.h; sourceTree = "<group>"; };
+		CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mechanistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEC9D7CC14AC9BDB000F7EE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEC9D7CE14AC9BDB000F7EE1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CEC9D7D014AC9BDB000F7EE1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CEC9D7D414AC9BDB000F7EE1 /* Mechanistic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mechanistic-Info.plist"; sourceTree = "<group>"; };
+		CEC9D7D614AC9BDB000F7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEC9D7D814AC9BDB000F7EE1 /* Mechanistic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mechanistic-Prefix.pch"; sourceTree = "<group>"; };
+		CEC9D7D914AC9BDB000F7EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CEC9D7DB14AC9BDB000F7EE1 /* MechanisticAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MechanisticAppDelegate.h; sourceTree = "<group>"; };
+		CEC9D7DC14AC9BDB000F7EE1 /* MechanisticAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MechanisticAppDelegate.m; sourceTree = "<group>"; };
+		CEC9D7DF14AC9BDC000F7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		CEC9D7E114AC9BDC000F7EE1 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		CEC9D7E314AC9BDC000F7EE1 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		CEC9D7E514AC9BDC000F7EE1 /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		CEC9D7E814AC9BDC000F7EE1 /* MechanisticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MechanisticViewController.h; sourceTree = "<group>"; };
+		CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MechanisticViewController.m; sourceTree = "<group>"; };
+		CEC9D7EC14AC9BDC000F7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MechanisticViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEC9D7C114AC9BDB000F7EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC9D7C914AC9BDB000F7EE1 /* UIKit.framework in Frameworks */,
+				CEC9D7CB14AC9BDB000F7EE1 /* Foundation.framework in Frameworks */,
+				CEC9D7CD14AC9BDB000F7EE1 /* CoreGraphics.framework in Frameworks */,
+				CEC9D7CF14AC9BDB000F7EE1 /* QuartzCore.framework in Frameworks */,
+				CEC9D7D114AC9BDB000F7EE1 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEC9D7B914AC9BDA000F7EE1 = {
+			isa = PBXGroup;
+			children = (
+				CEC9D7D214AC9BDB000F7EE1 /* Mechanistic */,
+				CEC9D7C714AC9BDB000F7EE1 /* Frameworks */,
+				CEC9D7C514AC9BDB000F7EE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEC9D7C514AC9BDB000F7EE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEC9D7C714AC9BDB000F7EE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */,
+				CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */,
+				CEC9D7CC14AC9BDB000F7EE1 /* CoreGraphics.framework */,
+				CEC9D7CE14AC9BDB000F7EE1 /* QuartzCore.framework */,
+				CEC9D7D014AC9BDB000F7EE1 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEC9D7D214AC9BDB000F7EE1 /* Mechanistic */ = {
+			isa = PBXGroup;
+			children = (
+				CEC9D7DB14AC9BDB000F7EE1 /* MechanisticAppDelegate.h */,
+				CEC9D7DC14AC9BDB000F7EE1 /* MechanisticAppDelegate.m */,
+				CEC9D7DE14AC9BDC000F7EE1 /* MainWindow.xib */,
+				CEC9D7E114AC9BDC000F7EE1 /* Shader.fsh */,
+				CEC9D7E314AC9BDC000F7EE1 /* Shader.vsh */,
+				CEC9D7E514AC9BDC000F7EE1 /* EAGLView.h */,
+				CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */,
+				CEC9D7E814AC9BDC000F7EE1 /* MechanisticViewController.h */,
+				CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */,
+				CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */,
+				CEC9D7D314AC9BDB000F7EE1 /* Supporting Files */,
+				CE833C3F14BB102B00D0C413 /* Vertex.cpp */,
+				CE833C4014BB102B00D0C413 /* Vertex.h */,
+				CE833C4314BB32A300D0C413 /* Triangle.cpp */,
+				CE833C4414BB32A300D0C413 /* Triangle.h */,
+				CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */,
+				CE833C4714BB360900D0C413 /* SceneGraphNode.h */,
+				CE8F574A14BB560600911BA9 /* MeshNode.cpp */,
+				CE8F574B14BB560600911BA9 /* MeshNode.h */,
+				CEBDA5A314C5EA540051E755 /* Transform.cpp */,
+				CEBDA5A414C5EA540051E755 /* Transform.h */,
+				CEBDA5A714C60EAB0051E755 /* Transform.vsh */,
+				CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */,
+				CEBDA5AA14C619CC0051E755 /* EngineUtils.h */,
+			);
+			path = Mechanistic;
+			sourceTree = "<group>";
+		};
+		CEC9D7D314AC9BDB000F7EE1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEC9D7D414AC9BDB000F7EE1 /* Mechanistic-Info.plist */,
+				CEC9D7D514AC9BDB000F7EE1 /* InfoPlist.strings */,
+				CEC9D7D814AC9BDB000F7EE1 /* Mechanistic-Prefix.pch */,
+				CEC9D7D914AC9BDB000F7EE1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEC9D7C314AC9BDB000F7EE1 /* Mechanistic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEC9D7F014AC9BDC000F7EE1 /* Build configuration list for PBXNativeTarget "Mechanistic" */;
+			buildPhases = (
+				CEC9D7C014AC9BDB000F7EE1 /* Sources */,
+				CEC9D7C114AC9BDB000F7EE1 /* Frameworks */,
+				CEC9D7C214AC9BDB000F7EE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mechanistic;
+			productName = Mechanistic;
+			productReference = CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEC9D7BB14AC9BDA000F7EE1 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = CEC9D7BE14AC9BDA000F7EE1 /* Build configuration list for PBXProject "Mechanistic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEC9D7B914AC9BDA000F7EE1;
+			productRefGroup = CEC9D7C514AC9BDB000F7EE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEC9D7C314AC9BDB000F7EE1 /* Mechanistic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEC9D7C214AC9BDB000F7EE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC9D7D714AC9BDB000F7EE1 /* InfoPlist.strings in Resources */,
+				CEC9D7E014AC9BDC000F7EE1 /* MainWindow.xib in Resources */,
+				CEC9D7E214AC9BDC000F7EE1 /* Shader.fsh in Resources */,
+				CEC9D7E414AC9BDC000F7EE1 /* Shader.vsh in Resources */,
+				CEC9D7ED14AC9BDC000F7EE1 /* MechanisticViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEC9D7C014AC9BDB000F7EE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC9D7DA14AC9BDB000F7EE1 /* main.m in Sources */,
+				CEC9D7DD14AC9BDB000F7EE1 /* MechanisticAppDelegate.m in Sources */,
+				CEC9D7E714AC9BDC000F7EE1 /* EAGLView.m in Sources */,
+				CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.m in Sources */,
+				CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */,
+				CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */,
+				CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */,
+				CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */,
+				CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */,
+				CEBDA5A814C60EAB0051E755 /* Transform.vsh in Sources */,
+				CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CEC9D7D514AC9BDB000F7EE1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEC9D7D614AC9BDB000F7EE1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CEC9D7DE14AC9BDC000F7EE1 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEC9D7DF14AC9BDC000F7EE1 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEC9D7EC14AC9BDC000F7EE1 /* en */,
+			);
+			name = MechanisticViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEC9D7EE14AC9BDC000F7EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CEC9D7EF14AC9BDC000F7EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		CEC9D7F114AC9BDC000F7EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mechanistic/Mechanistic-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "Mechanistic/Mechanistic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CEC9D7F214AC9BDC000F7EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mechanistic/Mechanistic-Prefix.pch";
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "Mechanistic/Mechanistic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEC9D7BE14AC9BDA000F7EE1 /* Build configuration list for PBXProject "Mechanistic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC9D7EE14AC9BDC000F7EE1 /* Debug */,
+				CEC9D7EF14AC9BDC000F7EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEC9D7F014AC9BDC000F7EE1 /* Build configuration list for PBXNativeTarget "Mechanistic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC9D7F114AC9BDC000F7EE1 /* Debug */,
+				CEC9D7F214AC9BDC000F7EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEC9D7BB14AC9BDA000F7EE1 /* Project object */;
+}
