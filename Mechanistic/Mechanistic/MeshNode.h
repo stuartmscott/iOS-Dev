@@ -38,7 +38,7 @@ private:
     GLfloat* vertexBuffer;
     GLfloat* normalBuffer;
     GLfloat* texCoordBuffer;
-    GLint*   triangleBuffer;	
+    GLshort*   triangleBuffer;	
 public:
     MeshNode();
     ~MeshNode();
@@ -50,4 +50,8 @@ public:
     void setTriangles(vector<Triangle*> triangles);
     void setTextureCoords(vector<GLfloat*> textureCoords);
     void calcSmoothNormals();
+    void doBeforeRender();
+    void compile();
+    void drawGeometry();
+    void setTextured(bool value);
 };
