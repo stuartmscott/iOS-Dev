@@ -10,10 +10,3 @@
 #include "Triangle.h"
 #import <OpenGLES/ES1/gl.h>
 
-struct Triangle
-{
-    GLint	vertexIndices[TRIANGLE_INDEX_COUNT];	
-    GLfloat normal[VERTEX_COORD_COUNT];
-    GLint   texCoordIndices[TRIANGLE_INDEX_COUNT];
-    GLshort normalIndices[TRIANGLE_INDEX_COUNT];
-};

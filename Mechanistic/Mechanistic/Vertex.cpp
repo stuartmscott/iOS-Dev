@@ -10,12 +10,6 @@
 #include <math.h>
 #import <OpenGLES/ES1/gl.h>
 
-struct Vertex
-{
-    GLfloat xyzCoords[VERTEX_COORD_COUNT];
-    GLfloat normal[VERTEX_COORD_COUNT];
-};
-
 void normaliseNormal(Vertex& v)
 {
     GLfloat magnitude = (GLfloat)sqrt(v.normal[0] * v.normal[0] + v.normal[1] * v.normal[1] + v.normal[2] * v.normal[2]);

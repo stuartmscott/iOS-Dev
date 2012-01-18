@@ -26,5 +26,4 @@ public:
     virtual void doBeforeRenderChildren();
     virtual void doAfterRenderChildren();
     virtual void doAfterRender();
-    virtual void doBeforeRender();
 };

@@ -9,6 +9,7 @@
 #include "SceneGraphNode.h"
 #include "Vertex.h"
 #include "Triangle.h"
+#include "Material.h"
 #include <OpenGLES/ES1/gl.h>
 #include <vector>
 
@@ -17,23 +18,36 @@
 
 using namespace std;
 
+enum TexEnvMode {
+    MODULATE, DECAL, BLEND, REPLACE
+};
+
 class MeshNode: SceneGraphNode
 {
 private:
     bool    compiled;
     bool    textured;
     bool    textureID;
+    int     valTexEnvMode;
+    Material*   material;
+    TexEnvMode  texEnvMode;	
     vector<Vertex*> vertices;
-    vector<GLfloat[3]>  normals;
+    vector<GLfloat*>  normals;
     vector<Triangle*>   triangles;
-    vector<GLfloat[2]>  textureCoords;
+    vector<GLfloat*>  textureCoords;
     GLfloat* vertexBuffer;
     GLfloat* normalBuffer;
     GLfloat* texCoordBuffer;
-    GLint*   triangleBuffer;
+    GLint*   triangleBuffer;	
 public:
     MeshNode();
     ~MeshNode();
     bool isCompiled();
     void setCompiled(bool value);
+    void setTexEnvMode(TexEnvMode texEnvMode);
+    void setVertices(vector<Vertex*> vertices);
+    void setNormals(vector<GLfloat*> normals);
+    void setTriangles(vector<Triangle*> triangles);
+    void setTextureCoords(vector<GLfloat*> textureCoords);
+    void calcSmoothNormals();
 };
