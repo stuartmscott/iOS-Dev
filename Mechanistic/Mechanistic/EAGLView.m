@@ -137,4 +137,21 @@
     [self deleteFramebuffer];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch *touch = [touches anyObject];
+	CGPoint touchPoint = [touch locationInView:self];
+    NSLog(@"touches began");
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch *touch = [touches anyObject];
+	CGPoint touchPoint = [touch locationInView:self];
+    NSLog(@"touches moved");}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touches ended");}
+
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touches cancelled");}
+
 @end
