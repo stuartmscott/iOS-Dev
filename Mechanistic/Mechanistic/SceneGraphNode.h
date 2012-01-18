@@ -21,9 +21,10 @@ public:
     void setChildren(vector<SceneGraphNode*> newChildren);
     bool isCompiled;
     void setCompiled(bool comp);
-    void compile();
-    void doBeforeRender();
-    void doBeforeRenderChildren();
-    void doAfterRenderChildren();
-    void doAfterRender();
+    virtual void compile();
+    virtual void doBeforeRender();
+    virtual void doBeforeRenderChildren();
+    virtual void doAfterRenderChildren();
+    virtual void doAfterRender();
+    virtual void doBeforeRender();
 };
