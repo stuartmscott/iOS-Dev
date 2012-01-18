@@ -8,7 +8,36 @@
 
 #include "SceneGraphNode.h"
 
+SceneGraphNode::SceneGraphNode()
+{
+}
+
 SceneGraphNode::~SceneGraphNode()
 {
     children.clear();
+}
+
+void SceneGraphNode::compile()
+{
+    
+}
+
+void SceneGraphNode::doBeforeRender()
+{
+    
+}
+
+void SceneGraphNode::doBeforeRenderChildren()
+{
+    
+}
+
+void SceneGraphNode::doAfterRenderChildren()
+{
+    
+}
+
+void SceneGraphNode::doAfterRender()
+{
+    
 }
