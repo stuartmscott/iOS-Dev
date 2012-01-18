@@ -10,6 +10,11 @@
 		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
 		CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */; };
+		CE8D94D914C767C1000875A5 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94D814C767C1000875A5 /* Controller.m */; };
+		CE8D94E114C767D0000875A5 /* Face.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94DC14C767D0000875A5 /* Face.m */; };
+		CE8D94E214C767D0000875A5 /* Gear.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94DE14C767D0000875A5 /* Gear.m */; };
+		CE8D94E614C767DD000875A5 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94E514C767DD000875A5 /* Model.m */; };
+		CE8D94E914C767E9000875A5 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94E814C767E9000875A5 /* Tile.m */; };
 		CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE8F574A14BB560600911BA9 /* MeshNode.cpp */; };
 		CE91208E14C7398A00F97A0E /* LightNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE91208C14C7398900F97A0E /* LightNode.cpp */; };
 		CE91209214C744E400F97A0E /* TransformNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE91209014C744E300F97A0E /* TransformNode.cpp */; };
@@ -40,6 +45,16 @@
 		CE833C4414BB32A300D0C413 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraphNode.cpp; sourceTree = "<group>"; };
 		CE833C4714BB360900D0C413 /* SceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphNode.h; sourceTree = "<group>"; };
+		CE8D94D714C767C1000875A5 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		CE8D94D814C767C1000875A5 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		CE8D94DB14C767D0000875A5 /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
+		CE8D94DC14C767D0000875A5 /* Face.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Face.m; sourceTree = "<group>"; };
+		CE8D94DD14C767D0000875A5 /* Gear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gear.h; sourceTree = "<group>"; };
+		CE8D94DE14C767D0000875A5 /* Gear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gear.m; sourceTree = "<group>"; };
+		CE8D94E414C767DD000875A5 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		CE8D94E514C767DD000875A5 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		CE8D94E714C767E9000875A5 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		CE8D94E814C767E9000875A5 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
 		CE8F574A14BB560600911BA9 /* MeshNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshNode.cpp; sourceTree = "<group>"; };
 		CE8F574B14BB560600911BA9 /* MeshNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshNode.h; sourceTree = "<group>"; };
 		CE91208C14C7398900F97A0E /* LightNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightNode.cpp; sourceTree = "<group>"; };
@@ -123,6 +138,16 @@
 		CEC9D7D214AC9BDB000F7EE1 /* Mechanistic */ = {
 			isa = PBXGroup;
 			children = (
+				CE8D94E714C767E9000875A5 /* Tile.h */,
+				CE8D94E814C767E9000875A5 /* Tile.m */,
+				CE8D94E414C767DD000875A5 /* Model.h */,
+				CE8D94E514C767DD000875A5 /* Model.m */,
+				CE8D94DB14C767D0000875A5 /* Face.h */,
+				CE8D94DC14C767D0000875A5 /* Face.m */,
+				CE8D94DD14C767D0000875A5 /* Gear.h */,
+				CE8D94DE14C767D0000875A5 /* Gear.m */,
+				CE8D94D714C767C1000875A5 /* Controller.h */,
+				CE8D94D814C767C1000875A5 /* Controller.m */,
 				CEC9D7DB14AC9BDB000F7EE1 /* MechanisticAppDelegate.h */,
 				CEC9D7DC14AC9BDB000F7EE1 /* MechanisticAppDelegate.m */,
 				CEC9D7DE14AC9BDC000F7EE1 /* MainWindow.xib */,
@@ -244,6 +269,11 @@
 				CE91208E14C7398A00F97A0E /* LightNode.cpp in Sources */,
 				CE91209214C744E400F97A0E /* TransformNode.cpp in Sources */,
 				CE91209514C7496800F97A0E /* Material.cpp in Sources */,
+				CE8D94D914C767C1000875A5 /* Controller.m in Sources */,
+				CE8D94E114C767D0000875A5 /* Face.m in Sources */,
+				CE8D94E214C767D0000875A5 /* Gear.m in Sources */,
+				CE8D94E614C767DD000875A5 /* Model.m in Sources */,
+				CE8D94E914C767E9000875A5 /* Tile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

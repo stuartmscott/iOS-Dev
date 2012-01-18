@@ -18,6 +18,11 @@ Material::Material()
     shininess = 0;
 }
 
+Material::~Material()
+{
+    
+}
+
 void Material::setAmbient(GLfloat r, GLfloat g, GLfloat b, GLfloat a)
 {
     ambient[0] = r;
