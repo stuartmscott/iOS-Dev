@@ -18,10 +18,8 @@
 }
 
 - (void)dealloc {
-//    Face *f;
-    for (Face *f in faces){
+    for (Face *f in faces)
         [f dealloc];
-    }
     [faces dealloc];
     [super dealloc];
 }

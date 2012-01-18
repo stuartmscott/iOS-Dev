@@ -8,7 +8,7 @@
 
 #include "Vertex.h"
 #include <math.h>
-#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES1/gl.h>
 
 struct Vertex
 {

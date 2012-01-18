@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Model.h"
 
-@interface Controller : NSObject {
-    
-}
+@interface Controller : NSObject
 
 @property (retain) Model *model;
 

@@ -9,7 +9,7 @@
 #include "SceneGraphNode.h"
 #include "Vertex.h"
 #include "Triangle.h"
-#include <OpenGLES/ES2/gl.h>
+#include <OpenGLES/ES1/gl.h>
 #include <vector>
 
 #define TEXTURE_COORD_COUNT 2

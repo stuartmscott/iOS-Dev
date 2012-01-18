@@ -7,7 +7,7 @@
 //
 
 #include <vector>
-#include <OpenGLES/ES2/gl.h>
+#include <OpenGLES/ES1/gl.h>
 
 using namespace std;
 
@@ -18,14 +18,8 @@ typedef enum {
 class Transform
 {
 private:
-    GLuint program;
-    GLuint vertexShader;
-    GLuint matrixUniform;
     TransformType type;
     vector<float> parameters;
-    GLfloat matrix[4][4];
-    bool compiled;
-    void compile();
 public:    
     Transform(TransformType transType, vector<float> params);
     ~Transform();
