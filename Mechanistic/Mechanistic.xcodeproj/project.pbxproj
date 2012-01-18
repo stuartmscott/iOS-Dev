@@ -28,6 +28,11 @@
 		CEC9D7E714AC9BDC000F7EE1 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */; };
 		CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */; };
 		CEC9D7ED14AC9BDC000F7EE1 /* MechanisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */; };
+		CEF7C24414C73108002CDD82 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C24314C73108002CDD82 /* Model.m */; };
+		CEF7C24714C73414002CDD82 /* Face.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C24614C73414002CDD82 /* Face.m */; };
+		CEF7C24A14C73455002CDD82 /* Gear.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C24914C73455002CDD82 /* Gear.m */; };
+		CEF7C24D14C735DB002CDD82 /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C24C14C735DB002CDD82 /* Tile.m */; };
+		CEF7C25014C73DCE002CDD82 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7C24F14C73DCE002CDD82 /* Controller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +69,16 @@
 		CEC9D7E814AC9BDC000F7EE1 /* MechanisticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MechanisticViewController.h; sourceTree = "<group>"; };
 		CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MechanisticViewController.m; sourceTree = "<group>"; };
 		CEC9D7EC14AC9BDC000F7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MechanisticViewController.xib; sourceTree = "<group>"; };
+		CEF7C24214C73108002CDD82 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		CEF7C24314C73108002CDD82 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		CEF7C24514C73413002CDD82 /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
+		CEF7C24614C73414002CDD82 /* Face.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Face.m; sourceTree = "<group>"; };
+		CEF7C24814C73455002CDD82 /* Gear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gear.h; sourceTree = "<group>"; };
+		CEF7C24914C73455002CDD82 /* Gear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gear.m; sourceTree = "<group>"; };
+		CEF7C24B14C735DB002CDD82 /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
+		CEF7C24C14C735DB002CDD82 /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tile.m; sourceTree = "<group>"; };
+		CEF7C24E14C73DCE002CDD82 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		CEF7C24F14C73DCE002CDD82 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +153,16 @@
 				CEBDA5A714C60EAB0051E755 /* Transform.vsh */,
 				CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */,
 				CEBDA5AA14C619CC0051E755 /* EngineUtils.h */,
+				CEF7C24214C73108002CDD82 /* Model.h */,
+				CEF7C24314C73108002CDD82 /* Model.m */,
+				CEF7C24514C73413002CDD82 /* Face.h */,
+				CEF7C24614C73414002CDD82 /* Face.m */,
+				CEF7C24814C73455002CDD82 /* Gear.h */,
+				CEF7C24914C73455002CDD82 /* Gear.m */,
+				CEF7C24B14C735DB002CDD82 /* Tile.h */,
+				CEF7C24C14C735DB002CDD82 /* Tile.m */,
+				CEF7C24E14C73DCE002CDD82 /* Controller.h */,
+				CEF7C24F14C73DCE002CDD82 /* Controller.m */,
 			);
 			path = Mechanistic;
 			sourceTree = "<group>";
@@ -226,6 +251,11 @@
 				CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */,
 				CEBDA5A814C60EAB0051E755 /* Transform.vsh in Sources */,
 				CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */,
+				CEF7C24414C73108002CDD82 /* Model.m in Sources */,
+				CEF7C24714C73414002CDD82 /* Face.m in Sources */,
+				CEF7C24A14C73455002CDD82 /* Gear.m in Sources */,
+				CEF7C24D14C735DB002CDD82 /* Tile.m in Sources */,
+				CEF7C25014C73DCE002CDD82 /* Controller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

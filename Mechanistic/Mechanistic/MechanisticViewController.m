@@ -157,7 +157,7 @@ enum {
         [self.displayLink invalidate];
         self.displayLink = nil;
         animating = FALSE;
-    }
+    } 
 }
 
 - (void)drawFrame
@@ -170,7 +170,7 @@ enum {
         0.5f, -0.33f,
         -0.5f,  0.33f,
         0.5f,  0.33f,
-    };
+    };  
     
     static const GLubyte squareColors[] = {
         255, 255,   0, 255,
