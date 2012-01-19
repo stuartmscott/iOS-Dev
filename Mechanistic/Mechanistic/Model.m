@@ -26,10 +26,10 @@
         Edge *te3 = [[Edge alloc] init];
         
         //Side faces
-        Face *sd0 = [[Face alloc] init];
-        Face *sd1 = [[Face alloc] init];
-        Face *sd2 = [[Face alloc] init];
-        Face *sd3 = [[Face alloc] init];
+        Face *sf0 = [[Face alloc] init];
+        Face *sf1 = [[Face alloc] init];
+        Face *sf2 = [[Face alloc] init];
+        Face *sf3 = [[Face alloc] init];
         
         //Side edges
         Edge *se0 = [[Edge alloc] init];
@@ -48,29 +48,29 @@
         
         [top setEdgesN: te2 E: te1 S: te0 W: te3];
         
-        [te0 setFacesN: top S:se0];
-        [te1 setFacesN: top S:se1];
-        [te2 setFacesN: top S:se2];
-        [te3 setFacesN: top S:se3];
+        [te0 setFacesN: top S:sf0];
+        [te1 setFacesN: top S:sf1];
+        [te2 setFacesN: top S:sf2];
+        [te3 setFacesN: top S:sf3];
         
-        [sd0 setEdgesN: te0 E: se0 S: be0 W: se3];
-        [sd1 setEdgesN: te1 E: se1 S: be1 W: se0];
-        [sd2 setEdgesN: te2 E: se2 S: be2 W: se1];
-        [sd3 setEdgesN: te3 E: se3 S: be3 W: se2];
+        [sf0 setEdgesN: te0 E: se0 S: be0 W: se3];
+        [sf1 setEdgesN: te1 E: se1 S: be1 W: se0];
+        [sf2 setEdgesN: te2 E: se2 S: be2 W: se1];
+        [sf3 setEdgesN: te3 E: se3 S: be3 W: se2];
         
-        [se0 setFacesN: sd1 S:sd0];
-        [se1 setFacesN: sd2 S:sd1];
-        [se2 setFacesN: sd3 S:sd2];
-        [se3 setFacesN: sd0 S:sd3];
+        [se0 setFacesN: sf1 S:sf0];
+        [se1 setFacesN: sf2 S:sf1];
+        [se2 setFacesN: sf3 S:sf2];
+        [se3 setFacesN: sf0 S:sf3];
         
-        [te0 setFacesN: se0 S: bot];
-        [te1 setFacesN: se1 S: bot];
-        [te2 setFacesN: se2 S: bot];
-        [te3 setFacesN: se3 S: bot];
+        [te0 setFacesN: sf0 S: bot];
+        [te1 setFacesN: sf1 S: bot];
+        [te2 setFacesN: sf2 S: bot];
+        [te3 setFacesN: sf3 S: bot];
         
         [bot setEdgesN: te0 E: te1 S: te2 W: te3];
         
-        self.faces = [NSArray arrayWithObjects: top, sd0, sd1, sd2, sd3, bot, nil];
+        self.faces = [NSArray arrayWithObjects: top, sf0, sf1, sf2, sf3, bot, nil];
     }
     return self;
 }

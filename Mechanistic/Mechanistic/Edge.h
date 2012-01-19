@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Tile.h"
-//#import "Face.h"
 
 @class Face;
 

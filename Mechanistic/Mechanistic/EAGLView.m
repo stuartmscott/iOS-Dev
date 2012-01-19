@@ -140,18 +140,21 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
-    NSLog(@"touches began");
+    NSLog(@"touches began %f %f", touchPoint.x, touchPoint.y);
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
-    NSLog(@"touches moved");}
+    NSLog(@"touches moved %f %f", touchPoint.x, touchPoint.y);
+}
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches ended");}
+    NSLog(@"touches ended");
+}
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches cancelled");}
+    NSLog(@"touches cancelled");
+}
 
 @end
