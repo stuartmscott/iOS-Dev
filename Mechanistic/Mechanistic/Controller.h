@@ -13,6 +13,8 @@
 
 @property (retain) Model *model;
 
+-(id)init;
+
 -(void)slideTile:(int)faceIndex From:(int) oldIndex To:(int) newIndex;
 
 @end

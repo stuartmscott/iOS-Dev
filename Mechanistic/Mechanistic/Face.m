@@ -13,6 +13,18 @@
 
 @synthesize tiles;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        //Creates a face
+    }
+    return self;
+}
+
+-(void)setEdgesN:(Edge*)north E:(Edge*)east S:(Edge*)south W:(Edge*)west{
+    //sets up the neighbours
+}
+
 - (void)dealloc {
     [tiles dealloc];
     [super dealloc];

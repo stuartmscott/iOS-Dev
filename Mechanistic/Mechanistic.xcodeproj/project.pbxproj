@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE46DA3614C8B2DA007CDB4C /* Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46DA3514C8B2DA007CDB4C /* Edge.m */; };
 		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
 		CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE46DA3414C8B2DA007CDB4C /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		CE46DA3514C8B2DA007CDB4C /* Edge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Edge.m; sourceTree = "<group>"; };
 		CE833C3F14BB102B00D0C413 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
 		CE833C4014BB102B00D0C413 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
 		CE833C4314BB32A300D0C413 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				CE8D94E514C767DD000875A5 /* Model.m */,
 				CE8D94DB14C767D0000875A5 /* Face.h */,
 				CE8D94DC14C767D0000875A5 /* Face.m */,
+				CE46DA3414C8B2DA007CDB4C /* Edge.h */,
+				CE46DA3514C8B2DA007CDB4C /* Edge.m */,
 				CE8D94DD14C767D0000875A5 /* Gear.h */,
 				CE8D94DE14C767D0000875A5 /* Gear.m */,
 				CE8D94D714C767C1000875A5 /* Controller.h */,
@@ -280,6 +285,7 @@
 				CE8D94E614C767DD000875A5 /* Model.m in Sources */,
 				CE8D94E914C767E9000875A5 /* Tile.m in Sources */,
 				CEB0EB6C14C85675005A33FC /* SceneGraphRenderer.cpp in Sources */,
+				CE46DA3614C8B2DA007CDB4C /* Edge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

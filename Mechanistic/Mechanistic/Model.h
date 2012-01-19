@@ -11,11 +11,14 @@
 
 @interface Model : NSObject
 
-@property (retain) NSArray *faces;
+@property float xRotation, yRotation;
+@property (retain) NSArray *faces, *edges;
 @property int spawnFace;
 @property int spawnTile;
 @property int targetFace;
 @property int targetTile;
+
+-(id)init;
 
 //Recursive function - Given a gear which is spinning, it will set all neighbour gears to spin iff they aren't already spinning
 -(void)setSpinningFrom:(int)faceIndex tileIndex:(int)tileIndex;
