@@ -1,21 +1,23 @@
 //
-//  Face.h
+//  Edge.h
 //  Mechanistic
 //
-//  Created by Kostadin on 18/01/2012.
+//  Created by Kostadin on 19/01/2012.
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "Tile.h"
-#import "Edge.h"
+//#import "Face.h"
 
-@interface Face : NSObject 
+@class Face;
+
+@interface Edge : NSObject
 
 @property (retain) NSArray *tiles;
 
 -(id)init;
 
--(void)setEdgesN:(Edge*)north E:(Edge*)east S:(Edge*)south W:(Edge*)west;
+-(void)setFacesN:(Face*)north S:(Face*)south;
 
 @end
