@@ -5,7 +5,7 @@
 //  Created by Kostadin on 18/01/2012.
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
-
+#pragma once
 #include "SceneGraphNode.h"
 #include "Transform.h"
 #include <vector>

@@ -17,6 +17,16 @@ SceneGraphNode::~SceneGraphNode()
     children.clear();
 }
 
+vector<SceneGraphNode*> SceneGraphNode::getChildren()
+{
+    return children;
+}
+
+void SceneGraphNode::setChildren(vector<SceneGraphNode *> newChildren)
+{
+    children = newChildren;
+}
+
 void SceneGraphNode::compile()
 {
     
