@@ -19,7 +19,6 @@
 @private
     EAGLContext *context;
     GLuint program;
-    
     BOOL animating;
     NSInteger animationFrameInterval;
     CADisplayLink *displayLink;

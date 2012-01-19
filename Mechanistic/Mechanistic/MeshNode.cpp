@@ -11,10 +11,7 @@
 
 MeshNode::~MeshNode()
 {
-    free(vertexBuffer);
-    free(normalBuffer);
-    free(texCoordBuffer);
-    free(triangleBuffer);
+    freeBuffers();
     delete material;
 }
 
@@ -26,14 +23,29 @@ MeshNode::MeshNode()
     setCompiled(false);
 }
 
+void MeshNode::freeBuffers()
+{
+    if (compiled)
+    {
+        free(vertexBuffer);
+        free(normalBuffer);
+        free(texCoordBuffer);
+        free(triangleBuffer);
+    }
+}
+
 bool MeshNode::isCompiled()
 {
     return compiled;
 }
 
-void MeshNode::setCompiled(bool compiled)
+void MeshNode::setCompiled(bool value)
 {
-    this->compiled = compiled;
+    if (compiled&&!value)
+    {
+        freeBuffers();
+    }
+    this->compiled = value;
 }
 
 void MeshNode::setTexEnvMode(TexEnvMode texEnvMode)

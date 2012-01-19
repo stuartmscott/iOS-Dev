@@ -38,7 +38,8 @@ private:
     GLfloat* vertexBuffer;
     GLfloat* normalBuffer;
     GLfloat* texCoordBuffer;
-    GLshort*   triangleBuffer;	
+    GLshort*   triangleBuffer;
+	void freeBuffers();
 public:
     MeshNode();
     ~MeshNode();

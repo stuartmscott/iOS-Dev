@@ -35,7 +35,7 @@
 		CEC9D7E214AC9BDC000F7EE1 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7E114AC9BDC000F7EE1 /* Shader.fsh */; };
 		CEC9D7E414AC9BDC000F7EE1 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7E314AC9BDC000F7EE1 /* Shader.vsh */; };
 		CEC9D7E714AC9BDC000F7EE1 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */; };
-		CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */; };
+		CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.mm */; };
 		CEC9D7ED14AC9BDC000F7EE1 /* MechanisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -89,7 +89,7 @@
 		CEC9D7E514AC9BDC000F7EE1 /* EAGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
 		CEC9D7E814AC9BDC000F7EE1 /* MechanisticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MechanisticViewController.h; sourceTree = "<group>"; };
-		CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MechanisticViewController.m; sourceTree = "<group>"; };
+		CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MechanisticViewController.mm; sourceTree = "<group>"; };
 		CEC9D7EC14AC9BDC000F7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MechanisticViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +159,7 @@
 				CEC9D7E514AC9BDC000F7EE1 /* EAGLView.h */,
 				CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */,
 				CEC9D7E814AC9BDC000F7EE1 /* MechanisticViewController.h */,
-				CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.m */,
+				CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.mm */,
 				CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */,
 				CEC9D7D314AC9BDB000F7EE1 /* Supporting Files */,
 				CE833C3F14BB102B00D0C413 /* Vertex.cpp */,
@@ -263,7 +263,7 @@
 				CEC9D7DA14AC9BDB000F7EE1 /* main.m in Sources */,
 				CEC9D7DD14AC9BDB000F7EE1 /* MechanisticAppDelegate.m in Sources */,
 				CEC9D7E714AC9BDC000F7EE1 /* EAGLView.m in Sources */,
-				CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.m in Sources */,
+				CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.mm in Sources */,
 				CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */,
 				CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */,
 				CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */,
