@@ -118,12 +118,12 @@
     float cy, cz, sy, sz;
     cy = cosf(theta);
     sy = sinf(theta);
-    cz = sinf(phi);
+    cz = cosf(phi);
     sz = sinf(phi);
     
     eye[0] = radius * cy * cz;
     eye[1] = radius * sz;
-    eye[2] = - radius * sy * cz;
+    eye[2] = -radius * sy * cz;
     
     up[0] = -cy * sz;
     up[1] = cz;
