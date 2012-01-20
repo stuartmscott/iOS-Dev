@@ -15,6 +15,8 @@
 #import "SceneGraphNode.h"
 #import "SceneGraphRenderer.h"
 #import <vector>
+#import <string>
+#import "OBJFileLoader.h"
 
 // Uniform index.
 enum {
@@ -259,6 +261,7 @@ enum {
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();
         MeshNode* mesh = new MeshNode();
+        loadMesh("tile.obj", mesh, false);
         vector<Vertex*> vertices;
         vector<GLfloat*> normals;
         vector<Triangle*> triangles;
