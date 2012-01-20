@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2B6F6114C9B381005F81F6 /* gluLookAt.c in Sources */ = {isa = PBXBuildFile; fileRef = CE2B6F5F14C9B381005F81F6 /* gluLookAt.c */; };
 		CE46DA3614C8B2DA007CDB4C /* Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46DA3514C8B2DA007CDB4C /* Edge.m */; };
 		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE2B6F5F14C9B381005F81F6 /* gluLookAt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gluLookAt.c; sourceTree = "<group>"; };
+		CE2B6F6014C9B381005F81F6 /* gluLookAt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluLookAt.h; sourceTree = "<group>"; };
 		CE46DA3414C8B2DA007CDB4C /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
 		CE46DA3514C8B2DA007CDB4C /* Edge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Edge.m; sourceTree = "<group>"; };
 		CE833C3F14BB102B00D0C413 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				CE8D94E814C767E9000875A5 /* Tile.m */,
 				CE8D94E414C767DD000875A5 /* Model.h */,
 				CE8D94E514C767DD000875A5 /* Model.m */,
+				CE2B6F6014C9B381005F81F6 /* gluLookAt.h */,
+				CE2B6F5F14C9B381005F81F6 /* gluLookAt.c */,
 				CE8D94DB14C767D0000875A5 /* Face.h */,
 				CE8D94DC14C767D0000875A5 /* Face.m */,
 				CE46DA3414C8B2DA007CDB4C /* Edge.h */,
@@ -280,6 +285,7 @@
 				CE8D94E914C767E9000875A5 /* Tile.m in Sources */,
 				CEB0EB6C14C85675005A33FC /* SceneGraphRenderer.cpp in Sources */,
 				CE46DA3614C8B2DA007CDB4C /* Edge.m in Sources */,
+				CE2B6F6114C9B381005F81F6 /* gluLookAt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

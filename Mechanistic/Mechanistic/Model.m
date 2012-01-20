@@ -7,11 +7,12 @@
 //
 
 #import "Model.h"
-
+#define WIDTH 320
+#define HEIGHT 480
 
 @implementation Model
 
-@synthesize xRotation, yRotation, faces, edges, spawnFace, spawnTile, targetFace, targetTile;
+@synthesize faces, edges, spawnFace, spawnTile, targetFace, targetTile;
 @synthesize start, current;
 
 - (id)init {
@@ -72,6 +73,11 @@
         [bot setEdgesN: te0 E: te1 S: te2 W: te3];
         
         self.faces = [NSArray arrayWithObjects: top, sf0, sf1, sf2, sf3, bot, nil];
+        
+        radius = 8.0f;
+        theta = -0.7f;
+        phi = 0.5f;
+        [self calcEyePosition];
     }
     return self;
 }
@@ -84,11 +90,38 @@
     self.start = point;
 }
 
+//Adapted from code from Dr. Steve Maddock
 -(void)touchesMoved:(CGPoint)point {
     self.current = point;
-    self.yRotation += 10*atan((self.current.x - self.start.x)/160.0);
-    self.xRotation += 10*atan((self.start.y - self.current.y)/240.0);
+    float dx = (self.current.x - self.start.x) / WIDTH;
+    float dy = (self.current.y - self.start.y) / HEIGHT;
+    theta -= dx *2.0f;
+    phi += dy * 2.0f;
+    [self calcEyePosition];
     self.start = current;
+}
+
+//Adapted from code from Dr. Steve Maddock
+-(void)calcEyePosition {
+    float cy, cz, sy, sz;
+    cy = cosf(theta);
+    sy = sinf(theta);
+    cz = sinf(phi);
+    sz = sinf(phi);
+    
+    eye[0] = radius * cy * cz;
+    eye[1] = radius *sz;
+    eye[2] = - radius * sy *cz;
+    
+    up[0] = -cy *sz;
+    up[1] = cz;
+    up[2] = sy *sz;
+    
+    if(up[1]<0){
+        up[0] = -up[0];
+        up[1] = -up[1];
+        up[2] = -up[2];
+    }
 }
 
 -(void)touchesEnd {
