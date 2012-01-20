@@ -245,9 +245,9 @@ enum {
     glLoadIdentity();
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    float[] eye = [self.model getEye];
-    float[] up = [self.model getUp];    
-    gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
+    //float[] eye = [self.model getEye];
+    //float[] up = [self.model getUp];    
+    //gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
     /* Camera - */
     
     /* Rendering + */
