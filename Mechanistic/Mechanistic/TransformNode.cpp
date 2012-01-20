@@ -15,7 +15,7 @@ void TransformNode::doBeforeRender()
     glPushMatrix();
     for (int i = 0; i < transforms.size(); i++ )
     {
-        transforms.at(i).execute();
+        transforms.at(i)->execute();
     }
 }
 
@@ -25,7 +25,7 @@ void TransformNode::doAfterRender()
     glPopMatrix();
 }
 
-TransformNode::TransformNode(vector<Transform>& trans)
+TransformNode::TransformNode(vector<Transform*>& trans)
 {
     transforms = trans;
 }

@@ -26,7 +26,7 @@ class MeshNode: public SceneGraphNode
 {
 private:
     bool    textured;
-    bool    textureID;
+    int     textureID;
     int     valTexEnvMode;
     TexEnvMode  texEnvMode;	
     vector<Vertex*> vertices;

@@ -13,8 +13,8 @@
 class TransformNode:public SceneGraphNode
 {
 public:
-    vector<Transform> transforms;
-    TransformNode(vector<Transform>& trans);
+    vector<Transform*> transforms;
+    TransformNode(vector<Transform*>& trans);
     ~TransformNode();
     void doBeforeRender();
     void doAfterRender();

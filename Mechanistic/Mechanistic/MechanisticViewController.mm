@@ -14,6 +14,7 @@
 #import "MeshNode.h"
 #import "SceneGraphNode.h"
 #import "SceneGraphRenderer.h"
+#import "TransformNode.h"
 #import <vector>
 #import <string>
 #import "OBJFileLoader.h"
@@ -208,12 +209,20 @@ enum {
     float* up = [self.model getUp]; 
     gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
     /* Camera - */
+    static bool loaded = false;
+    static MeshNode* gear = new MeshNode();
+    if (!loaded)
+    {
+        NSString *nsGearPath = [[NSBundle mainBundle] pathForResource:@"Gear" ofType:@"obj"];
+        string realm = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
+        loadMesh(realm, gear, false);
+        loaded = true;
+    }
     
     glPushMatrix();
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();
         MeshNode* mesh = new MeshNode();
-        loadMesh("tile.obj", mesh, false);
         vector<Vertex*> vertices;
         vector<GLfloat*> normals;
         vector<Triangle*> triangles;
@@ -255,6 +264,16 @@ enum {
         vector<SceneGraphNode*> children;
         children.push_back(light);
         children.push_back(mesh);
+        vector<Transform*> transes;
+        vector<GLfloat> params;
+        params.push_back(0.2f);
+        params.push_back(0.2f);
+        params.push_back(0.2f);
+        Transform * trans = new Transform(SCALE, params);
+        transes.push_back(trans);
+        TransformNode* scaleNode = new TransformNode(transes);
+        scaleNode->getChildren()->push_back(gear);
+        children.push_back(scaleNode);
         sceneGraph->setChildren(children);
         render(sceneGraph);
         delete mesh;

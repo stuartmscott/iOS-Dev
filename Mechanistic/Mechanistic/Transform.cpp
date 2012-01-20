@@ -9,7 +9,7 @@
 #include "Transform.h"
 #include <OpenGLES/ES1/gl.h>
 
-Transform::Transform(TransformType transType, vector<float> params)
+Transform::Transform(TransformType transType, vector<GLfloat> params)
 {
     type = transType;
     parameters = params; 

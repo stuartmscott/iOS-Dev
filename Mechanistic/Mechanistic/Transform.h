@@ -19,9 +19,9 @@ class Transform
 {
 private:
     TransformType type;
-    vector<float> parameters;
+    vector<GLfloat> parameters;
 public:    
-    Transform(TransformType transType, vector<float> params);
+    Transform(TransformType transType, vector<GLfloat> params);
     ~Transform();
     void execute();
 };

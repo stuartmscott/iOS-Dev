@@ -28,6 +28,19 @@ void tokenize(string text, char* separators, vector<string> &tokens)
     }
 }
 
+void split(const char *str, char c, vector<string>& result)
+{
+    while(true)
+    {
+        const char *begin = str;        
+        while(*str != c && *str)
+            str++;
+        result.push_back(string(begin, str));
+        if(0 == *str++)
+            break;
+    }
+}
+
 void replaceAll(string& str, const string& from, const string& to) {
     size_t start_pos = 0;
     while((start_pos = str.find(from, start_pos)) != string::npos) {
@@ -53,13 +66,13 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
     vector<GLfloat*> normals;
     vector<Triangle*> triangles;
     vector<GLfloat*> texCoords;
-    char delims[] = " ";
+    char delims[] = " \r\n";
     vector<string> tokens;
     string line;
     ifstream in(fileName.c_str());
     string doubleSpace = "  ";
     string space = " ";
-    char iDelims[] = "/";
+    char iDelims[] = "/ \r\n";
     while (getline(in,line))
     {
         trim(line);
@@ -69,44 +82,54 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
         string cmd = tokens.at(0);
         if (cmd == "v")
         {
-            Vertex vert;
+            Vertex* vert = (Vertex*)malloc(sizeof(Vertex));
             for (int i = 0; i<VERTEX_COORD_COUNT; i++)
             {
-                vert.xyzCoords[i] = (GLfloat)atof(tokens.at(i+1).c_str());
+                vert->xyzCoords[i] = (GLfloat)atof(tokens.at(i+1).c_str());
             }
-            vertices.push_back(&vert);
+            vertices.push_back(vert);
         }
         else if (cmd == "vn")
         {
             if (!SMOOTH_NORMALS_ENABLED)
             {
-                GLfloat normal[] = {(GLfloat)atof(tokens.at(1).c_str()),(GLfloat)atof(tokens.at(2).c_str()),(GLfloat)atof(tokens.at(3).c_str())};
+                GLfloat* normal = (GLfloat*)malloc(sizeof(GLfloat)*3);
+                normal[0] = (GLfloat)atof(tokens.at(1).c_str());
+                normal[1] = (GLfloat)atof(tokens.at(2).c_str());
+                normal[2] = (GLfloat)atof(tokens.at(3).c_str());
                 normals.push_back(normal);
             }
         }
         else if (cmd == "vt")
         {
-            GLfloat tc[] = {(GLfloat)atof(tokens.at(1).c_str()),(GLfloat)atof(tokens.at(2).c_str())};
+            GLfloat* tc = (GLfloat*)malloc(sizeof(GLfloat)*2);
+            tc[0] = (GLfloat)atof(tokens.at(1).c_str());
+            tc[1] = (GLfloat)atof(tokens.at(2).c_str());
             texCoords.push_back(tc);
         }
         else if (cmd == "f")
         {
-            Triangle poly;
+            Triangle* poly = (Triangle*)malloc(sizeof(Triangle));
             for (int i=0; i<TRIANGLE_INDEX_COUNT; i++)
             {
                 vector<string> indices;
-                tokenize(tokens.at(i+1), iDelims, indices);
-                poly.vertexIndices[i] = (GLshort)(atoi(indices.at(0).c_str())-1);
+                split(tokens.at(i+1).c_str(), '/', indices);
+                poly->vertexIndices[i] = (GLshort)(atoi(indices.at(0).c_str())-1);
                 if (!SMOOTH_NORMALS_ENABLED)
                 {
-                    poly.normalIndices[i] = (GLshort)(atoi(indices.at(2).c_str())-1);
+                    string str = indices.at(2);
+                    poly->normalIndices[i] = (GLshort)(atoi(str.c_str())-1);
+                    if(poly->normalIndices[i]>60){
+                        //uh oh
+                        int kost = 0+2;
+                    }
                 }
                 if (textured)
                 {
-                    poly.texCoordIndices[i] = (GLshort)(atoi(indices.at(1).c_str())-1);
+                    poly->texCoordIndices[i] = (GLshort)(atoi(indices.at(1).c_str())-1);
                 }
             }
-            triangles.push_back(&poly);
+            triangles.push_back(poly);
         }
     }
     destination->setVertices(vertices);
