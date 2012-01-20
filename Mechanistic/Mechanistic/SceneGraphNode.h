@@ -13,15 +13,15 @@ using namespace std;
 class SceneGraphNode
 {
 private:
-    bool compiled;
     vector<SceneGraphNode*> children;
+protected:
+    bool compiled;
 public:
     SceneGraphNode();
     ~SceneGraphNode();
-    vector<SceneGraphNode*> getChildren();
-    void setChildren(vector<SceneGraphNode*> newChildren);
-    bool isCompiled;
-    void setCompiled(bool comp);
+    vector<SceneGraphNode*>* getChildren();
+    void setChildren(vector<SceneGraphNode*>&newChildren);
+    virtual void setCompiled(bool comp);
     virtual void compile();
     virtual void doBeforeRender();
     virtual void doBeforeRenderChildren();

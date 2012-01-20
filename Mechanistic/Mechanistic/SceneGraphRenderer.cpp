@@ -28,7 +28,7 @@ bool mustExecuteRenderEvents(SceneGraphNode * node, bool lightsMode)
     return true;
 }
 
-void processBeforeRender(stack<SceneGraphNode*> nodeStack, stack<int> counterStack, SceneGraphNode * node, bool lightsMode)
+void processBeforeRender(stack<SceneGraphNode*>& nodeStack, stack<int>& counterStack, SceneGraphNode * node, bool lightsMode)
 {
     nodeStack.push(node);
     counterStack.push(-1);
@@ -40,9 +40,16 @@ void processBeforeRender(stack<SceneGraphNode*> nodeStack, stack<int> counterSta
     
     node->compile();
     
+    bool b;
+    b = (typeid(node)==typeid(MeshNode));
+    b = (typeid(*node)==typeid(MeshNode));
+    b = (typeid(node)==typeid(MeshNode*));
+    b = (typeid(&node)==typeid(MeshNode*));
+    b = (typeid(&node)==typeid(MeshNode));
+    
     // Geometry must be drawn after all lights are configured so it is
     // properly shaded
-    if ((!lightsMode) && (typeid(node)==typeid(MeshNode)))
+    if ((!lightsMode) && (typeid(*node)==typeid(MeshNode)))
     {
         ((MeshNode *) node)->drawGeometry();
     }
@@ -53,7 +60,7 @@ void processBeforeRender(stack<SceneGraphNode*> nodeStack, stack<int> counterSta
     }
 }
 
-void processAfterRender(stack<SceneGraphNode*> nodeStack, stack<int> counterStack, SceneGraphNode * node, bool lightsMode)
+void processAfterRender(stack<SceneGraphNode*>& nodeStack, stack<int>& counterStack, SceneGraphNode * node, bool lightsMode)
 {
     if (mustExecuteRenderEvents(node, lightsMode))
     {
@@ -73,13 +80,15 @@ void parseGraph(SceneGraphNode * root, bool lightsMode)
     {
         SceneGraphNode * node = nodeStack.top();
         int childIndex = counterStack.top();
-        if (childIndex < node->getChildren().size() - 1)
+        vector<SceneGraphNode*>* children = node->getChildren();
+        int childCount = children->size();
+        if (childIndex < (childCount - 1))
         {
             childIndex++;
             //counterStack.set(counterStack.size() - 1, childIndex);
             counterStack.pop();
             counterStack.push(childIndex);
-            SceneGraphNode * child = node->getChildren().at(childIndex);
+            SceneGraphNode * child = node->getChildren()->at(childIndex);
             processBeforeRender(nodeStack, counterStack, child, lightsMode);
         }
         else
@@ -89,7 +98,7 @@ void parseGraph(SceneGraphNode * root, bool lightsMode)
     }
 }
 
-void render(SceneGraphNode * root)
+void render(SceneGraphNode* root)
 {
     if (root == NULL) return;
     parseGraph(root, true);

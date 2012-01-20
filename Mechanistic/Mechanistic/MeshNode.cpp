@@ -11,10 +11,7 @@
 
 MeshNode::~MeshNode()
 {
-    free(vertexBuffer);
-    free(normalBuffer);
-    free(texCoordBuffer);
-    free(triangleBuffer);
+    freeBuffers();
     delete material;
 }
 
@@ -23,17 +20,30 @@ MeshNode::MeshNode()
     textured = false;
     material = new Material();
     setTexEnvMode(MODULATE);
-    setCompiled(false);
+    compiled = false;
 }
 
-bool MeshNode::isCompiled()
+void MeshNode::freeBuffers()
 {
-    return compiled;
+    if (compiled)
+    {
+        free(vertexBuffer);
+        free(normalBuffer);
+        if (textured)
+        {
+            free(texCoordBuffer);
+        }
+        free(triangleBuffer);
+    }
 }
 
-void MeshNode::setCompiled(bool compiled)
+void MeshNode::setCompiled(bool value)
 {
-    this->compiled = compiled;
+    if (compiled&&!value)
+    {
+        freeBuffers();
+    }
+    this->compiled = value;
 }
 
 void MeshNode::setTexEnvMode(TexEnvMode texEnvMode)
@@ -55,24 +65,24 @@ void MeshNode::setTexEnvMode(TexEnvMode texEnvMode)
     this->texEnvMode = texEnvMode;
 }
 
-void MeshNode::setVertices(vector<Vertex*> vertices)
+void MeshNode::setVertices(vector<Vertex*>& vertices)
 {
     this->vertices = vertices;
     setCompiled(false);
 }
 
-void MeshNode::setNormals(vector<GLfloat*> normals)
+void MeshNode::setNormals(vector<GLfloat*>& normals)
 {
     this->normals = normals;
 }
 
-void MeshNode::setTriangles(vector<Triangle*> triangles)
+void MeshNode::setTriangles(vector<Triangle*>& triangles)
 {
     this->triangles = triangles;
     setCompiled(false);    
 }
 
-void MeshNode::setTextureCoords(vector<GLfloat*> textureCoords)
+void MeshNode::setTextureCoords(vector<GLfloat*>& textureCoords)
 {
     this->triangles = triangles;
     if (textured)
