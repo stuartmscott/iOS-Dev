@@ -146,6 +146,7 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
+    //TODO the distance moved will be used to determine the rotation
     NSLog(@"touches moved %f %f", touchPoint.x, touchPoint.y);
 }
 
