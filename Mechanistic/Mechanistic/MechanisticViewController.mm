@@ -237,13 +237,13 @@ enum {
     glLoadIdentity();
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
-    transY += 0.075f;
+    
+    transY += 0.75f;
     /* Camera - */
     
     /* Rendering + */
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
+    glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
     glPushMatrix();
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();
@@ -280,7 +280,9 @@ enum {
         triangleVector.push_back(&trig);
         mesh->setTriangles(triangleVector);
         mesh->material->setAmbient(1, 1, 1, 1);
+        LightNode* light = new LightNode();
         vector<SceneGraphNode*> children;
+        children.push_back(light);
         children.push_back(mesh);
         sceneGraph->setChildren(children);
         render(sceneGraph);
