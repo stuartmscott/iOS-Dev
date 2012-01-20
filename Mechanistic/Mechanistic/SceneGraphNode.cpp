@@ -17,12 +17,17 @@ SceneGraphNode::~SceneGraphNode()
     children.clear();
 }
 
-vector<SceneGraphNode*> SceneGraphNode::getChildren()
+void SceneGraphNode::setCompiled(bool value)
 {
-    return children;
+    this->compiled = value;
 }
 
-void SceneGraphNode::setChildren(vector<SceneGraphNode *> newChildren)
+vector<SceneGraphNode*>* SceneGraphNode::getChildren()
+{
+    return &children;
+}
+
+void SceneGraphNode::setChildren(vector<SceneGraphNode *> &newChildren)
 {
     children = newChildren;
 }

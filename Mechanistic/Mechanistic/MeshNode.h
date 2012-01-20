@@ -22,14 +22,12 @@ enum TexEnvMode {
     MODULATE, DECAL, BLEND, REPLACE
 };
 
-class MeshNode: SceneGraphNode
+class MeshNode: public SceneGraphNode
 {
 private:
-    bool    compiled;
     bool    textured;
     bool    textureID;
     int     valTexEnvMode;
-    Material*   material;
     TexEnvMode  texEnvMode;	
     vector<Vertex*> vertices;
     vector<GLfloat*>  normals;
@@ -41,15 +39,15 @@ private:
     GLshort*   triangleBuffer;
 	void freeBuffers();
 public:
+    Material*   material;
     MeshNode();
     ~MeshNode();
-    bool isCompiled();
     void setCompiled(bool value);
     void setTexEnvMode(TexEnvMode texEnvMode);
-    void setVertices(vector<Vertex*> vertices);
-    void setNormals(vector<GLfloat*> normals);
-    void setTriangles(vector<Triangle*> triangles);
-    void setTextureCoords(vector<GLfloat*> textureCoords);
+    void setVertices(vector<Vertex*>& vertices);
+    void setNormals(vector<GLfloat*>& normals);
+    void setTriangles(vector<Triangle*>& triangles);
+    void setTextureCoords(vector<GLfloat*>& textureCoords);
     void calcSmoothNormals();
     void doBeforeRender();
     void compile();

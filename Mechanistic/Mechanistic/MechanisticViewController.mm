@@ -14,6 +14,7 @@
 #import "MeshNode.h"
 #import "SceneGraphNode.h"
 #import "SceneGraphRenderer.h"
+#import <vector>
 
 // Uniform index.
 enum {
@@ -187,7 +188,7 @@ enum {
     
     static float transY = 0.0f;
     
-    glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+    glClearColor(0, 0, 0, 1.0f);
     //glClear(GL_COLOR_BUFFER_BIT);
     
     /*if ([context API] == kEAGLRenderingAPIOpenGLES2) {
@@ -236,6 +237,8 @@ enum {
     glLoadIdentity();
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+    glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
+    transY += 0.075f;
     /* Camera - */
     
     /* Rendering + */
@@ -245,6 +248,41 @@ enum {
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();
         MeshNode* mesh = new MeshNode();
+        Vertex top;
+        top.xyzCoords[0] = 0;
+        top.xyzCoords[1] = 0.5f;
+        top.xyzCoords[2] = 0;
+        Vertex left;
+        left.xyzCoords[0] = -0.5f;
+        left.xyzCoords[1] = 0;
+        left.xyzCoords[2] = 0;
+        Vertex right;
+        right.xyzCoords[0] = 0.5f;
+        right.xyzCoords[1] = 0;
+        right.xyzCoords[2] = 0;
+        vector<Vertex*> verts;
+        verts.push_back(&left);
+        verts.push_back(&right);
+        verts.push_back(&top);
+        mesh->setVertices(verts);
+        GLfloat normal[3] = {0, 0, 1};
+        vector<GLfloat*> normalVector;
+        normalVector.push_back(normal);
+        mesh->setNormals(normalVector);
+        Triangle trig;
+        trig.normalIndices[0] = 0;
+        trig.normalIndices[1] = 0;
+        trig.normalIndices[2] = 0;
+        trig.vertexIndices[0] = 0;
+        trig.vertexIndices[1] = 1;
+        trig.vertexIndices[2] = 2;
+        vector<Triangle*> triangleVector;
+        triangleVector.push_back(&trig);
+        mesh->setTriangles(triangleVector);
+        mesh->material->setAmbient(1, 1, 1, 1);
+        vector<SceneGraphNode*> children;
+        children.push_back(mesh);
+        sceneGraph->setChildren(children);
         render(sceneGraph);
         delete mesh;
         delete sceneGraph;

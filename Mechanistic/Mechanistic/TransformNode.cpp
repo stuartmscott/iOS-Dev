@@ -25,7 +25,7 @@ void TransformNode::doAfterRender()
     glPopMatrix();
 }
 
-TransformNode::TransformNode(vector<Transform> trans)
+TransformNode::TransformNode(vector<Transform>& trans)
 {
     transforms = trans;
 }

@@ -11,7 +11,7 @@
 #define MAX_LIGHTS 8
 
 
-class LightNode:SceneGraphNode
+class LightNode: public SceneGraphNode
 {
 public:
     GLenum index;

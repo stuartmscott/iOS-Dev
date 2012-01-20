@@ -10,11 +10,11 @@
 #include "Transform.h"
 #include <vector>
 
-class TransformNode:SceneGraphNode
+class TransformNode:public SceneGraphNode
 {
 public:
     vector<Transform> transforms;
-    TransformNode(vector<Transform> trans);
+    TransformNode(vector<Transform>& trans);
     ~TransformNode();
     void doBeforeRender();
     void doAfterRender();
