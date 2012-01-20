@@ -7,8 +7,6 @@
 //
 
 #import "Model.h"
-#define WIDTH 320
-#define HEIGHT 480
 
 @implementation Model
 
@@ -74,9 +72,9 @@
         
         self.faces = [NSArray arrayWithObjects: top, sf0, sf1, sf2, sf3, bot, nil];
         
-        radius = 8.0f;
-        theta = -0.7f;
-        phi = 0.5f;
+        radius = 2.0f;//8.0
+        theta = -1.5f;//-0.7
+        phi = 0.5f;//0.5
         [self calcEyePosition];
     }
     return self;
@@ -88,17 +86,31 @@
 
 -(void)touchesStart:(CGPoint)point {
     self.start = point;
+    isDragging = false;
 }
 
 //Adapted from code from Dr. Steve Maddock
 -(void)touchesMoved:(CGPoint)point {
+    float dx = (point.x - self.start.x);
+    float dy = (point.y - self.start.y);
+    if (!isDragging) {
+        float distMoved = sqrtf((dx*dx)+(dy*dy));
+        if(distMoved <= MOVE_PLAY)
+            return;
+        isDragging = true;
+    }
+    
     self.current = point;
-    float dx = (self.current.x - self.start.x) / WIDTH;
-    float dy = (self.current.y - self.start.y) / HEIGHT;
-    theta -= dx *2.0f;
-    phi += dy * 2.0f;
+    theta -= (dx / WIDTH) * 2.0f;
+    phi += (dy / HEIGHT) * 2.0f;
     [self calcEyePosition];
-    self.start = current;
+    self.start = self.current;
+}
+
+-(void)touchesEnd {
+    if (!isDragging) {
+        //TODO generate a click
+    }
 }
 
 //Adapted from code from Dr. Steve Maddock
@@ -106,16 +118,16 @@
     float cy, cz, sy, sz;
     cy = cosf(theta);
     sy = sinf(theta);
-    cz = sinf(phi);
+    cz = cosf(phi);
     sz = sinf(phi);
     
     eye[0] = radius * cy * cz;
-    eye[1] = radius *sz;
-    eye[2] = - radius * sy *cz;
+    eye[1] = radius * sz;
+    eye[2] = -radius * sy * cz;
     
-    up[0] = -cy *sz;
+    up[0] = -cy * sz;
     up[1] = cz;
-    up[2] = sy *sz;
+    up[2] = sy * sz;
     
     if(up[1]<0){
         up[0] = -up[0];
@@ -124,14 +136,18 @@
     }
 }
 
--(void)touchesEnd {
-    
+-(float*)getEye {
+    return eye;
+}
+
+-(float*)getUp {
+    return up;
 }
 
 - (void)dealloc {
     for (Face *f in faces)
-        [f dealloc];
-    [faces dealloc];
+        [f release];
+    [faces release];
     [super dealloc];
 }
 

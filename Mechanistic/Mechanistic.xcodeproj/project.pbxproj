@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE2B6F6114C9B381005F81F6 /* gluLookAt.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2B6F5F14C9B381005F81F6 /* gluLookAt.m */; };
+		CE2B6F6114C9B381005F81F6 /* gluLookAt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE2B6F5F14C9B381005F81F6 /* gluLookAt.cpp */; };
 		CE46DA3614C8B2DA007CDB4C /* Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = CE46DA3514C8B2DA007CDB4C /* Edge.m */; };
 		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
@@ -42,7 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE2B6F5F14C9B381005F81F6 /* gluLookAt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gluLookAt.m; sourceTree = "<group>"; };
+		CE2B6F5F14C9B381005F81F6 /* gluLookAt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gluLookAt.cpp; sourceTree = "<group>"; };
 		CE2B6F6014C9B381005F81F6 /* gluLookAt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluLookAt.h; sourceTree = "<group>"; };
 		CE46DA3414C8B2DA007CDB4C /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
 		CE46DA3514C8B2DA007CDB4C /* Edge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Edge.m; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 				CE8BA26F14C9E8D300983958 /* Meshes */,
 				CEC4602C14C9C12E009900D0 /* Model */,
 				CE2B6F6014C9B381005F81F6 /* gluLookAt.h */,
-				CE2B6F5F14C9B381005F81F6 /* gluLookAt.m */,
+				CE2B6F5F14C9B381005F81F6 /* gluLookAt.cpp */,
 				CEC9D7DB14AC9BDB000F7EE1 /* MechanisticAppDelegate.h */,
 				CEC9D7DC14AC9BDB000F7EE1 /* MechanisticAppDelegate.m */,
 				CEC9D7DE14AC9BDC000F7EE1 /* MainWindow.xib */,
@@ -315,7 +315,7 @@
 				CEB0EB6C14C85675005A33FC /* SceneGraphRenderer.cpp in Sources */,
 				CE46DA3614C8B2DA007CDB4C /* Edge.m in Sources */,
 				CEB0D97F14C9A10B008705E5 /* OBJFileLoader.cpp in Sources */,
-				CE2B6F6114C9B381005F81F6 /* gluLookAt.m in Sources */,
+				CE2B6F6114C9B381005F81F6 /* gluLookAt.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

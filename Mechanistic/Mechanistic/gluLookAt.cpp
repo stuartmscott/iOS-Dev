@@ -2,7 +2,8 @@
  *  gluLookAt.c
  */
 
-#import "gluLookAt.h"
+#include "gluLookAt.h"
+#include <math.h>
 
 void gluLookAt(GLfloat eyex, GLfloat eyey, GLfloat eyez,
                GLfloat centerx, GLfloat centery, GLfloat centerz,

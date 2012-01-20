@@ -19,7 +19,7 @@
 
 - (void)dealloc {
     if ([self hasGear])
-        [gear dealloc];
+        [gear release];
     [super dealloc];
 }
 

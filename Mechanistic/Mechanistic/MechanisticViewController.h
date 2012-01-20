@@ -15,7 +15,7 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "Model.h"
-#include "gluLookAt.h"
+#import "gluLookAt.h"
 
 @interface MechanisticViewController : UIViewController {
 @private
@@ -32,7 +32,9 @@
 
 -(void)slideTile:(int)faceIndex From:(int) oldIndex To:(int) newIndex;
 
-- (void)startAnimation;
-- (void)stopAnimation;
+-(float)toRadians:(float)degrees;
+
+-(void)startAnimation;
+-(void)stopAnimation;
 
 @end

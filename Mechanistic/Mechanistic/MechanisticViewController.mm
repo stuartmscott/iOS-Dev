@@ -178,7 +178,7 @@ enum {
         glDisable(GL_LIGHT0 + i);
     }
     
-    /* Test + */
+    /* Test + *
     NSString *appFolderPath = [[NSBundle mainBundle] pathForResource:@"Gear" ofType:@"obj"];
     NSLog(appFolderPath);
     string realm = [appFolderPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
