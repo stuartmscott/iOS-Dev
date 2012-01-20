@@ -296,6 +296,7 @@ enum {
         mesh->setTriangles(triangles);
         mesh->material->setAmbient(1, 1, 1, 1);
         LightNode* light = new LightNode();
+        light->spotlight = true;
         vector<SceneGraphNode*> children;
         children.push_back(light);
         children.push_back(mesh);
