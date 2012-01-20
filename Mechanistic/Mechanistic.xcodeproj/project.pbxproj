@@ -115,6 +115,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEC4602B14C9C0DD009900D0 /* 3D Engine */ = {
+			isa = PBXGroup;
+			children = (
+				CE833C3F14BB102B00D0C413 /* Vertex.cpp */,
+				CE833C4014BB102B00D0C413 /* Vertex.h */,
+				CE833C4314BB32A300D0C413 /* Triangle.cpp */,
+				CE833C4414BB32A300D0C413 /* Triangle.h */,
+				CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */,
+				CE833C4714BB360900D0C413 /* SceneGraphNode.h */,
+				CE8F574A14BB560600911BA9 /* MeshNode.cpp */,
+				CE8F574B14BB560600911BA9 /* MeshNode.h */,
+				CEBDA5A314C5EA540051E755 /* Transform.cpp */,
+				CEBDA5A414C5EA540051E755 /* Transform.h */,
+				CEBDA5A714C60EAB0051E755 /* Transform.vsh */,
+				CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */,
+				CEBDA5AA14C619CC0051E755 /* EngineUtils.h */,
+				CE91208C14C7398900F97A0E /* LightNode.cpp */,
+				CE91208D14C7398900F97A0E /* LightNode.h */,
+				CE91209014C744E300F97A0E /* TransformNode.cpp */,
+				CE91209114C744E300F97A0E /* TransformNode.h */,
+				CE91209314C7496600F97A0E /* Material.cpp */,
+				CE91209414C7496700F97A0E /* Material.h */,
+				CEB0EB6A14C85675005A33FC /* SceneGraphRenderer.cpp */,
+				CEB0EB6B14C85675005A33FC /* SceneGraphRenderer.h */,
+				CEB0D97D14C9A10B008705E5 /* OBJFileLoader.cpp */,
+				CEB0D97E14C9A10B008705E5 /* OBJFileLoader.h */,
+			);
+			name = "3D Engine";
+			sourceTree = "<group>";
+		};
+		CEC4602C14C9C12E009900D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D94E714C767E9000875A5 /* Tile.h */,
+				CE8D94E814C767E9000875A5 /* Tile.m */,
+				CE8D94E414C767DD000875A5 /* Model.h */,
+				CE8D94E514C767DD000875A5 /* Model.m */,
+				CE8D94DB14C767D0000875A5 /* Face.h */,
+				CE8D94DC14C767D0000875A5 /* Face.m */,
+				CE46DA3414C8B2DA007CDB4C /* Edge.h */,
+				CE46DA3514C8B2DA007CDB4C /* Edge.m */,
+				CE8D94DD14C767D0000875A5 /* Gear.h */,
+				CE8D94DE14C767D0000875A5 /* Gear.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		CEC9D7B914AC9BDA000F7EE1 = {
 			isa = PBXGroup;
 			children = (
@@ -147,18 +194,9 @@
 		CEC9D7D214AC9BDB000F7EE1 /* Mechanistic */ = {
 			isa = PBXGroup;
 			children = (
-				CE8D94E714C767E9000875A5 /* Tile.h */,
-				CE8D94E814C767E9000875A5 /* Tile.m */,
-				CE8D94E414C767DD000875A5 /* Model.h */,
-				CE8D94E514C767DD000875A5 /* Model.m */,
+				CEC4602C14C9C12E009900D0 /* Model */,
 				CE2B6F6014C9B381005F81F6 /* gluLookAt.h */,
 				CE2B6F5F14C9B381005F81F6 /* gluLookAt.m */,
-				CE8D94DB14C767D0000875A5 /* Face.h */,
-				CE8D94DC14C767D0000875A5 /* Face.m */,
-				CE46DA3414C8B2DA007CDB4C /* Edge.h */,
-				CE46DA3514C8B2DA007CDB4C /* Edge.m */,
-				CE8D94DD14C767D0000875A5 /* Gear.h */,
-				CE8D94DE14C767D0000875A5 /* Gear.m */,
 				CEC9D7DB14AC9BDB000F7EE1 /* MechanisticAppDelegate.h */,
 				CEC9D7DC14AC9BDB000F7EE1 /* MechanisticAppDelegate.m */,
 				CEC9D7DE14AC9BDC000F7EE1 /* MainWindow.xib */,
@@ -170,29 +208,7 @@
 				CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.mm */,
 				CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */,
 				CEC9D7D314AC9BDB000F7EE1 /* Supporting Files */,
-				CE833C3F14BB102B00D0C413 /* Vertex.cpp */,
-				CE833C4014BB102B00D0C413 /* Vertex.h */,
-				CE833C4314BB32A300D0C413 /* Triangle.cpp */,
-				CE833C4414BB32A300D0C413 /* Triangle.h */,
-				CEBDA5A414C5EA540051E755 /* Transform.h */,
-				CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */,
-				CE833C4714BB360900D0C413 /* SceneGraphNode.h */,
-				CE8F574A14BB560600911BA9 /* MeshNode.cpp */,
-				CE8F574B14BB560600911BA9 /* MeshNode.h */,
-				CEBDA5A314C5EA540051E755 /* Transform.cpp */,
-				CEBDA5A714C60EAB0051E755 /* Transform.vsh */,
-				CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */,
-				CEBDA5AA14C619CC0051E755 /* EngineUtils.h */,
-				CE91208C14C7398900F97A0E /* LightNode.cpp */,
-				CE91208D14C7398900F97A0E /* LightNode.h */,
-				CE91209014C744E300F97A0E /* TransformNode.cpp */,
-				CE91209114C744E300F97A0E /* TransformNode.h */,
-				CE91209314C7496600F97A0E /* Material.cpp */,
-				CE91209414C7496700F97A0E /* Material.h */,
-				CEB0EB6A14C85675005A33FC /* SceneGraphRenderer.cpp */,
-				CEB0EB6B14C85675005A33FC /* SceneGraphRenderer.h */,
-				CEB0D97D14C9A10B008705E5 /* OBJFileLoader.cpp */,
-				CEB0D97E14C9A10B008705E5 /* OBJFileLoader.h */,
+				CEC4602B14C9C0DD009900D0 /* 3D Engine */,
 			);
 			path = Mechanistic;
 			sourceTree = "<group>";
