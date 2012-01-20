@@ -177,7 +177,7 @@ enum {
     }
     //Camera
     float fAspect = (float) WIDTH / HEIGHT;
-    float fovy = 45.0f;
+    float fovy = 60.0f;
     glViewport(0, 0, WIDTH, HEIGHT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -260,18 +260,17 @@ enum {
     */
     
     
+    
+    /* Rendering + */
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+    
     /* Camera + */
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
     float* eye = [self.model getEye];
     float* up = [self.model getUp];    
     gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
     /* Camera - */
     
-    /* Rendering + */
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glPushMatrix();
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();

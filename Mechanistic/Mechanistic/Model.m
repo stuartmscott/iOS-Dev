@@ -91,10 +91,11 @@
 
 //Adapted from code from Dr. Steve Maddock
 -(void)touchesMoved:(CGPoint)point {
-    float dx = (point.x - point.x);
-    float dy = (point.y - point.y);
+    float dx = (point.x - start.x);
+    float dy = (point.y - start.y);
     if (!isDragging) {
-        float distMoved =  sqrtf((dx*dx)+(dy*dy));
+        float distMoved = sqrtf((dx*dx)+(dy*dy));
+        NSLog(@"distMoved %f", distMoved);
         if(distMoved <= MOVE_PLAY)
             return;
         isDragging = true;
@@ -105,6 +106,12 @@
     phi += (dy / HEIGHT) * 2.0f;
     [self calcEyePosition];
     self.start = current;
+}
+
+-(void)touchesEnd {
+    if (!isDragging) {
+        //TODO generate a click
+    }
 }
 
 //Adapted from code from Dr. Steve Maddock
@@ -128,10 +135,6 @@
         up[1] = -up[1];
         up[2] = -up[2];
     }
-}
-
--(void)touchesEnd {
-    
 }
 
 -(float*)getEye {
