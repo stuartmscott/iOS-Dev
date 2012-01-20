@@ -32,7 +32,9 @@
 
 -(void)slideTile:(int)faceIndex From:(int) oldIndex To:(int) newIndex;
 
-- (void)startAnimation;
-- (void)stopAnimation;
+-(float)toRadians:(float)degrees;
+
+-(void)startAnimation;
+-(void)stopAnimation;
 
 @end

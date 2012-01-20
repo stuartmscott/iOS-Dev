@@ -7,8 +7,6 @@
 //
 
 #import "Model.h"
-#define WIDTH 320
-#define HEIGHT 480
 
 @implementation Model
 
@@ -88,15 +86,23 @@
 
 -(void)touchesStart:(CGPoint)point {
     self.start = point;
+    isDragging = false;
 }
 
 //Adapted from code from Dr. Steve Maddock
 -(void)touchesMoved:(CGPoint)point {
+    float dx = (point.x - point.x);
+    float dy = (point.y - point.y);
+    if (!isDragging) {
+        float distMoved =  sqrtf((dx*dx)+(dy*dy));
+        if(distMoved <= MOVE_PLAY)
+            return;
+        isDragging = true;
+    }
+    
     self.current = point;
-    float dx = (self.current.x - self.start.x) / WIDTH;
-    float dy = (self.current.y - self.start.y) / HEIGHT;
-    theta -= dx *2.0f;
-    phi += dy * 2.0f;
+    theta -= (dx / WIDTH) *2.0f;
+    phi += (dy / HEIGHT) * 2.0f;
     [self calcEyePosition];
     self.start = current;
 }

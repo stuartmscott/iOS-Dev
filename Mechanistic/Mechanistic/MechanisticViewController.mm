@@ -175,6 +175,24 @@ enum {
     {
         glDisable(GL_LIGHT0 + i);
     }
+    //Camera
+    float fAspect = (float) WIDTH / HEIGHT;
+    float fovy = 45.0f;
+    glViewport(0, 0, WIDTH, HEIGHT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    
+    float top = tanf([self toRadians: (fovy * 0.5f)]) * NEAR_CLIP;
+    float bottom = -top;
+    float left = fAspect * bottom;
+    float right = fAspect * top;
+    
+    glFrustumf(left, right, bottom, top, NEAR_CLIP, FAR_CLIP);
+    glMatrixMode(GL_MODELVIEW);
+}
+
+-(float)toRadians:(float)degrees {
+    return degrees * (180.0 / M_PI);
 }
 
 - (void)drawFrame
