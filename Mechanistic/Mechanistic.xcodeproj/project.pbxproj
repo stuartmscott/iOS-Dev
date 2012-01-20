@@ -12,6 +12,7 @@
 		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
 		CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */; };
+		CE8BA27114C9E8D300983958 /* Gear.obj in Resources */ = {isa = PBXBuildFile; fileRef = CE8BA27014C9E8D300983958 /* Gear.obj */; };
 		CE8D94E114C767D0000875A5 /* Face.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94DC14C767D0000875A5 /* Face.m */; };
 		CE8D94E214C767D0000875A5 /* Gear.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94DE14C767D0000875A5 /* Gear.m */; };
 		CE8D94E614C767DD000875A5 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D94E514C767DD000875A5 /* Model.m */; };
@@ -23,7 +24,6 @@
 		CEB0D97F14C9A10B008705E5 /* OBJFileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB0D97D14C9A10B008705E5 /* OBJFileLoader.cpp */; };
 		CEB0EB6C14C85675005A33FC /* SceneGraphRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB0EB6A14C85675005A33FC /* SceneGraphRenderer.cpp */; };
 		CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A314C5EA540051E755 /* Transform.cpp */; };
-		CEBDA5A814C60EAB0051E755 /* Transform.vsh in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A714C60EAB0051E755 /* Transform.vsh */; };
 		CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */; };
 		CEC9D7C914AC9BDB000F7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */; };
 		CEC9D7CB14AC9BDB000F7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */; };
@@ -52,6 +52,7 @@
 		CE833C4414BB32A300D0C413 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraphNode.cpp; sourceTree = "<group>"; };
 		CE833C4714BB360900D0C413 /* SceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphNode.h; sourceTree = "<group>"; };
+		CE8BA27014C9E8D300983958 /* Gear.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gear.obj; sourceTree = "<group>"; };
 		CE8D94DB14C767D0000875A5 /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
 		CE8D94DC14C767D0000875A5 /* Face.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Face.m; sourceTree = "<group>"; };
 		CE8D94DD14C767D0000875A5 /* Gear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gear.h; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		CEB0EB6B14C85675005A33FC /* SceneGraphRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphRenderer.h; sourceTree = "<group>"; };
 		CEBDA5A314C5EA540051E755 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
 		CEBDA5A414C5EA540051E755 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
-		CEBDA5A714C60EAB0051E755 /* Transform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Transform.vsh; sourceTree = "<group>"; };
 		CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EngineUtils.cpp; sourceTree = "<group>"; };
 		CEBDA5AA14C619CC0051E755 /* EngineUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineUtils.h; sourceTree = "<group>"; };
 		CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mechanistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE8BA26F14C9E8D300983958 /* Meshes */ = {
+			isa = PBXGroup;
+			children = (
+				CE8BA27014C9E8D300983958 /* Gear.obj */,
+			);
+			path = Meshes;
+			sourceTree = "<group>";
+		};
 		CEC4602B14C9C0DD009900D0 /* 3D Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +136,6 @@
 				CE8F574B14BB560600911BA9 /* MeshNode.h */,
 				CEBDA5A314C5EA540051E755 /* Transform.cpp */,
 				CEBDA5A414C5EA540051E755 /* Transform.h */,
-				CEBDA5A714C60EAB0051E755 /* Transform.vsh */,
 				CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */,
 				CEBDA5AA14C619CC0051E755 /* EngineUtils.h */,
 				CE91208C14C7398900F97A0E /* LightNode.cpp */,
@@ -194,6 +201,7 @@
 		CEC9D7D214AC9BDB000F7EE1 /* Mechanistic */ = {
 			isa = PBXGroup;
 			children = (
+				CE8BA26F14C9E8D300983958 /* Meshes */,
 				CEC4602C14C9C12E009900D0 /* Model */,
 				CE2B6F6014C9B381005F81F6 /* gluLookAt.h */,
 				CE2B6F5F14C9B381005F81F6 /* gluLookAt.m */,
@@ -276,6 +284,7 @@
 				CEC9D7E214AC9BDC000F7EE1 /* Shader.fsh in Resources */,
 				CEC9D7E414AC9BDC000F7EE1 /* Shader.vsh in Resources */,
 				CEC9D7ED14AC9BDC000F7EE1 /* MechanisticViewController.xib in Resources */,
+				CE8BA27114C9E8D300983958 /* Gear.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +304,6 @@
 				CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */,
 				CE8F574C14BB560600911BA9 /* MeshNode.cpp in Sources */,
 				CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */,
-				CEBDA5A814C60EAB0051E755 /* Transform.vsh in Sources */,
 				CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */,
 				CE91208E14C7398A00F97A0E /* LightNode.cpp in Sources */,
 				CE91209214C744E400F97A0E /* TransformNode.cpp in Sources */,

@@ -18,6 +18,8 @@
 #import <string>
 #import "OBJFileLoader.h"
 
+using namespace std;
+
 // Uniform index.
 enum {
     UNIFORM_TRANSLATE,
@@ -175,6 +177,15 @@ enum {
     {
         glDisable(GL_LIGHT0 + i);
     }
+    
+    /* Test + */
+    NSString *appFolderPath = [[NSBundle mainBundle] pathForResource:@"Gear" ofType:@"obj"];
+    NSLog(appFolderPath);
+    string realm = [appFolderPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    MeshNode* mesh = new MeshNode();
+    loadMesh(realm, mesh, false);
+    delete mesh;
+    /* Test - */
 }
 
 - (void)drawFrame
@@ -258,7 +269,6 @@ enum {
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();
         MeshNode* mesh = new MeshNode();
-        loadMesh("tile.obj", mesh, false);
         vector<Vertex*> vertices;
         vector<GLfloat*> normals;
         vector<Triangle*> triangles;
