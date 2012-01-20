@@ -15,6 +15,7 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import "Model.h"
+#include "gluLookAt.h"
 
 @interface MechanisticViewController : UIViewController {
 @private

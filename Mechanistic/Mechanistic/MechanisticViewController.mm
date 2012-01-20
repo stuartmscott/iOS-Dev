@@ -247,16 +247,13 @@ enum {
     glLoadIdentity();
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    
-    //transY += 0.75f;
-    
+    //float[] eye = [self.model getEye];
+    //float[] up = [self.model getUp];    
+    //gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
     /* Camera - */
     
     /* Rendering + */
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
-    glRotatef(model.xRotation, 1, 0, 0);
-    glRotatef(model.yRotation, 0, 1, 0);
     glPushMatrix();
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();

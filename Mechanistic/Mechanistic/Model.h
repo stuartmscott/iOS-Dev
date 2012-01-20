@@ -9,20 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "Face.h"
 
-@interface Model : NSObject
+@interface Model : NSObject {
+    float eye[3], up[3];
+    float radius, theta, phi;
+}
 
 @property CGPoint start, current;
-@property float xRotation, yRotation;
 @property (retain) NSArray *faces, *edges;
-@property int spawnFace;
-@property int spawnTile;
-@property int targetFace;
-@property int targetTile;
+@property int spawnFace, spawnTile;
+@property int targetFace, targetTile;
 
 -(id)init;
 
 //Recursive function - Given a gear which is spinning, it will set all neighbour gears to spin iff they aren't already spinning
 -(void)setSpinningFrom:(int)faceIndex tileIndex:(int)tileIndex;
+
+-(void)calcEyePosition;
 
 -(void)touchesStart:(CGPoint)point;
 
