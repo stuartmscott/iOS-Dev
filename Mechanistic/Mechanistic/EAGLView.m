@@ -141,14 +141,14 @@
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
     [self.model touchesStart: touchPoint];
-    //NSLog(@"touchBegan");
+    NSLog(@"touchBegan");
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
     [self.model touchesMoved: touchPoint];
-    //NSLog(@"touchMoved");
+    NSLog(@"touchMoved");
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

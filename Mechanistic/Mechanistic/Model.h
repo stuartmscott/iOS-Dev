@@ -32,4 +32,8 @@
 
 -(void)touchesEnd;
 
+-(float*)getEye;
+
+-(float*)getUp;
+
 @end

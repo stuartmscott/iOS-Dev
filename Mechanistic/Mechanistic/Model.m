@@ -74,7 +74,7 @@
         
         self.faces = [NSArray arrayWithObjects: top, sf0, sf1, sf2, sf3, bot, nil];
         
-        radius = 8.0f;
+        radius = 1.0f;
         theta = -0.7f;
         phi = 0.5f;
         [self calcEyePosition];
@@ -126,6 +126,14 @@
 
 -(void)touchesEnd {
     
+}
+
+-(float*)getEye {
+    return eye;
+}
+
+-(float*)getUp {
+    return up;
 }
 
 - (void)dealloc {
