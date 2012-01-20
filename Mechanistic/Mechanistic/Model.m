@@ -72,9 +72,9 @@
         
         self.faces = [NSArray arrayWithObjects: top, sf0, sf1, sf2, sf3, bot, nil];
         
-        radius = 1.0f;
-        theta = -0.7f;
-        phi = 0.5f;
+        radius = 2.0f;//8.0
+        theta = -1.5f;//-0.7
+        phi = 0.5f;//0.5
         [self calcEyePosition];
     }
     return self;
@@ -91,21 +91,20 @@
 
 //Adapted from code from Dr. Steve Maddock
 -(void)touchesMoved:(CGPoint)point {
-    float dx = (point.x - start.x);
-    float dy = (point.y - start.y);
+    float dx = (point.x - self.start.x);
+    float dy = (point.y - self.start.y);
     if (!isDragging) {
         float distMoved = sqrtf((dx*dx)+(dy*dy));
-        NSLog(@"distMoved %f", distMoved);
         if(distMoved <= MOVE_PLAY)
             return;
         isDragging = true;
     }
     
     self.current = point;
-    theta -= (dx / WIDTH) *2.0f;
+    theta -= (dx / WIDTH) * 2.0f;
     phi += (dy / HEIGHT) * 2.0f;
     [self calcEyePosition];
-    self.start = current;
+    self.start = self.current;
 }
 
 -(void)touchesEnd {
@@ -123,12 +122,12 @@
     sz = sinf(phi);
     
     eye[0] = radius * cy * cz;
-    eye[1] = radius *sz;
-    eye[2] = - radius * sy *cz;
+    eye[1] = radius * sz;
+    eye[2] = - radius * sy * cz;
     
-    up[0] = -cy *sz;
+    up[0] = -cy * sz;
     up[1] = cz;
-    up[2] = sy *sz;
+    up[2] = sy * sz;
     
     if(up[1]<0){
         up[0] = -up[0];
@@ -147,8 +146,8 @@
 
 - (void)dealloc {
     for (Face *f in faces)
-        [f dealloc];
-    [faces dealloc];
+        [f release];
+    [faces release];
     [super dealloc];
 }
 

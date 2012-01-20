@@ -11,8 +11,8 @@
 #define MOVE_PLAY 5.0f
 #define WIDTH 320.0f
 #define HEIGHT 480.0f
-#define NEAR_CLIP 0.0f
-#define FAR_CLIP 10.0f
+#define NEAR_CLIP 0.01f
+#define FAR_CLIP 100.0f
 
 @interface Model : NSObject {
     float eye[3], up[3];

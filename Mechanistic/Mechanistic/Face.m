@@ -26,7 +26,7 @@
 }
 
 - (void)dealloc {
-    [tiles dealloc];
+    [tiles release];
     [super dealloc];
 }
 @end
