@@ -12,6 +12,7 @@
 #import <OpenGLES/ES1/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import "Model.h"
 
 @class EAGLContext;
 
@@ -29,6 +30,7 @@
 }
 
 @property (nonatomic, retain) EAGLContext *context;
+@property (retain) Model *model;
 
 - (void)setFramebuffer;
 - (BOOL)presentFramebuffer;

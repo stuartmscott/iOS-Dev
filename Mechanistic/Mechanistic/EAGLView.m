@@ -17,7 +17,7 @@
 
 @implementation EAGLView
 
-@synthesize context;
+@synthesize context, model;
 
 // You must implement this method
 + (Class)layerClass
@@ -46,7 +46,7 @@
 {
     [self deleteFramebuffer];    
     [context release];
-    
+    [model release];
     [super dealloc];
 }
 
@@ -140,22 +140,23 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
-    NSLog(@"touches began %f %f", touchPoint.x, touchPoint.y);
+    [self.model touchesStart: touchPoint];
+    //NSLog(@"touchBegan");
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
-    //TODO the distance moved will be used to determine the rotation
-    NSLog(@"touches moved %f %f", touchPoint.x, touchPoint.y);
+    [self.model touchesMoved: touchPoint];
+    //NSLog(@"touchMoved");
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches ended");
+    [self.model touchesEnd];
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touches cancelled");
+    [self.model touchesEnd];
 }
 
 @end

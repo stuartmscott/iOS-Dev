@@ -11,6 +11,7 @@
 
 @interface Model : NSObject
 
+@property CGPoint start, current;
 @property float xRotation, yRotation;
 @property (retain) NSArray *faces, *edges;
 @property int spawnFace;
@@ -23,8 +24,10 @@
 //Recursive function - Given a gear which is spinning, it will set all neighbour gears to spin iff they aren't already spinning
 -(void)setSpinningFrom:(int)faceIndex tileIndex:(int)tileIndex;
 
-//Indexies
-//Tile - top left is 0 bottom right is n
-//Face - top face is 0, top edges ccw, then side faces and edges ccw, then bottom edges then bottom face
+-(void)touchesStart:(CGPoint)point;
+
+-(void)touchesMoved:(CGPoint)point;//TODO the distance moved will be used to determine the rotation
+
+-(void)touchesEnd;
 
 @end

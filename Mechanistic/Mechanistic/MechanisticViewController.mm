@@ -38,7 +38,12 @@ enum {
 
 @implementation MechanisticViewController
 
-@synthesize animating, context, displayLink;
+@synthesize animating, context, displayLink, model;
+
+-(void)slideTile:(int)faceIndex From:(int)oldIndex To:(int)newIndex{
+    //TODO this assumes that the tile at the old index is not empty and the tile at the new index is
+    //this will be used to move the tiles when the user taps them
+}
 
 - (void)awakeFromNib
 {
@@ -51,7 +56,10 @@ enum {
     
 	self.context = aContext;
 	[aContext release];
-	
+    
+    self.model = [[Model alloc] init];
+    ((EAGLView *)self.view).model = model;
+    
     [(EAGLView *)self.view setContext:context];
     [(EAGLView *)self.view setFramebuffer];
         
@@ -68,7 +76,7 @@ enum {
         [EAGLContext setCurrentContext:nil];
     
     [context release];
-    
+    [model dealloc];
     [super dealloc];
 }
 
@@ -238,47 +246,54 @@ enum {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     
-    transY += 0.75f;
+    //transY += 0.75f;
+    
     /* Camera - */
     
     /* Rendering + */
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
+    //glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
+    glRotatef(model.xRotation, 1, 0, 0);
+    glRotatef(model.yRotation, 0, 1, 0);
     glPushMatrix();
     {
         SceneGraphNode* sceneGraph = new SceneGraphNode();
         MeshNode* mesh = new MeshNode();
+        vector<Vertex*> vertices;
+        vector<GLfloat*> normals;
+        vector<Triangle*> triangles;
+        
         Vertex top;
         top.xyzCoords[0] = 0;
         top.xyzCoords[1] = 0.5f;
         top.xyzCoords[2] = 0;
         Vertex left;
         left.xyzCoords[0] = -0.5f;
-        left.xyzCoords[1] = 0;
+        left.xyzCoords[1] = -0.5f;
         left.xyzCoords[2] = 0;
         Vertex right;
         right.xyzCoords[0] = 0.5f;
-        right.xyzCoords[1] = 0;
+        right.xyzCoords[1] = -0.5f;
         right.xyzCoords[2] = 0;
-        vector<Vertex*> verts;
-        verts.push_back(&left);
-        verts.push_back(&right);
-        verts.push_back(&top);
-        mesh->setVertices(verts);
-        GLfloat normal[3] = {0, 0, 1};
-        vector<GLfloat*> normalVector;
-        normalVector.push_back(normal);
-        mesh->setNormals(normalVector);
-        Triangle trig;
-        trig.normalIndices[0] = 0;
-        trig.normalIndices[1] = 0;
-        trig.normalIndices[2] = 0;
-        trig.vertexIndices[0] = 0;
-        trig.vertexIndices[1] = 1;
-        trig.vertexIndices[2] = 2;
-        vector<Triangle*> triangleVector;
-        triangleVector.push_back(&trig);
-        mesh->setTriangles(triangleVector);
+        vertices.push_back(&left);
+        vertices.push_back(&right);
+        vertices.push_back(&top);
+        
+        GLfloat n0[3] = {0, 0, 1};
+        normals.push_back(n0);
+        
+        Triangle triangle;
+        triangle.normalIndices[0] = 0;
+        triangle.normalIndices[1] = 0;
+        triangle.normalIndices[2] = 0;
+        triangle.vertexIndices[0] = 0;
+        triangle.vertexIndices[1] = 1;
+        triangle.vertexIndices[2] = 2;
+        
+        triangles.push_back(&triangle);
+        mesh->setVertices(vertices);
+        mesh->setNormals(normals);
+        mesh->setTriangles(triangles);
         mesh->material->setAmbient(1, 1, 1, 1);
         LightNode* light = new LightNode();
         vector<SceneGraphNode*> children;

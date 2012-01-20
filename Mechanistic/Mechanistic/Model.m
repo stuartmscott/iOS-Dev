@@ -12,6 +12,7 @@
 @implementation Model
 
 @synthesize xRotation, yRotation, faces, edges, spawnFace, spawnTile, targetFace, targetTile;
+@synthesize start, current;
 
 - (id)init {
     self = [super init];
@@ -77,6 +78,21 @@
 
 -(void)setSpinningFrom:(int)faceIndex tileIndex:(int)tileIndex{
     //TODO
+}
+
+-(void)touchesStart:(CGPoint)point {
+    self.start = point;
+}
+
+-(void)touchesMoved:(CGPoint)point {
+    self.current = point;
+    self.yRotation += 10*atan((self.current.x - self.start.x)/160.0);
+    self.xRotation += 10*atan((self.start.y - self.current.y)/240.0);
+    self.start = current;
+}
+
+-(void)touchesEnd {
+    
 }
 
 - (void)dealloc {
