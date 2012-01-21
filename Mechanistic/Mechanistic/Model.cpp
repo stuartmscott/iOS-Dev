@@ -19,7 +19,6 @@ Tile** makeTiles(int num)
 
 Model::Model()
 {
-    inGame = false;
     //Top face
     Face *top = new Face(makeTiles(9));
         

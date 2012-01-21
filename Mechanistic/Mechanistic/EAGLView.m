@@ -17,7 +17,7 @@
 
 @implementation EAGLView
 
-@synthesize context, controller;
+@synthesize context;
 
 // You must implement this method
 + (Class)layerClass
@@ -45,7 +45,6 @@
 {
     [self deleteFramebuffer];    
     [context release];
-    [controller release];
     [super dealloc];
 }
 
@@ -136,24 +135,4 @@
     [self deleteFramebuffer];
 }
 
-/*- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	UITouch *touch = [touches anyObject];
-	CGPoint touchPoint = [touch locationInView:self];
-    //[self.controller touchesBegan: touchPoint];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	UITouch *touch = [touches anyObject];
-	CGPoint touchPoint = [touch locationInView:self];
-    //[self.controller touchesMoved: touchPoint];
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    //[self.controller touchesEnded];
-}
-
--(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    //[self.controller touchesEnded];
-}
-*/
 @end

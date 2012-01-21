@@ -29,14 +29,10 @@
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
 @property (nonatomic) NSInteger animationFrameInterval;
 
--(void)slideTile:(int)faceIndex From:(int) oldIndex To:(int) newIndex;
-
 -(float)toRadians:(float)degrees;
 
 -(void)startAnimation;
 -(void)stopAnimation;
 
 -(void)calcEyePosition;
--(void)gameClick:(CGPoint) point;
--(void)menuClick:(CGPoint) point;
 @end

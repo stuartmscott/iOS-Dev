@@ -288,11 +288,7 @@ enum {
 }
 
 -(void)gameClick:(CGPoint) point {
-    //TODO generate a click
-}
-
--(void)menuClick:(CGPoint) point {
-    //TODO button press
+    //TODO generate a click, figure out which tile is clicked
 }
 
 //Adapted from code from Dr. Steve Maddock
@@ -324,54 +320,50 @@ enum {
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
     Model * _model = (Model*) model;
-    if (_model->inGame){
         _model->startX = point.x;
         _model->startY = point.y;
         _model->isDragging = false;
-    }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
     Model * _model = (Model*) model;
-    if (_model->inGame){
-        //Adapted from code from Dr. Steve Maddock
-        float dx = (point.x - _model->startX);
-        float dy = (point.y - _model->startY);
-        if (!_model->isDragging) {
+    //Adapted from code from Dr. Steve Maddock
+    float dx = (point.x - _model->startX);
+    float dy = (point.y - _model->startY);
+    if (!_model->isDragging) {
         float distMoved = sqrtf((dx*dx)+(dy*dy));
-            if(distMoved <= MOVE_PLAY)
-                return;
-            _model->isDragging = true;
-        }
-        
-        _model->currX = point.x;
-        _model->currY = point.y;
-        _model->theta -= (dx / WIDTH) * 2.0f;
-        _model->phi += (dy / HEIGHT) * 2.0f;
-        [self calcEyePosition];
-        _model->startX = _model->currX;
-        _model->startY = _model->currY;
+        if(distMoved <= MOVE_PLAY)
+            return;
+        _model->isDragging = true;
     }
+    //If the camera is upside down, reverse x
+    if(_model->up[1]<0)
+        dx = -dx;
+        
+    _model->currX = point.x;
+    _model->currY = point.y;
+    _model->theta -= (dx / WIDTH) * 2.0f;
+    _model->phi += (dy / HEIGHT) * 2.0f;
+    [self calcEyePosition];
+    _model->startX = _model->currX;
+    _model->startY = _model->currY;
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
     Model * _model = (Model*) model;
-    if (_model->inGame) {
-        if(!_model->isDragging)
-            [self gameClick: point];
-    } else {
-        [self menuClick: point];
-    }
+    if(!_model->isDragging)
+        [self gameClick: point];
 }
+
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
     Model * _model = (Model*) model;
-    if (_model->inGame&&!_model->isDragging)
+    if (!_model->isDragging)
         [self gameClick: point]; 
 }
 
