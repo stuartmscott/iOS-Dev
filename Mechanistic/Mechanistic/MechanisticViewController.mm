@@ -44,11 +44,6 @@ enum {
 
 @synthesize animating, context, displayLink;
 
--(void)slideTile:(int)faceIndex From:(int)oldIndex To:(int)newIndex{
-    //TODO this assumes that the tile at the old index is not empty and the tile at the new index is
-    //this will be used to move the tiles when the user taps them
-}
-
 - (void)awakeFromNib
 {
     EAGLContext * aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
