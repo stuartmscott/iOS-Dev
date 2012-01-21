@@ -6,16 +6,20 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Tile.h"
-#import "Edge.h"
+#pragma once
+#include "Tile.h"
 
-@interface Face : NSObject 
+class Edge;
 
-@property (retain) NSArray *tiles;
-
--(id)init;
-
--(void)setEdgesN:(Edge*)north E:(Edge*)east S:(Edge*)south W:(Edge*)west;
-
-@end
+class Face
+{
+public:
+    Edge* north;
+    Edge* south;
+    Edge* west;
+    Edge* east;
+    Tile* tiles[9];
+    Face(Tile** newTiles);
+    ~Face();
+    void setEdges(Edge* n, Edge* e, Edge* s, Edge* w);
+};

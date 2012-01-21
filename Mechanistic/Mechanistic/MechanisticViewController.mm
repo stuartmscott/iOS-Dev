@@ -18,6 +18,7 @@
 #import <vector>
 #import <string>
 #import "OBJFileLoader.h"
+#import "Model.h"
 
 // Uniform index.
 enum {
@@ -41,7 +42,7 @@ enum {
 
 @implementation MechanisticViewController
 
-@synthesize animating, context, displayLink, model;
+@synthesize animating, context, displayLink;
 
 -(void)slideTile:(int)faceIndex From:(int)oldIndex To:(int)newIndex{
     //TODO this assumes that the tile at the old index is not empty and the tile at the new index is
@@ -60,7 +61,7 @@ enum {
 	self.context = aContext;
 	[aContext release];
     
-    self.model = [[Model alloc] init];    
+    model = new Model();
     [self calcEyePosition];
     
     [(EAGLView *)self.view setContext:context];
@@ -79,7 +80,7 @@ enum {
         [EAGLContext setCurrentContext:nil];
     
     [context release];
-    [model release];
+    delete (Model*)model;
     [super dealloc];
 }
 
@@ -205,8 +206,9 @@ enum {
     glLoadIdentity();
     
     /* Camera + */
-    float* eye = [self.model getEye];
-    float* up = [self.model getUp]; 
+    Model * _model = (Model*) model;
+    float* eye = _model->eye;
+    float* up = _model->up; 
     gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
     /* Camera - */
     static bool loaded = false;
@@ -285,29 +287,30 @@ enum {
     [(EAGLView *)self.view presentFramebuffer];
 }
 
--(void)gameClick {
+-(void)gameClick:(CGPoint) point {
     //TODO generate a click
 }
 
--(void)menuClick {
+-(void)menuClick:(CGPoint) point {
     //TODO button press
 }
 
 //Adapted from code from Dr. Steve Maddock
 -(void)calcEyePosition {
+    Model * _model = (Model*) model;
     float cy, cz, sy, sz;
-    cy = cosf(theta);
-    sy = sinf(theta);
-    cz = cosf(phi);
-    sz = sinf(phi);
+    cy = cosf(_model->theta);
+    sy = sinf(_model->theta);
+    cz = cosf(_model->phi);
+    sz = sinf(_model->phi);
     
-    eye[0] = radius * cy * cz;
-    eye[1] = radius * sz;
-    eye[2] = -radius * sy * cz;
+    _model->eye[0] = _model->radius * cy * cz;
+    _model->eye[1] = _model->radius * sz;
+    _model->eye[2] = -_model->radius * sy * cz;
     
-    up[0] = -cy * sz;
-    up[1] = cz;
-    up[2] = sy * sz;
+    _model->up[0] = -cy * sz;
+    _model->up[1] = cz;
+    _model->up[2] = sy * sz;
     
     /* Uncomment to re-enable self-righting of camera
      if(up[1]<0){
@@ -320,48 +323,55 @@ enum {
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    if (self.model.inGame){
-        self.model.start = point;
-        self.model.isDragging = false;
+    Model * _model = (Model*) model;
+    if (_model->inGame){
+        _model->startX = point.x;
+        _model->startY = point.y;
+        _model->isDragging = false;
     }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    if (self.model.inGame){
+    Model * _model = (Model*) model;
+    if (_model->inGame){
         //Adapted from code from Dr. Steve Maddock
-        float dx = (point.x - self.start.x);
-        float dy = (point.y - self.start.y);
-        if (!self.model.isDragging) {
+        float dx = (point.x - _model->startX);
+        float dy = (point.y - _model->startY);
+        if (!_model->isDragging) {
         float distMoved = sqrtf((dx*dx)+(dy*dy));
             if(distMoved <= MOVE_PLAY)
                 return;
-            self.model.isDragging = true;
+            _model->isDragging = true;
         }
         
-        self.model.current = point;
-        self.model.theta -= (dx / WIDTH) * 2.0f;
-        self.model.phi += (dy / HEIGHT) * 2.0f;
+        _model->currX = point.x;
+        _model->currY = point.y;
+        _model->theta -= (dx / WIDTH) * 2.0f;
+        _model->phi += (dy / HEIGHT) * 2.0f;
         [self calcEyePosition];
-        self.model.start = self.model.current;
+        _model->startX = _model->currX;
+        _model->startY = _model->currY;
     }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    if (self.model.inGame) {
-        if(!self.model.isDragging)
+    Model * _model = (Model*) model;
+    if (_model->inGame) {
+        if(!_model->isDragging)
             [self gameClick: point];
     } else {
-        [self menuClick];
+        [self menuClick: point];
     }
 }
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    if (self.model.inGame&&!self.model.isDragging)
+    Model * _model = (Model*) model;
+    if (_model->inGame&&!_model->isDragging)
         [self gameClick: point]; 
 }
 

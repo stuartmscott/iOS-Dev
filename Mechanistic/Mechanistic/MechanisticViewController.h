@@ -14,7 +14,6 @@
 #import <OpenGLES/ES1/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
-#import "Model.h"
 #import "gluLookAt.h"
 
 @interface MechanisticViewController : UIViewController {
@@ -24,11 +23,11 @@
     BOOL animating;
     NSInteger animationFrameInterval;
     CADisplayLink *displayLink;
+    void* model;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
 @property (nonatomic) NSInteger animationFrameInterval;
-@property (retain) Model *model;
 
 -(void)slideTile:(int)faceIndex From:(int) oldIndex To:(int) newIndex;
 
@@ -38,5 +37,6 @@
 -(void)stopAnimation;
 
 -(void)calcEyePosition;
-
+-(void)gameClick:(CGPoint) point;
+-(void)menuClick:(CGPoint) point;
 @end
