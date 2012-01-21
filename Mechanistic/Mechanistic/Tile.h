@@ -13,7 +13,8 @@ class Tile
 {
 public:
     bool empty;
+    bool hasGear;
     Gear *gear;
-    bool hasGear();
+    void setGear(Gear* g);
     ~Tile();
 };

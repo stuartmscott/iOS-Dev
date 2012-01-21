@@ -18,14 +18,15 @@ class Model
 {
 public:
     int spawnTileFace, spawnTileIndex;
-    int targetFace, targetTileIndex;
+    int targetTileFace, targetTileIndex;
     float startX, startY, currX, currY;
     float eye[3], up[3];
     float radius, theta, phi;
     bool isDragging;
+    bool gameWon;
     Face* faces[6];
     Edge* edges[12];
-    Model();
+    Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex);
     ~Model();
     void moveTile(int faceIndex, int tileIndex);
 };

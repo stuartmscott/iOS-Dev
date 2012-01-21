@@ -8,3 +8,6 @@
 
 #include "Gear.h"
 
+Gear::Gear(){
+    isSpinning = false;
+}

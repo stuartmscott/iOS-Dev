@@ -54,10 +54,10 @@ void Face::setSpinning(Edge* src, int srcIndex) {
 
 void Face::setTileSpinning(int tileIndex) {
     Tile* t = tiles[tileIndex];
-    if (t->hasGear()){
+    if (t->hasGear){
         if(!t->gear->isSpinning){
             t->gear->isSpinning = true;
-            //TODO make neighours spin
+            //Make neighours spin
             //Above
             int newIndex = tileIndex-3;
             if(newIndex<0)
@@ -71,8 +71,17 @@ void Face::setTileSpinning(int tileIndex) {
             else
                 setTileSpinning(newIndex);
             //Left
-            
+            if (tileIndex%3==0) {
+                west->setSpinning(this, tileIndex/3);
+            } else {
+                setTileSpinning(tileIndex-1);
+            }
             //Right
+            if (tileIndex%3==2) {
+                west->setSpinning(this, (tileIndex-2)/3);
+            } else {
+                setTileSpinning(tileIndex+1);
+            }
         }
     }
 
