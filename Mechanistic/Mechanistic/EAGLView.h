@@ -12,7 +12,6 @@
 #import <OpenGLES/ES1/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
-#import "MechanisticViewController.h"
 
 @class EAGLContext;
 
@@ -30,7 +29,6 @@
 }
 
 @property (nonatomic, retain) EAGLContext *context;
-@property (retain) MechanisticViewController *controller;
 
 - (void)setFramebuffer;
 - (BOOL)presentFramebuffer;

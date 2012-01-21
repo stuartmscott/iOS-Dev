@@ -22,7 +22,6 @@ public:
     float eye[3], up[3];
     float radius, theta, phi;
     bool isDragging;
-    bool inGame;
     Face* faces[6];
     Edge* edges[12];
     Model();
