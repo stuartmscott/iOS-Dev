@@ -129,11 +129,12 @@
     up[1] = cz;
     up[2] = sy * sz;
     
+    /* Uncomment to re-enable self-righting of camera
     if(up[1]<0){
         up[0] = -up[0];
         up[1] = -up[1];
         up[2] = -up[2];
-    }
+    } */
 }
 
 -(float*)getEye {
