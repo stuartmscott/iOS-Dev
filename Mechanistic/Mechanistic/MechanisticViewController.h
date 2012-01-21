@@ -24,6 +24,7 @@
     NSInteger animationFrameInterval;
     CADisplayLink *displayLink;
     void* model;
+    void* converter;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;

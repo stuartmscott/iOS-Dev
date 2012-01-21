@@ -26,5 +26,7 @@ Converter::~Converter()
 SceneGraphNode* Converter::convert(Model *m)
 {
     SceneGraphNode* root = new SceneGraphNode();
+    root->getChildren()->push_back(gear);
+    root->getChildren()->push_back(tile);
     return root;
 }

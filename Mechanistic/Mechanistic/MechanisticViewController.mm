@@ -19,6 +19,7 @@
 #import <string>
 #import "OBJFileLoader.h"
 #import "Model.h"
+#import "Converter.h"
 
 // Uniform index.
 enum {
@@ -68,6 +69,10 @@ enum {
     [(EAGLView *)self.view setFramebuffer];
     
     [self initGLSettings];
+    NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
+    NSLog(nsGearPath);
+    string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    converter = new Converter(directory);
     animating = FALSE;
     animationFrameInterval = 1;
     self.displayLink = nil;
@@ -80,6 +85,7 @@ enum {
         [EAGLContext setCurrentContext:nil];
     
     [context release];
+    delete (Converter*)converter;
     delete (Model*)model;
     [super dealloc];
 }
@@ -211,75 +217,11 @@ enum {
     float* up = _model->up; 
     gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
     /* Camera - */
-    static bool loaded = false;
-    static MeshNode* gear = new MeshNode();
-    if (!loaded)
-    {
-        NSString *nsGearPath = [[NSBundle mainBundle] pathForResource:@"Gear" ofType:@"obj"];
-        string realm = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
-        loadMesh(realm, gear, false);
-        loaded = true;
-    }
+    SceneGraphNode* sceneGraph = ((Converter*)converter)->convert(_model);
     
     glPushMatrix();
     {
-        SceneGraphNode* sceneGraph = new SceneGraphNode();
-        MeshNode* mesh = new MeshNode();
-        vector<Vertex*> vertices;
-        vector<GLfloat*> normals;
-        vector<Triangle*> triangles;
-        
-        Vertex top;
-        top.xyzCoords[0] = 0;
-        top.xyzCoords[1] = 0.5f;
-        top.xyzCoords[2] = -1;
-        Vertex left;
-        left.xyzCoords[0] = -0.5f;
-        left.xyzCoords[1] = -0.5f;
-        left.xyzCoords[2] = -1;
-        Vertex right;
-        right.xyzCoords[0] = 0.5f;
-        right.xyzCoords[1] = -0.5f;
-        right.xyzCoords[2] = -1;
-        vertices.push_back(&left);
-        vertices.push_back(&right);
-        vertices.push_back(&top);
-        
-        GLfloat n0[3] = {0, 0, 1};
-        normals.push_back(n0);
-        
-        Triangle triangle;
-        triangle.normalIndices[0] = 0;
-        triangle.normalIndices[1] = 0;
-        triangle.normalIndices[2] = 0;
-        triangle.vertexIndices[0] = 0;
-        triangle.vertexIndices[1] = 1;
-        triangle.vertexIndices[2] = 2;
-        
-        triangles.push_back(&triangle);
-        mesh->setVertices(vertices);
-        mesh->setNormals(normals);
-        mesh->setTriangles(triangles);
-        mesh->material->setAmbient(1, 1, 1, 1);
-        LightNode* light = new LightNode();
-        light->spotlight = true;
-        vector<SceneGraphNode*> children;
-        children.push_back(light);
-        children.push_back(mesh);
-        vector<Transform*> transes;
-        vector<GLfloat> params;
-        params.push_back(0.2f);
-        params.push_back(0.2f);
-        params.push_back(0.2f);
-        Transform * trans = new Transform(SCALE, params);
-        transes.push_back(trans);
-        TransformNode* scaleNode = new TransformNode(transes);
-        scaleNode->getChildren()->push_back(gear);
-        children.push_back(scaleNode);
-        sceneGraph->setChildren(children);
         render(sceneGraph);
-        delete mesh;
-        delete sceneGraph;
     }
     glPopMatrix();
     /* Rendering - */
