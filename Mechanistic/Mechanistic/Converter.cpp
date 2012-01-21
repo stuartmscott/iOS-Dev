@@ -7,3 +7,24 @@
 //
 
 #include "Converter.h"
+#include "OBJFileLoader.h"
+
+Converter::Converter(string directory)
+{
+    gear = new MeshNode();
+    loadMesh(directory+"/Gear.obj", gear, false);
+    tile = new MeshNode();
+    loadMesh(directory+"/Tile.obj", tile, false);
+}
+
+Converter::~Converter()
+{
+    delete gear;
+    delete tile;
+}
+
+SceneGraphNode* Converter::convert(Model *m)
+{
+    SceneGraphNode* root = new SceneGraphNode();
+    return root;
+}

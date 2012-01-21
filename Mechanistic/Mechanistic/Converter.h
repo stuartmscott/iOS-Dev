@@ -7,10 +7,16 @@
 //
 #pragma once
 #include "MeshNode.h"
+#include <string>
+#include "Model.h"
 
 class Converter
 {
 private:
     MeshNode* gear;
     MeshNode* tile;
+public:
+    Converter(string directory);
+    ~Converter();
+    SceneGraphNode* convert(Model* m);
 };
