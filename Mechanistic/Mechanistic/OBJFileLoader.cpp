@@ -77,7 +77,7 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
         trim(line);
         replaceAll(line, doubleSpace, space);
         tokens.clear();
-        tokenize(line, delims, tokens);
+        split(line.c_str(), ' ', tokens);
         string cmd = tokens.at(0);
         if (cmd == "v")
         {
