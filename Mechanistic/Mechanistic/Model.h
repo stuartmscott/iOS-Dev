@@ -7,8 +7,7 @@
 //
 
 #pragma once
-#include "Face.h"
-#include "Edge.h"
+#include "FaceAndEdge.h"
 #define MOVE_PLAY 5.0f
 #define WIDTH 320.0f
 #define HEIGHT 480.0f
@@ -19,14 +18,14 @@ class Model
 {
 public:
     int spawnTileFace, spawnTileIndex;
-    int targetFace, targetTileIndex;
+    int targetTileFace, targetTileIndex;
     float startX, startY, currX, currY;
     float eye[3], up[3];
     float radius, theta, phi;
     bool isDragging;
     Face* faces[6];
     Edge* edges[12];
-    Model();
+    Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex);
     ~Model();
     void moveTile(int faceIndex, int tileIndex);
 };

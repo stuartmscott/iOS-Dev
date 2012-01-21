@@ -57,7 +57,7 @@ enum {
 	self.context = aContext;
 	[aContext release];
     
-    model = new Model();
+    model = new Model(0, 0, 4, 4);
     [self calcEyePosition];
     
     [(EAGLView *)self.view setContext:context];
@@ -196,6 +196,13 @@ enum {
 
 -(float)toRadians:(float)degrees {
     return degrees * (180.0f / M_PI);
+}
+
+- (void)update {
+    
+    Model * _model = (Model*) model;
+    int faceIndex = _model->spawnTileFace;
+    int tileIndex = _model->spawnTileIndex;
 }
 
 - (void)drawFrame

@@ -18,10 +18,15 @@ Tile** makeTiles(int num, int freeIndex)
     return tiles;
 }
 
-Model::Model()
+Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
 {
+    spawnTileFace = sFaceIndex;
+    spawnTileIndex = sTileIndex;
+    targetTileFace = tFaceIndex;
+    targetTileIndex = tTileIndex;
     //Top face
     Face *top = new Face(makeTiles(9, 4), 4);
+    top->tiles[0]->gear = new Gear();
         
     //Top edges
     Edge *te0 = new Edge(makeTiles(3, -1));
@@ -34,6 +39,7 @@ Model::Model()
     Face *sf1 = new Face(makeTiles(9, 3), 3);
     Face *sf2 = new Face(makeTiles(9, 6), 6);
     Face *sf3 = new Face(makeTiles(9, 7), 7);
+    sf3->tiles[4]->gear = new Gear();
     
     //Side edges
     Edge *se0 = new Edge(makeTiles(3, -1));
