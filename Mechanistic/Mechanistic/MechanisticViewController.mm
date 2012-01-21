@@ -162,13 +162,6 @@ enum {
 - (void)initGLSettings
 {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
-    glShadeModel(GL_SMOOTH);
-    //glPolygonMode(GL_FRONT, GL_FILL);
-    glEnable(GL_NORMALIZE);
-    glEnable(GL_LIGHTING);
     
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -192,6 +185,15 @@ enum {
     
     glFrustumf(left, right, bottom, top, NEAR_CLIP, FAR_CLIP);
     glMatrixMode(GL_MODELVIEW);
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+    glDepthFunc(GL_LEQUAL);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    glShadeModel(GL_SMOOTH);
+    //glPolygonMode(GL_FRONT, GL_FILL);
+    glEnable(GL_NORMALIZE);
+    glEnable(GL_LIGHTING);
 }
 
 -(float)toRadians:(float)degrees {
