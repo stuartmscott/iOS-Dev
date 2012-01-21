@@ -16,6 +16,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        self.inGame = NO;
         //Top face
         Face *top = [[Face alloc] init];
         
@@ -72,77 +73,11 @@
         
         self.faces = [NSArray arrayWithObjects: top, sf0, sf1, sf2, sf3, bot, nil];
         
-        radius = 2.0f;//8.0
-        theta = -1.5f;//-0.7
-        phi = 0.5f;//0.5
-        [self calcEyePosition];
+        self.radius = 2.0f;//8.0
+        self.theta = -1.5f;//-0.7
+        self.phi = 0.5f;//0.5
     }
     return self;
-}
-
--(void)setSpinningFrom:(int)faceIndex tileIndex:(int)tileIndex{
-    //TODO
-}
-
--(void)touchesStart:(CGPoint)point {
-    self.start = point;
-    isDragging = false;
-}
-
-//Adapted from code from Dr. Steve Maddock
--(void)touchesMoved:(CGPoint)point {
-    float dx = (point.x - self.start.x);
-    float dy = (point.y - self.start.y);
-    if (!isDragging) {
-        float distMoved = sqrtf((dx*dx)+(dy*dy));
-        if(distMoved <= MOVE_PLAY)
-            return;
-        isDragging = true;
-    }
-    
-    self.current = point;
-    theta -= (dx / WIDTH) * 2.0f;
-    phi += (dy / HEIGHT) * 2.0f;
-    [self calcEyePosition];
-    self.start = self.current;
-}
-
--(void)touchesEnd {
-    if (!isDragging) {
-        //TODO generate a click
-    }
-}
-
-//Adapted from code from Dr. Steve Maddock
--(void)calcEyePosition {
-    float cy, cz, sy, sz;
-    cy = cosf(theta);
-    sy = sinf(theta);
-    cz = cosf(phi);
-    sz = sinf(phi);
-    
-    eye[0] = radius * cy * cz;
-    eye[1] = radius * sz;
-    eye[2] = -radius * sy * cz;
-    
-    up[0] = -cy * sz;
-    up[1] = cz;
-    up[2] = sy * sz;
-    
-    /* Uncomment to re-enable self-righting of camera
-    if(up[1]<0){
-        up[0] = -up[0];
-        up[1] = -up[1];
-        up[2] = -up[2];
-    } */
-}
-
--(float*)getEye {
-    return eye;
-}
-
--(float*)getUp {
-    return up;
 }
 
 - (void)dealloc {

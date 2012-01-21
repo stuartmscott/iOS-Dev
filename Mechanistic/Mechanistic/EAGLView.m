@@ -17,7 +17,7 @@
 
 @implementation EAGLView
 
-@synthesize context, model;
+@synthesize context, controller;
 
 // You must implement this method
 + (Class)layerClass
@@ -38,7 +38,6 @@
                                         kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
                                         nil];
     }
-    
     return self;
 }
 
@@ -46,7 +45,7 @@
 {
     [self deleteFramebuffer];    
     [context release];
-    [model release];
+    [controller release];
     [super dealloc];
 }
 
@@ -137,24 +136,24 @@
     [self deleteFramebuffer];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+/*- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
-    [self.model touchesStart: touchPoint];
+    //[self.controller touchesBegan: touchPoint];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint touchPoint = [touch locationInView:self];
-    [self.model touchesMoved: touchPoint];
+    //[self.controller touchesMoved: touchPoint];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.model touchesEnd];
+    //[self.controller touchesEnded];
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.model touchesEnd];
+    //[self.controller touchesEnded];
 }
-
+*/
 @end

@@ -60,8 +60,8 @@ enum {
 	self.context = aContext;
 	[aContext release];
     
-    self.model = [[Model alloc] init];
-    ((EAGLView *)self.view).model = model;
+    self.model = [[Model alloc] init];    
+    [self calcEyePosition];
     
     [(EAGLView *)self.view setContext:context];
     [(EAGLView *)self.view setFramebuffer];
@@ -283,6 +283,86 @@ enum {
     /* Rendering - */
     
     [(EAGLView *)self.view presentFramebuffer];
+}
+
+-(void)gameClick {
+    //TODO generate a click
+}
+
+-(void)menuClick {
+    //TODO button press
+}
+
+//Adapted from code from Dr. Steve Maddock
+-(void)calcEyePosition {
+    float cy, cz, sy, sz;
+    cy = cosf(theta);
+    sy = sinf(theta);
+    cz = cosf(phi);
+    sz = sinf(phi);
+    
+    eye[0] = radius * cy * cz;
+    eye[1] = radius * sz;
+    eye[2] = -radius * sy * cz;
+    
+    up[0] = -cy * sz;
+    up[1] = cz;
+    up[2] = sy * sz;
+    
+    /* Uncomment to re-enable self-righting of camera
+     if(up[1]<0){
+     up[0] = -up[0];
+     up[1] = -up[1];
+     up[2] = -up[2];
+     } */
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	UITouch *touch = [touches anyObject];
+	CGPoint point = [touch locationInView:self.view];
+    if (self.model.inGame){
+        self.model.start = point;
+        self.model.isDragging = false;
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+	UITouch *touch = [touches anyObject];
+	CGPoint point = [touch locationInView:self.view];
+    if (self.model.inGame){
+        //Adapted from code from Dr. Steve Maddock
+        float dx = (point.x - self.start.x);
+        float dy = (point.y - self.start.y);
+        if (!self.model.isDragging) {
+        float distMoved = sqrtf((dx*dx)+(dy*dy));
+            if(distMoved <= MOVE_PLAY)
+                return;
+            self.model.isDragging = true;
+        }
+        
+        self.model.current = point;
+        self.model.theta -= (dx / WIDTH) * 2.0f;
+        self.model.phi += (dy / HEIGHT) * 2.0f;
+        [self calcEyePosition];
+        self.model.start = self.model.current;
+    }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+	UITouch *touch = [touches anyObject];
+	CGPoint point = [touch locationInView:self.view];
+    if (self.model.inGame) {
+        if(!self.model.isDragging)
+            [self gameClick: point];
+    } else {
+        [self menuClick];
+    }
+}
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+	UITouch *touch = [touches anyObject];
+	CGPoint point = [touch locationInView:self.view];
+    if (self.model.inGame&&!self.model.isDragging)
+        [self gameClick: point]; 
 }
 
 @end

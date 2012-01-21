@@ -37,4 +37,6 @@
 -(void)startAnimation;
 -(void)stopAnimation;
 
+-(void)calcEyePosition;
+
 @end

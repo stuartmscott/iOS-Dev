@@ -20,23 +20,13 @@
     bool isDragging;
 }
 
+@property bool inGame;
 @property CGPoint start, current;
 @property (retain) NSArray *faces, *edges;
 @property int spawnFace, spawnTile;
 @property int targetFace, targetTile;
 
 -(id)init;
-
-//Recursive function - Given a gear which is spinning, it will set all neighbour gears to spin iff they aren't already spinning
--(void)setSpinningFrom:(int)faceIndex tileIndex:(int)tileIndex;
-
--(void)calcEyePosition;
-
--(void)touchesStart:(CGPoint)point;
-
--(void)touchesMoved:(CGPoint)point;//TODO the distance moved will be used to determine the rotation
-
--(void)touchesEnd;
 
 -(float*)getEye;
 
