@@ -64,10 +64,12 @@ enum {
     [(EAGLView *)self.view setFramebuffer];
     
     [self initGLSettings];
+
     NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
     NSLog(nsGearPath);
     string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
     converter = new Converter(directory);
+    
     animating = FALSE;
     animationFrameInterval = 1;
     self.displayLink = nil;
@@ -247,11 +249,9 @@ enum {
     
     [(EAGLView *)self.view setFramebuffer];
     
-    /* Rendering + */
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     
-    /* Camera + */
     Model * _model = (Model*) model;
     float* eye = _model->eye;
     float* up = _model->up;
@@ -272,16 +272,12 @@ enum {
     }
     light->doBeforeRender();
     gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
-    /* Camera - */
-    
-    
     
     glPushMatrix();
     {
         render(sceneGraph);
     }
     glPopMatrix();
-    /* Rendering - */
     
     [(EAGLView *)self.view presentFramebuffer];
 }

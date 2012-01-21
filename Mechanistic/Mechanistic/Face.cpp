@@ -15,6 +15,7 @@ Face::Face(Tile** newTiles, int freeIndex)
     {
         tiles[i] = newTiles[i];
     }
+    delete [] newTiles;
 }
 
 Face::~Face()

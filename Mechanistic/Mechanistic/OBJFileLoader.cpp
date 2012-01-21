@@ -15,7 +15,7 @@
 #include "Vertex.h"
 
 using namespace std;
-
+/*
 void tokenize(string text, char* separators, vector<string> &tokens)
 {
     char ctext[text.size()];
@@ -27,7 +27,7 @@ void tokenize(string text, char* separators, vector<string> &tokens)
         token = strtok( NULL, separators );
     }
 }
-
+*/
 void split(const char *str, char c, vector<string>& result)
 {
     while(true)
@@ -122,10 +122,10 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
                     {
                         int kost = 1;
                     }
-                    /*if(poly->normalIndices[i]>60){
+                    //if(poly->normalIndices[i]>60){
                         //uh oh
-                        int kost = 0+2;
-                    }*/
+                    //    int kost = 0+2;
+                    //}
                 }
                 if (textured)
                 {

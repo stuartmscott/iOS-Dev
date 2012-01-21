@@ -84,7 +84,7 @@ void MeshNode::setTriangles(vector<Triangle*>& triangles)
 
 void MeshNode::setTextureCoords(vector<GLfloat*>& textureCoords)
 {
-    this->triangles = triangles;
+    this->textureCoords = textureCoords;
     if (textured)
         setCompiled(false);      
 }

@@ -17,7 +17,7 @@ private:
     MeshNode* tile;
     SceneGraphNode* makeTile(bool withGear);
 public:
-    Converter(string directory);
+    Converter(string &directory);
     ~Converter();
     SceneGraphNode* convert(Model* m);
 };

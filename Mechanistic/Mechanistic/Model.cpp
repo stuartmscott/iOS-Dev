@@ -103,7 +103,7 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7
     phi = 0.5f;//0.5
-    gameWon = true;
+    gameWon = false;
 }
 
 Model::~Model()

@@ -14,6 +14,7 @@ Edge::Edge(Tile** newTiles)
     {
         tiles[i] = newTiles[i];
     }
+    delete [] newTiles;
 }
 
 Edge::~Edge()

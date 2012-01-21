@@ -11,13 +11,15 @@
 #include "TransformNode.h"
 #include "LightNode.h"
 
-Converter::Converter(string directory)
+Converter::Converter(string &directory)
 {
     gear = new MeshNode();
-    loadMesh(directory+"/Gear.obj", gear, false);
+    string gfn = directory+"/Gear.obj";
+    loadMesh(gfn, gear, false);
     gear->material->setAmbient(0.5f, 0.5f, 0.5f, 1.0f);
     tile = new MeshNode();
-    loadMesh(directory+"/Tile.obj", tile, false);
+    string tfn = directory+"/Tile.obj";
+    loadMesh(tfn, tile, false);
     tile->material->setAmbient(0.84f, 0.65f, 0.43f, 1.0f);
 }
 
