@@ -6,12 +6,12 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
 
+class Gear
+{
+public:
+    bool isSpinning;
+    float rotation;
 
-@interface Gear : NSObject
-
-@property bool isSpinning;
-@property float rotation;
-
-@end
+};

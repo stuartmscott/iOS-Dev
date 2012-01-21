@@ -6,14 +6,14 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Gear.h"
+#pragma once
+#include "Gear.h"
 
-@interface Tile : NSObject
-
-@property bool empty;
-@property (retain) Gear *gear;
-
--(bool)hasGear;
-
-@end
+class Tile 
+{
+public:
+    bool empty;
+    Gear *gear;
+    bool hasGear();
+    ~Tile();
+};
