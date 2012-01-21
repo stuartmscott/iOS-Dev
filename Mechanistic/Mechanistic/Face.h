@@ -14,12 +14,13 @@ class Edge;
 class Face
 {
 public:
+    int freeTileIndex;
     Edge* north;
     Edge* south;
     Edge* west;
     Edge* east;
     Tile* tiles[9];
-    Face(Tile** newTiles);
+    Face(Tile** newTiles, int freeTileIndex);
     ~Face();
     void setEdges(Edge* n, Edge* e, Edge* s, Edge* w);
 };

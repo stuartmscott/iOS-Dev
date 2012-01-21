@@ -9,45 +9,46 @@
 #include "Model.h"
 #include <stdlib.h>
 
-Tile** makeTiles(int num)
+Tile** makeTiles(int num, int freeIndex)
 {
     Tile** tiles = (Tile**)malloc(sizeof(Tile)*num);
     for (int i=0;i<num;i++)
-        tiles[i] = new Tile();
+        if (i!=freeIndex)
+            tiles[i] = new Tile();
     return tiles;
 }
 
 Model::Model()
 {
     //Top face
-    Face *top = new Face(makeTiles(9));
+    Face *top = new Face(makeTiles(9, 4), 4);
         
     //Top edges
-    Edge *te0 = new Edge(makeTiles(3));
-    Edge *te1 = new Edge(makeTiles(3));
-    Edge *te2 = new Edge(makeTiles(3));
-    Edge *te3 = new Edge(makeTiles(3));
+    Edge *te0 = new Edge(makeTiles(3, -1));
+    Edge *te1 = new Edge(makeTiles(3, -1));
+    Edge *te2 = new Edge(makeTiles(3, -1));
+    Edge *te3 = new Edge(makeTiles(3, -1));
     
     //Side faces
-    Face *sf0 = new Face(makeTiles(9));
-    Face *sf1 = new Face(makeTiles(9));
-    Face *sf2 = new Face(makeTiles(9));
-    Face *sf3 = new Face(makeTiles(9));
+    Face *sf0 = new Face(makeTiles(9, 2), 2);
+    Face *sf1 = new Face(makeTiles(9, 3), 3);
+    Face *sf2 = new Face(makeTiles(9, 6), 6);
+    Face *sf3 = new Face(makeTiles(9, 7), 7);
     
     //Side edges
-    Edge *se0 = new Edge(makeTiles(3));
-    Edge *se1 = new Edge(makeTiles(3));
-    Edge *se2 = new Edge(makeTiles(3));
-    Edge *se3 = new Edge(makeTiles(3));
+    Edge *se0 = new Edge(makeTiles(3, -1));
+    Edge *se1 = new Edge(makeTiles(3, -1));
+    Edge *se2 = new Edge(makeTiles(3, -1));
+    Edge *se3 = new Edge(makeTiles(3, -1));
     
     //Bottom edges
-    Edge *be0 = new Edge(makeTiles(3));
-    Edge *be1 = new Edge(makeTiles(3));
-    Edge *be2 = new Edge(makeTiles(3));
-    Edge *be3 = new Edge(makeTiles(3));
+    Edge *be0 = new Edge(makeTiles(3, -1));
+    Edge *be1 = new Edge(makeTiles(3, -1));
+    Edge *be2 = new Edge(makeTiles(3, -1));
+    Edge *be3 = new Edge(makeTiles(3, -1));
     
     //Bottom face
-    Face *bot = new Face(makeTiles(9));
+    Face *bot = new Face(makeTiles(9, 1), 1);
     
     top->setEdges(te2, te1, te0, te3);
     
@@ -108,4 +109,12 @@ Model::~Model()
     {
         delete edges[i];
     }
+}
+
+void Model::moveTile(int faceIndex, int tileIndex) {
+    Face* f = faces[faceIndex];
+    Tile** tiles = f->tiles;
+    Tile* temp = tiles[tileIndex];
+    tiles[tileIndex] = tiles[f->freeTileIndex];
+    tiles[f->freeTileIndex] = temp;
 }

@@ -18,6 +18,8 @@
 class Model
 {
 public:
+    int spawnTileFace, spawnTileIndex;
+    int targetFace, targetTileIndex;
     float startX, startY, currX, currY;
     float eye[3], up[3];
     float radius, theta, phi;
@@ -26,4 +28,5 @@ public:
     Edge* edges[12];
     Model();
     ~Model();
+    void moveTile(int faceIndex, int tileIndex);
 };

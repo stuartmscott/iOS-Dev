@@ -8,8 +8,9 @@
 
 #import "Face.h"
 
-Face::Face(Tile** newTiles)
+Face::Face(Tile** newTiles, int freeIndex)
 {
+    freeTileIndex = freeIndex;
     for (int i=0; i<9; i++)
     {
         tiles[i] = newTiles[i];
