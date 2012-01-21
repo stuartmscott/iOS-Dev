@@ -27,16 +27,31 @@ Converter::~Converter()
     delete tile;
 }
 
+SceneGraphNode* Converter::makeTile(bool withGear)
+{
+    SceneGraphNode* tileGroup = new SceneGraphNode();
+    Transform* rotate = new Transform(ROTATE, 0.0f, 0.0f, 0.0f, 1.0f);
+    Transform* translate = new Transform(TRANSLATE, 0.0f, 3.2f, 0.0f);
+    TransformNode* positionGear = new TransformNode(rotate, translate);
+    positionGear->getChildren()->push_back(gear);
+    tileGroup->getChildren()->push_back(tile);
+    tileGroup->getChildren()->push_back(positionGear);
+    return tileGroup;
+}
+
 SceneGraphNode* Converter::convert(Model *m)
 {
     SceneGraphNode* root = new SceneGraphNode();
     TransformNode* scaleEverything = new TransformNode(SCALE, 0.1f, 0.1f, 0.1f);
+    /*
     Transform* rotate = new Transform(ROTATE, 0.0f, 0.0f, 0.0f, 1.0f);
     Transform* translate = new Transform(TRANSLATE, 0.0f, -3.2f, 0.0f);
     TransformNode* positionTile = new TransformNode(rotate, translate);
     positionTile->getChildren()->push_back(tile);
     scaleEverything->getChildren()->push_back(gear);
     scaleEverything->getChildren()->push_back(positionTile);
+     */
+    scaleEverything->getChildren()->push_back(makeTile(true));
     root->getChildren()->push_back(scaleEverything);
     return root;
 }

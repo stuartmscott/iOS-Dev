@@ -211,10 +211,27 @@ enum {
     /* Camera + */
     Model * _model = (Model*) model;
     float* eye = _model->eye;
-    float* up = _model->up; 
+    float* up = _model->up;
+    
+    static bool loaded = false;
+    static LightNode* light;
+    static SceneGraphNode* sceneGraph;
+    if (!loaded)
+    {
+        light = new LightNode();
+        light->spotlight = true;
+        light->setPosition(0.0f, 0.0f, 6000.0f);
+        light->setDiffuseColour(0.2f, 0.2f, 0.2f, 1.0f);
+        light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);
+        light->setSpotDirection(0, 0, 0);
+        sceneGraph = ((Converter*)converter)->convert(_model);
+        loaded = true;
+    }
+    light->doBeforeRender();
     gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
     /* Camera - */
-    SceneGraphNode* sceneGraph = ((Converter*)converter)->convert(_model);
+    
+    
     
     glPushMatrix();
     {

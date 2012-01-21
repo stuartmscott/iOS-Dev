@@ -153,6 +153,8 @@ void MeshNode::doBeforeRender()
 
 void MeshNode::compile()
 {
+    if (compiled)
+        return;
     if (SMOOTH_NORMALS_ENABLED)
     {
         int totalCoordCount = vertices.size() * VERTEX_COORD_COUNT;
@@ -163,7 +165,7 @@ void MeshNode::compile()
         {
             GLfloat *xyzCoords = vertices.at(i)->xyzCoords;
             GLfloat *nCoords = vertices.at(i)->normal;
-            for (int j=0; i<VERTEX_COORD_COUNT; j++)
+            for (int j=0; j<VERTEX_COORD_COUNT; j++)
             {
                 arrayPos++;
                 vertexBuffer[arrayPos] = xyzCoords[j];

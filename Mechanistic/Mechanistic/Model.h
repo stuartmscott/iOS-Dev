@@ -7,8 +7,7 @@
 //
 
 #pragma once
-#include "Face.h"
-#include "Edge.h"
+#include "FaceAndEdge.h"
 #define MOVE_PLAY 5.0f
 #define WIDTH 320.0f
 #define HEIGHT 480.0f
