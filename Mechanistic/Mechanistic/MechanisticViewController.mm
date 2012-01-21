@@ -43,7 +43,7 @@ enum {
 
 @implementation MechanisticViewController
 
-@synthesize animating, context, displayLink;
+@synthesize animating, context, displayLink, updateQueue;
 
 - (void)awakeFromNib
 {
@@ -145,7 +145,7 @@ enum {
         [aDisplayLink setFrameInterval:animationFrameInterval];
         [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         self.displayLink = aDisplayLink;
-        
+        self.updateQueue = dispatch_queue_create("Update thread", NULL);
         animating = TRUE;
     }
 }
@@ -156,6 +156,7 @@ enum {
         [self.displayLink invalidate];
         self.displayLink = nil;
         animating = FALSE;
+        dispatch_release(self.updateQueue);
     }
 }
 
@@ -201,14 +202,49 @@ enum {
 }
 
 - (void)update {
-    
     Model * _model = (Model*) model;
-    int faceIndex = _model->spawnTileFace;
-    int tileIndex = _model->spawnTileIndex;
+    //if target gear is spinning, game won
+    int faceIndex = _model->targetTileFace;
+    int tileIndex = _model->targetTileIndex;
+    if (_model->faces[faceIndex]->tiles[tileIndex]->gear->isSpinning)
+        _model->gameWon = true;
+    if (_model->gameWon) {
+        _model->theta += 0.01f;
+        _model->phi += 0.01f;
+        [self calcEyePosition];
+    }
+    
+    Face* f;
+    Edge* e;
+    Tile* t;
+    //Reset all gears to not spinning
+    for(int i = 0; i<6;i++){
+        f = _model->faces[i];
+        for(int j = 0;j<9;j++){
+            t = f->tiles[j];
+            if (t&&t->hasGear)
+                t->gear->isSpinning = false;
+        }
+    }
+    for(int i = 0; i<12;i++){
+        e = _model->edges[i];
+        for(int j = 0;j<3;j++){
+            t = e->tiles[j];
+            if (t&&t->hasGear)
+                t->gear->isSpinning = false;
+        }
+    }
+    
+    //Set spawn gear to spinning
+    faceIndex = _model->spawnTileFace;
+    tileIndex = _model->spawnTileIndex;
+    _model->faces[faceIndex]->setTileSpinning(tileIndex);
 }
 
 - (void)drawFrame
 {
+    dispatch_async(self.updateQueue, ^{[self update];});
+    
     [(EAGLView *)self.view setFramebuffer];
     
     /* Rendering + */
@@ -263,18 +299,23 @@ enum {
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    Model * _model = (Model*) model;
+    if (_model->gameWon)
+        return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    Model * _model = (Model*) model;
-        _model->startX = point.x;
-        _model->startY = point.y;
-        _model->isDragging = false;
+    _model->startX = point.x;
+    _model->startY = point.y;
+    _model->isDragging = false;
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    Model * _model = (Model*) model;
+    if (_model->gameWon)
+        return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    Model * _model = (Model*) model;
+    
     //Adapted from code from Dr. Steve Maddock
     float dx = (point.x - _model->startX);
     float dy = (point.y - _model->startY);
@@ -298,17 +339,21 @@ enum {
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    Model * _model = (Model*) model;
+    if (_model->gameWon)
+        return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    Model * _model = (Model*) model;
     if(!_model->isDragging)
         [self gameClick: point];
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+    Model * _model = (Model*) model;
+    if (_model->gameWon)
+        return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    Model * _model = (Model*) model;
     if (!_model->isDragging)
         [self gameClick: point]; 
 }

@@ -31,7 +31,7 @@ void Edge::setFaces(Face* f1, Face* f2)
 
 void Edge::setSpinning(Face* sender, int tileIndex){
     Tile* t = tiles[tileIndex];
-    if (t->hasGear()){
+    if (t->hasGear){
         if(!t->gear->isSpinning){
             t->gear->isSpinning = true;
             if (sender==face1)

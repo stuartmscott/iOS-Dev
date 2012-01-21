@@ -54,7 +54,7 @@ void Face::setSpinning(Edge* src, int srcIndex) {
 
 void Face::setTileSpinning(int tileIndex) {
     Tile* t = tiles[tileIndex];
-    if (t->hasGear()){
+    if (t->hasGear){
         if(!t->gear->isSpinning){
             t->gear->isSpinning = true;
             //Make neighours spin

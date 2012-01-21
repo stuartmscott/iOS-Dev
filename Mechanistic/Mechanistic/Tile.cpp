@@ -9,15 +9,14 @@
 #include "Tile.h"
 
 
-bool Tile::hasGear()
-{
-    return (gear!=0);
+void Tile::setGear(Gear* g){
+    gear = g;
+    hasGear = true;
 }
 
 Tile::~Tile()
 {
-    if (hasGear())
+    if (hasGear)
         delete gear;
- 
 }
 

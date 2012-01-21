@@ -23,6 +23,7 @@ public:
     float eye[3], up[3];
     float radius, theta, phi;
     bool isDragging;
+    bool gameWon;
     Face* faces[6];
     Edge* edges[12];
     Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex);

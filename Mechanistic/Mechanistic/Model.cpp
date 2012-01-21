@@ -26,7 +26,7 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     targetTileIndex = tTileIndex;
     //Top face
     Face *top = new Face(makeTiles(9, 4), 4);
-    top->tiles[0]->gear = new Gear();
+    top->tiles[0]->setGear(new Gear());
         
     //Top edges
     Edge *te0 = new Edge(makeTiles(3, -1));
@@ -39,7 +39,7 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     Face *sf1 = new Face(makeTiles(9, 3), 3);
     Face *sf2 = new Face(makeTiles(9, 6), 6);
     Face *sf3 = new Face(makeTiles(9, 7), 7);
-    sf3->tiles[4]->gear = new Gear();
+    sf3->tiles[4]->setGear(new Gear());
     
     //Side edges
     Edge *se0 = new Edge(makeTiles(3, -1));
@@ -103,6 +103,7 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7
     phi = 0.5f;//0.5
+    gameWon = true;
 }
 
 Model::~Model()

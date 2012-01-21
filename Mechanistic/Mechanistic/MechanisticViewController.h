@@ -29,6 +29,7 @@
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
 @property (nonatomic) NSInteger animationFrameInterval;
+@property dispatch_queue_t updateQueue;
 
 -(float)toRadians:(float)degrees;
 
