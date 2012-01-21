@@ -72,7 +72,6 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
     ifstream in(fileName.c_str());
     string doubleSpace = "  ";
     string space = " ";
-    char iDelims[] = "/ \r\n";
     while (getline(in,line))
     {
         trim(line);

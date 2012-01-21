@@ -11,12 +11,12 @@
 
 bool Tile::hasGear()
 {
-    return (gear!=NULL)?true:false;
+    return (gear!=0);
 }
 
 Tile::~Tile()
 {
-    if (hasGear)
+    if (hasGear())
         delete gear;
  
 }

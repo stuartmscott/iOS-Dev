@@ -7,6 +7,7 @@
 //
 
 #include "Model.h"
+#include <stdlib.h>
 
 Tile** makeTiles(int num)
 {
@@ -73,8 +74,25 @@ Model::Model()
     
     bot->setEdges(te0, te1, te2, te3);
     
-    faces = {top, sf0, sf1, sf2, sf3, bot};
-    edges = (te0, te1, te2, te3, se0, se1, se2, se3, be0, be1, be2, be3};
+    faces[0] = top;
+    faces[1] = sf0;
+    faces[2] = sf1;
+    faces[3] = sf2;
+    faces[4] = sf3;
+    faces[5] = bot;
+    
+    edges[0] = te0;
+    edges[1] = te1;
+    edges[2] = te2;
+    edges[3] = te3;
+    edges[4] = se0;
+    edges[5] = se1;
+    edges[6] = se2;
+    edges[7] = se3;
+    edges[8] = be0;
+    edges[9] = be1;
+    edges[10] = be2;
+    edges[11] = be3;
         
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7

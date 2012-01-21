@@ -8,7 +8,7 @@
 
 #import "Face.h"
 
-Face::Face(Tile** &newTiles)
+Face::Face(Tile** newTiles)
 {
     for (int i=0; i<9; i++)
     {
@@ -24,7 +24,7 @@ Face::~Face()
     }
 }
 
-void setEdges(Edge* n, Edge* e, Edge* s, Edge* w)
+void Face::setEdges(Edge* n, Edge* e, Edge* s, Edge* w)
 {
     north = n;
     east = e;

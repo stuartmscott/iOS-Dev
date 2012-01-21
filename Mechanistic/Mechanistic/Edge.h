@@ -17,7 +17,7 @@ public:
     Face* north;
     Face* south;
     Tile* tiles[3];
-    Edge(Tile** &newTiles);
+    Edge(Tile** newTiles);
     ~Edge();
     void setFaces(Face* n, Face* s);
 };

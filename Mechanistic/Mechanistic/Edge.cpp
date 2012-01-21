@@ -8,7 +8,7 @@
 
 #include "Edge.h"
 
-Edge::Edge(Tile** &newTiles)
+Edge::Edge(Tile** newTiles)
 {
     for (int i=0; i<3; i++)
     {
@@ -23,7 +23,7 @@ Edge::~Edge()
     delete tiles[2];
 }
 
-void setFaces(Face* n, Face* s)
+void Edge::setFaces(Face* n, Face* s)
 {
     north = n;
     south = s;

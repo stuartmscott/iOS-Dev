@@ -13,5 +13,4 @@ class Gear
 public:
     bool isSpinning;
     float rotation;
-
 };

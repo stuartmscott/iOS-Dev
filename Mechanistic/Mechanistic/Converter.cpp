@@ -6,13 +6,4 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#pragma once
 #include "Converter.h"
-#include "MeshNode.h"
-
-class Converter
-{
-private:
-    MeshNode* gear;
-    MeshNode* tile;
-};
