@@ -6,7 +6,7 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include "Edge.h"
+#include "FaceAndEdge.h"
 
 Edge::Edge(Tile** newTiles)
 {
@@ -23,8 +23,21 @@ Edge::~Edge()
     delete tiles[2];
 }
 
-void Edge::setFaces(Face* n, Face* s)
+void Edge::setFaces(Face* f1, Face* f2)
 {
-    north = n;
-    south = s;
+    face1 = f1;
+    face2 = f2;
+}
+
+void Edge::setSpinning(Face* sender, int tileIndex){
+    Tile* t = tiles[tileIndex];
+    if (t->hasGear()){
+        if(!t->gear->isSpinning){
+            t->gear->isSpinning = true;
+            if (sender==face1)
+                face2->setSpinning(this, tileIndex);
+            else
+                face1->setSpinning(this, tileIndex);
+        }
+    }
 }

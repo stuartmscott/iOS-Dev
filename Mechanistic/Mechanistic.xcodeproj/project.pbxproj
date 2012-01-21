@@ -52,11 +52,10 @@
 		CE833C4414BB32A300D0C413 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraphNode.cpp; sourceTree = "<group>"; };
 		CE833C4714BB360900D0C413 /* SceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphNode.h; sourceTree = "<group>"; };
+		CE849A1714CB54AF0013C152 /* FaceAndEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceAndEdge.h; sourceTree = "<group>"; };
 		CE8BA27014C9E8D300983958 /* Gear.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gear.obj; sourceTree = "<group>"; };
 		CE8D908D14CB04CB007B332E /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
-		CE8D908E14CB04CB007B332E /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
 		CE8D908F14CB04CB007B332E /* Face.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Face.cpp; sourceTree = "<group>"; };
-		CE8D909014CB04CB007B332E /* Face.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Face.h; sourceTree = "<group>"; };
 		CE8D909114CB04CB007B332E /* Gear.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gear.cpp; sourceTree = "<group>"; };
 		CE8D909214CB04CB007B332E /* Gear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gear.h; sourceTree = "<group>"; };
 		CE8D909314CB04CB007B332E /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
@@ -161,10 +160,9 @@
 		CEC4602C14C9C12E009900D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE849A1714CB54AF0013C152 /* FaceAndEdge.h */,
 				CE8D908D14CB04CB007B332E /* Edge.cpp */,
-				CE8D908E14CB04CB007B332E /* Edge.h */,
 				CE8D908F14CB04CB007B332E /* Face.cpp */,
-				CE8D909014CB04CB007B332E /* Face.h */,
 				CE8D909114CB04CB007B332E /* Gear.cpp */,
 				CE8D909214CB04CB007B332E /* Gear.h */,
 				CE8D909314CB04CB007B332E /* Model.cpp */,
