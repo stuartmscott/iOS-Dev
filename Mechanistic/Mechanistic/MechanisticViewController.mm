@@ -224,7 +224,7 @@ enum {
         f = _model->faces[i];
         for(int j = 0;j<9;j++){
             t = f->tiles[j];
-            if (t&&t->hasGear)
+            if (t->hasGear)
                 t->gear->isSpinning = false;
         }
     }
@@ -232,7 +232,7 @@ enum {
         e = _model->edges[i];
         for(int j = 0;j<3;j++){
             t = e->tiles[j];
-            if (t&&t->hasGear)
+            if (t->hasGear)
                 t->gear->isSpinning = false;
         }
     }
@@ -263,7 +263,7 @@ enum {
     {
         light = new LightNode();
         light->spotlight = true;
-        light->setPosition(0.0f, 0.0f, 6000.0f);
+        light->setPosition(0.0f, 0.0f, 20.0f);
         light->setDiffuseColour(0.2f, 0.2f, 0.2f, 1.0f);
         light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);
         light->setSpotDirection(0, 0, 0);

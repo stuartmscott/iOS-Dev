@@ -9,5 +9,6 @@
 #include "Gear.h"
 
 Gear::Gear(){
+    rotation = 0.0f;
     isSpinning = false;
 }

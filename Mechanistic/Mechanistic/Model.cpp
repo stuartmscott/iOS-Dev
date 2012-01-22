@@ -12,9 +12,11 @@
 Tile** makeTiles(int num, int freeIndex)
 {
     Tile** tiles = (Tile**)malloc(sizeof(Tile)*num);
-    for (int i=0;i<num;i++)
-        if (i!=freeIndex)
-            tiles[i] = new Tile();
+    for (int i=0;i<num;i++){
+        tiles[i] = new Tile();
+        if (i==freeIndex)
+            tiles[i]->empty = true;
+    }
     return tiles;
 }
 
