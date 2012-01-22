@@ -32,6 +32,13 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     Face *top = new Face(makeTiles(9, 4), 4);
     top->tiles[0]->setGear(new Gear());
     top->tiles[1]->setGear(new Gear());
+    top->tiles[2]->setGear(new Gear());
+    top->tiles[3]->setGear(new Gear());
+    top->tiles[4]->setGear(new Gear());
+    top->tiles[5]->setGear(new Gear());
+    top->tiles[6]->setGear(new Gear());
+    top->tiles[7]->setGear(new Gear());
+    top->tiles[8]->setGear(new Gear());
         
     //Top edges
     Edge *te0 = new Edge(makeTiles(3, -1));
@@ -96,6 +103,8 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     
     edges[0] = te0;
     edges[0]->tiles[0]->setGear(new Gear());
+    edges[0]->tiles[1]->setGear(new Gear());
+    edges[0]->tiles[2]->setGear(new Gear());
     edges[1] = te1;
     edges[1]->tiles[0]->setGear(new Gear());
     edges[2] = te2;

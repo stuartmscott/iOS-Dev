@@ -332,8 +332,10 @@ enum {
 -(void)dragEnded {
     Model * _model = (Model*) model;
     _model->isSnapping = true;
-    _model->destTheta = ((int)((_model->theta+M_PI_4)/M_PI_2))*M_PI_2;
-    _model->destPhi = ((int)((_model->phi+M_PI_4)/M_PI_2))*M_PI_2;
+    float theta = _model->theta;
+    float phi = _model->phi;
+    _model->destTheta = ((int)((theta+[self signf:theta]*M_PI_4)/M_PI_2))*M_PI_2;
+    _model->destPhi = ((int)((phi+[self signf:phi]*M_PI_4)/M_PI_2))*M_PI_2;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
