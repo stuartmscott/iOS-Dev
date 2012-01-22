@@ -10,6 +10,7 @@
 
 SceneGraphNode::SceneGraphNode()
 {
+    visitedByDeath = false;
 }
 
 SceneGraphNode::~SceneGraphNode()

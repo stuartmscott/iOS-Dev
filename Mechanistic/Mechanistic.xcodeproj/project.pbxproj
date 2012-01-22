@@ -30,6 +30,7 @@
 		CEC881C214CC503D00EA1091 /* Cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = CEC881C114CC503D00EA1091 /* Cube.obj */; };
 		CEC881C414CC52CF00EA1091 /* EdgePrism.obj in Resources */ = {isa = PBXBuildFile; fileRef = CEC881C314CC52CF00EA1091 /* EdgePrism.obj */; };
 		CEC881C614CC558800EA1091 /* FacePrism.obj in Resources */ = {isa = PBXBuildFile; fileRef = CEC881C514CC558800EA1091 /* FacePrism.obj */; };
+		CEC881C914CC62B400EA1091 /* Destroyer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEC881C714CC62B300EA1091 /* Destroyer.cpp */; };
 		CEC9D7C914AC9BDB000F7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */; };
 		CEC9D7CB14AC9BDB000F7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */; };
 		CEC9D7CD14AC9BDB000F7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CC14AC9BDB000F7EE1 /* CoreGraphics.framework */; };
@@ -87,6 +88,8 @@
 		CEC881C114CC503D00EA1091 /* Cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cube.obj; sourceTree = "<group>"; };
 		CEC881C314CC52CF00EA1091 /* EdgePrism.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EdgePrism.obj; sourceTree = "<group>"; };
 		CEC881C514CC558800EA1091 /* FacePrism.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FacePrism.obj; sourceTree = "<group>"; };
+		CEC881C714CC62B300EA1091 /* Destroyer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Destroyer.cpp; sourceTree = "<group>"; };
+		CEC881C814CC62B300EA1091 /* Destroyer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Destroyer.h; sourceTree = "<group>"; };
 		CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mechanistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,6 +235,8 @@
 				CEC4602B14C9C0DD009900D0 /* 3D Engine */,
 				CEB7C23A14CAF2330026A97C /* Converter.cpp */,
 				CEB7C23B14CAF2330026A97C /* Converter.h */,
+				CEC881C714CC62B300EA1091 /* Destroyer.cpp */,
+				CEC881C814CC62B300EA1091 /* Destroyer.h */,
 			);
 			path = Mechanistic;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				CE8D909914CB04CB007B332E /* Gear.cpp in Sources */,
 				CE8D909A14CB04CB007B332E /* Model.cpp in Sources */,
 				CE8D909B14CB04CB007B332E /* Tile.cpp in Sources */,
+				CEC881C914CC62B400EA1091 /* Destroyer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

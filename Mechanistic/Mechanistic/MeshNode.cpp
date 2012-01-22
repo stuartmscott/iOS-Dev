@@ -12,11 +12,16 @@
 MeshNode::~MeshNode()
 {
     freeBuffers();
+    vertices.clear();
+    normals.clear();
+    textureCoords.clear();
+    triangles.clear();
     delete material;
 }
 
 MeshNode::MeshNode()
 {
+    visitedByDeath = false;
     textured = false;
     material = new Material();
     setTexEnvMode(MODULATE);

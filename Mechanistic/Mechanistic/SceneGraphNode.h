@@ -17,6 +17,7 @@ private:
 protected:
     bool compiled;
 public:
+    bool visitedByDeath;
     SceneGraphNode();
     ~SceneGraphNode();
     vector<SceneGraphNode*>* getChildren();

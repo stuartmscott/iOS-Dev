@@ -11,6 +11,7 @@
 
 LightNode::LightNode()
 {
+    visitedByDeath = false;
     index = 0;
     spotlight = false;
     enabled = true;
