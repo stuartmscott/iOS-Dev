@@ -36,7 +36,7 @@ void Edge::setSpinning(Face* sender, int tileIndex, float rotation){
         if(!t->gear->isSpinning){
             t->gear->isSpinning = true;
             t->gear->rotation = rotation;
-            float newRotation = rotation + NEIGHBOUR_DIFFERENCE;
+            float newRotation = -(rotation + NEIGHBOUR_DIFFERENCE);
             if (sender==face1)
                 face2->setSpinning(this, tileIndex, newRotation);
             else

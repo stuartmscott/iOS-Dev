@@ -61,7 +61,7 @@ void Face::setSpinning(Edge* src, int srcIndex, float rotation) {
         //0 1 2 = 0 3 6
         tileIndex = (srcIndex*3);
     }
-    setTileSpinning(tileIndex, rotation);
+    setTileSpinning(tileIndex, -rotation);
 }
 
 void Face::setTileSpinning(int tileIndex, float rotation) {
@@ -70,7 +70,7 @@ void Face::setTileSpinning(int tileIndex, float rotation) {
         if(!t->gear->isSpinning){
             t->gear->isSpinning = true;
             t->gear->rotation = rotation;
-            float newRotation = rotation + NEIGHBOUR_DIFFERENCE;
+            float newRotation = -(rotation + NEIGHBOUR_DIFFERENCE);
             //Make neighours spin
             //Above
             int newIndex = tileIndex-3;
