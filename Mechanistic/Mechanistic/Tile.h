@@ -16,5 +16,6 @@ public:
     bool hasGear;
     Gear *gear;
     void setGear(Gear* g);
+    Tile();
     ~Tile();
 };

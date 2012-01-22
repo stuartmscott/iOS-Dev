@@ -32,15 +32,18 @@ Converter::~Converter()
 SceneGraphNode* Converter::makeTile(Tile* tileRef)
 {
     SceneGraphNode* tileGroup = new SceneGraphNode();
-    if (tileRef->gear)
+    if (!tileRef->empty)
     {
-        Transform* rotate = new Transform(ROTATE, tileRef->gear->rotation, 0.0f, 0.0f, 1.0f);
-        Transform* translate = new Transform(TRANSLATE, 0.0f, 3.2f, 0.0f);
-        TransformNode* positionGear = new TransformNode(rotate, translate);
-        positionGear->getChildren()->push_back(gear);
-        tileGroup->getChildren()->push_back(positionGear);
+        if (tileRef->hasGear)
+        {
+            Transform* rotate = new Transform(ROTATE, tileRef->gear->rotation, 0.0f, 0.0f, 1.0f);
+            Transform* translate = new Transform(TRANSLATE, 0.0f, 3.2f, 0.0f);
+            TransformNode* positionGear = new TransformNode(rotate, translate);
+            positionGear->getChildren()->push_back(gear);
+            tileGroup->getChildren()->push_back(positionGear);
+        }
+        tileGroup->getChildren()->push_back(tile);
     }
-    tileGroup->getChildren()->push_back(tile);
     return tileGroup;
 }
 
@@ -50,7 +53,7 @@ SceneGraphNode* Converter::makeFace(Face* faceRef)
     for(int i=0; i<9; i++)
     {
         SceneGraphNode* tileGroup = makeTile(faceRef->tiles[i]);
-        TransformNode* positionTileGroup = new TransformNode(TRANSLATE, ((i%3)-1.5f)*20.0f, 0.0f, ((i/3)-1.5f)*20.0f);
+        TransformNode* positionTileGroup = new TransformNode(TRANSLATE, ((i%3)-1.0f)*20.0f, 0.0f, ((i/3)-1.0f)*20.0f);
         positionTileGroup->getChildren()->push_back(tileGroup);
         faceGroup->getChildren()->push_back(positionTileGroup);
     }

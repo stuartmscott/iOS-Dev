@@ -14,6 +14,12 @@ void Tile::setGear(Gear* g){
     hasGear = true;
 }
 
+Tile::Tile()
+{
+    hasGear = false;
+    empty = false;
+}
+
 Tile::~Tile()
 {
     if (hasGear)
