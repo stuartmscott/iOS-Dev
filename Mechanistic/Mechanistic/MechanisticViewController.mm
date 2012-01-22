@@ -262,7 +262,7 @@ enum {
     if (!loaded)
     {
         light = new LightNode();
-        light->spotlight = true;
+        //light->spotlight = true;
         light->setPosition(0.0f, 0.0f, 6000.0f);
         light->setDiffuseColour(0.2f, 0.2f, 0.2f, 1.0f);
         light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);

@@ -15,7 +15,8 @@ class Converter
 private:
     MeshNode* gear;
     MeshNode* tile;
-    SceneGraphNode* makeTile(bool withGear);
+    SceneGraphNode* makeTile(Tile* tileRef);
+    SceneGraphNode* makeFace(Face* faceRef);
 public:
     Converter(string &directory);
     ~Converter();

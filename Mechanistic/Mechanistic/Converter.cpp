@@ -29,31 +29,40 @@ Converter::~Converter()
     delete tile;
 }
 
-SceneGraphNode* Converter::makeTile(bool withGear)
+SceneGraphNode* Converter::makeTile(Tile* tileRef)
 {
     SceneGraphNode* tileGroup = new SceneGraphNode();
-    Transform* rotate = new Transform(ROTATE, 0.0f, 0.0f, 0.0f, 1.0f);
-    Transform* translate = new Transform(TRANSLATE, 0.0f, 3.2f, 0.0f);
-    TransformNode* positionGear = new TransformNode(rotate, translate);
-    positionGear->getChildren()->push_back(gear);
+    if (tileRef->gear)
+    {
+        Transform* rotate = new Transform(ROTATE, tileRef->gear->rotation, 0.0f, 0.0f, 1.0f);
+        Transform* translate = new Transform(TRANSLATE, 0.0f, 3.2f, 0.0f);
+        TransformNode* positionGear = new TransformNode(rotate, translate);
+        positionGear->getChildren()->push_back(gear);
+        tileGroup->getChildren()->push_back(positionGear);
+    }
     tileGroup->getChildren()->push_back(tile);
-    tileGroup->getChildren()->push_back(positionGear);
     return tileGroup;
+}
+
+SceneGraphNode* Converter::makeFace(Face* faceRef)
+{
+    SceneGraphNode* faceGroup = new SceneGraphNode();
+    for(int i=0; i<9; i++)
+    {
+        SceneGraphNode* tileGroup = makeTile(faceRef->tiles[i]);
+        TransformNode* positionTileGroup = new TransformNode(TRANSLATE, ((i%3)-1.5f)*20.0f, 0.0f, ((i/3)-1.5f)*20.0f);
+        positionTileGroup->getChildren()->push_back(tileGroup);
+        faceGroup->getChildren()->push_back(positionTileGroup);
+    }
+    return faceGroup;
 }
 
 SceneGraphNode* Converter::convert(Model *m)
 {
     SceneGraphNode* root = new SceneGraphNode();
     TransformNode* scaleEverything = new TransformNode(SCALE, 0.1f, 0.1f, 0.1f);
-    /*
-    Transform* rotate = new Transform(ROTATE, 0.0f, 0.0f, 0.0f, 1.0f);
-    Transform* translate = new Transform(TRANSLATE, 0.0f, -3.2f, 0.0f);
-    TransformNode* positionTile = new TransformNode(rotate, translate);
-    positionTile->getChildren()->push_back(tile);
-    scaleEverything->getChildren()->push_back(gear);
-    scaleEverything->getChildren()->push_back(positionTile);
-     */
-    scaleEverything->getChildren()->push_back(makeTile(true));
+    //scaleEverything->getChildren()->push_back(makeTile(m->faces[0]->tiles[0]));
+    scaleEverything->getChildren()->push_back(makeFace(m->faces[0]));
     root->getChildren()->push_back(scaleEverything);
     return root;
 }
