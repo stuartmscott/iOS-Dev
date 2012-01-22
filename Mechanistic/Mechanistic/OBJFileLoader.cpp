@@ -66,7 +66,6 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
     vector<GLfloat*> normals;
     vector<Triangle*> triangles;
     vector<GLfloat*> texCoords;
-    char delims[] = " \r\n";
     vector<string> tokens;
     string line;
     ifstream in(fileName.c_str());
@@ -118,10 +117,6 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
                 {
                     string str = indices.at(2);
                     poly->normalIndices[i] = (GLshort)(atoi(str.c_str())-1);
-                    if (poly->normalIndices[i] > 60)
-                    {
-                        int kost = 1;
-                    }
                     //if(poly->normalIndices[i]>60){
                         //uh oh
                     //    int kost = 0+2;

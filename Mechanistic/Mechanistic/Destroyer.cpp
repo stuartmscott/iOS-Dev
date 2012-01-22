@@ -59,6 +59,7 @@ void annihilate(SceneGraphNode* root, bool deleteMeshes)
     for (int i=0; i<victims.size(); i++)
     {
         SceneGraphNode* victim = victims.at(i);
+        //Why do we need this? Because Objective-/C/C++ was not designed properly, that's why!
         if (typeid(*victim)==typeid(TransformNode))
         {
             delete (TransformNode*) victim;
@@ -75,6 +76,5 @@ void annihilate(SceneGraphNode* root, bool deleteMeshes)
         {
             delete victim;
         }
-        int j = 0+1;
     }
 }

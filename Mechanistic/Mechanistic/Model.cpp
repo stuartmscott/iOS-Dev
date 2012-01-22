@@ -31,6 +31,7 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     //Top face
     Face *top = new Face(makeTiles(9, 4), 4);
     top->tiles[0]->setGear(new Gear());
+    top->tiles[1]->setGear(new Gear());
         
     //Top edges
     Edge *te0 = new Edge(makeTiles(3, -1));
