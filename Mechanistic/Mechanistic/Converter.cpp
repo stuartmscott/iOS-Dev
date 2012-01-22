@@ -139,22 +139,18 @@ SceneGraphNode* Converter::convert(Model *m)
     TransformNode* positionEdge0 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 45.0f, 1.0f, 0.0f, 0.0f));
     positionEdge0->getChildren()->push_back(edge0);
     scaleEverything->getChildren()->push_back(positionEdge0);
-    /*
     //Edge 1
-    TransformNode* positionEdge1 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 45.0f, 1.0f, 0.0f, 0.0f), new Transform(ROTATE, -90.0f, 0.0f, 1.0f, 0.0f));
+    TransformNode* positionEdge1 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, -45.0f, 1.0f, 0.0f, 0.0f), new Transform(ROTATE, -90.0f, 0.0f, 1.0f, 0.0f));
     positionEdge1->getChildren()->push_back(edge1);
      scaleEverything->getChildren()->push_back(positionEdge1);
-    */
     //Edge 2
-    TransformNode* positionEdge2 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 45.0f, 1.0f, 0.0f, 0.0f), new Transform(ROTATE, 180.0f, 0.0f, 1.0f, 0.0f));
+    TransformNode* positionEdge2 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, -45.0f, 1.0f, 0.0f, 0.0f));
     positionEdge2->getChildren()->push_back(edge2);
     scaleEverything->getChildren()->push_back(positionEdge2);
-    /*
     //Edge 3
-    TransformNode* positionEdge3 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, -45.0f, 1.0f, 0.0f, 0.0f));
+    TransformNode* positionEdge3 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 45.0f, 1.0f, 0.0f, 0.0f), new Transform(ROTATE, -90.0f, 0.0f, 1.0f, 0.0f));
     positionEdge3->getChildren()->push_back(edge3);
     scaleEverything->getChildren()->push_back(positionEdge3);
-     */
     
     //Edge 4
     TransformNode* positionEdge4 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, -90.0f, 0.0f, 0.0f, 1.0f), new Transform(ROTATE, -45.0f, 0.0f, 1.0f, 0.0f));
@@ -177,22 +173,18 @@ SceneGraphNode* Converter::convert(Model *m)
     TransformNode* positionEdge8 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 135.0f, 1.0f, 0.0f, 0.0f));
     positionEdge8->getChildren()->push_back(edge8);
     scaleEverything->getChildren()->push_back(positionEdge8);
-    /*
     //Edge 9
-    TransformNode* positionEdge9 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 135.0f, 1.0f, 0.0f, 0.0f), new Transform(ROTATE, 90.0f, 0.0f, 1.0f, 0.0f));
+    TransformNode* positionEdge9 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, -135.0f, 1.0f, 0.0f, 0.0f), new Transform(ROTATE, -90.0f, 0.0f, 1.0f, 0.0f));
     positionEdge9->getChildren()->push_back(edge9);
     scaleEverything->getChildren()->push_back(positionEdge9);
-     */
     //Edge 10
     TransformNode* positionEdge10 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, -135.0f, 1.0f, 0.0f, 0.0f));
     positionEdge10->getChildren()->push_back(edge10);
     scaleEverything->getChildren()->push_back(positionEdge10);
-    /*
     //Edge 11
     TransformNode* positionEdge11 = new TransformNode(new Transform(TRANSLATE, 0.0f, EDGE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 135.0f, 1.0f, 0.0f, 0.0f), new Transform(ROTATE, -90.0f, 0.0f, 1.0f, 0.0f));
     positionEdge11->getChildren()->push_back(edge11);
     scaleEverything->getChildren()->push_back(positionEdge11);
-     */
     
     root->getChildren()->push_back(scaleEverything);
     return root;
