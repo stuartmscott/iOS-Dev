@@ -240,7 +240,11 @@ enum {
     //Set spawn gear to spinning
     faceIndex = _model->spawnTileFace;
     tileIndex = _model->spawnTileIndex;
-    _model->faces[faceIndex]->setTileSpinning(tileIndex);
+    float spawnRotation = _model->spawnRotation += 0.5f;
+    _model->faces[faceIndex]->setTileSpinning(tileIndex, spawnRotation);
+    
+    delete (SceneGraphNode*) sceneGraph;
+    sceneGraph = ((Converter*)converter)->convert(_model);
 }
 
 - (void)drawFrame
@@ -258,25 +262,24 @@ enum {
     
     static bool loaded = false;
     static LightNode* light;
-    static SceneGraphNode* sceneGraph;
     if (!loaded)
     {
         light = new LightNode();
-        light->spotlight = true;
+        light->spotlight = false;
         light->setPosition(1.0f, 1.0f, 6000.0f);
         light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);
         light->setSpotDirection(0, 0, 0);
-        sceneGraph = ((Converter*)converter)->convert(_model);
         loaded = true;
     }
     light->doBeforeRender();
     gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
-    
-    glPushMatrix();
-    {
-        render(sceneGraph);
+    if (sceneGraph) {
+        glPushMatrix();
+        {
+            render((SceneGraphNode*) sceneGraph);
+        }
+        glPopMatrix();
     }
-    glPopMatrix();
     
     [(EAGLView *)self.view presentFramebuffer];
 }

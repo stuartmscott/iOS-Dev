@@ -30,15 +30,17 @@ void Edge::setFaces(Face* f1, Face* f2)
     face2 = f2;
 }
 
-void Edge::setSpinning(Face* sender, int tileIndex){
+void Edge::setSpinning(Face* sender, int tileIndex, float rotation){
     Tile* t = tiles[tileIndex];
     if (t->hasGear){
         if(!t->gear->isSpinning){
             t->gear->isSpinning = true;
+            t->gear->rotation = rotation;
+            float newRotation = rotation + NEIGHBOUR_DIFFERENCE;
             if (sender==face1)
-                face2->setSpinning(this, tileIndex);
+                face2->setSpinning(this, tileIndex, newRotation);
             else
-                face1->setSpinning(this, tileIndex);
+                face1->setSpinning(this, tileIndex, newRotation);
         }
     }
 }

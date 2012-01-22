@@ -25,6 +25,7 @@
     CADisplayLink *displayLink;
     void* model;
     void* converter;
+    void* sceneGraph;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;

@@ -24,6 +24,7 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
 {
     spawnTileFace = sFaceIndex;
     spawnTileIndex = sTileIndex;
+    spawnRotation = 0.0f;
     targetTileFace = tFaceIndex;
     targetTileIndex = tTileIndex;
     //Top face
