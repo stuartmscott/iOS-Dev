@@ -25,6 +25,16 @@ void TransformNode::doAfterRender()
     glPopMatrix();
 }
 
+TransformNode::~TransformNode()
+{
+    for (int i=0; i<transforms.size(); i++)
+    {
+        Transform* victim = transforms.at(i);
+        delete victim;
+    }
+    transforms.clear();
+}
+
 TransformNode::TransformNode(vector<Transform*>& trans)
 {
     visitedByDeath = false;

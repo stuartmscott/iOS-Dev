@@ -12,6 +12,10 @@
 MeshNode::~MeshNode()
 {
     freeBuffers();
+    vertices.clear();
+    normals.clear();
+    textureCoords.clear();
+    triangles.clear();
     delete material;
 }
 

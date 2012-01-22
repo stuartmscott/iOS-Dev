@@ -27,6 +27,7 @@ void annihilate(SceneGraphNode* root, bool deleteMeshes)
     vector<SceneGraphNode*> victims;
     stack<SceneGraphNode*> nodeStack;
     stack<int> counterStack;
+    victims.clear();
     nodeStack.push(root);
     counterStack.push(-1);
     enlist(root, victims, deleteMeshes);
@@ -53,10 +54,10 @@ void annihilate(SceneGraphNode* root, bool deleteMeshes)
             counterStack.pop();
         }
     }
-    vector<SceneGraphNode*>::iterator i;
-    for (i=victims.begin(); i!=victims.end(); i++)
+    for (int i=0; i<victims.size(); i++)
     {
-        SceneGraphNode* victim = *i;
+        SceneGraphNode* victim = victims.at(i);
         delete victim;
+        int j = 0+1;
     }
 }

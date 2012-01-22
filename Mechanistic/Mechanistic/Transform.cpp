@@ -39,7 +39,7 @@ Transform::Transform(TransformType transType, GLfloat param1, GLfloat param2, GL
 
 Transform::~Transform()
 {
-
+    parameters.clear();
 }
 
 void Transform::execute()

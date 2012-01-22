@@ -44,7 +44,7 @@ enum {
 
 @implementation MechanisticViewController
 
-@synthesize animating, context, displayLink, updateQueue;
+@synthesize animating, context, displayLink;
 
 - (void)awakeFromNib
 {
@@ -148,7 +148,6 @@ enum {
         [aDisplayLink setFrameInterval:animationFrameInterval];
         [aDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         self.displayLink = aDisplayLink;
-        self.updateQueue = dispatch_queue_create("Update thread", NULL);
         animating = TRUE;
     }
 }
@@ -159,7 +158,6 @@ enum {
         [self.displayLink invalidate];
         self.displayLink = nil;
         animating = FALSE;
-        dispatch_release(self.updateQueue);
     }
 }
 
@@ -249,7 +247,7 @@ enum {
 
 - (void)drawFrame
 {
-    dispatch_async(self.updateQueue, ^{[self update];});
+    [self update];
     
     if (sceneGraph)
     {
