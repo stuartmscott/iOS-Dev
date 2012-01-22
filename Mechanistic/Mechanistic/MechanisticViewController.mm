@@ -67,7 +67,6 @@ enum {
     [self initGLSettings];
 
     NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
-    NSLog(nsGearPath);
     string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
     converter = new Converter(directory);
     
@@ -202,6 +201,12 @@ enum {
     return degrees * (180.0f / M_PI);
 }
 
+- (float)signf:(float) val{
+    if(val<0)
+        return -1.0f;
+    return 1.0f;        
+}
+
 - (void)update {
     Model * _model = (Model*) model;
     //if target gear is spinning, game won
@@ -212,6 +217,20 @@ enum {
     if (_model->gameWon) {
         _model->theta += 0.01f;
         _model->phi += 0.01f;
+        [self calcEyePosition];
+    } else if (_model->isSnapping) {
+        float dT = _model->destTheta - _model->theta;
+        if (fabsf(dT)<SNAP_INTERVAL)
+            _model->theta = _model->destTheta;
+        else
+            _model->theta += [self signf: dT]*SNAP_INTERVAL;
+        float dP = _model->destPhi - _model->phi;
+        if (fabsf(dP)<SNAP_INTERVAL)
+            _model->phi = _model->destPhi;
+        else
+            _model->phi += [self signf: dP]*SNAP_INTERVAL;
+        if((_model->theta == _model->destTheta)&&(_model->phi == _model->destPhi))
+            _model->isSnapping = false;
         [self calcEyePosition];
     }
     
@@ -239,7 +258,7 @@ enum {
     //Set spawn gear to spinning
     faceIndex = _model->spawnTileFace;
     tileIndex = _model->spawnTileIndex;
-    float spawnRotation = _model->spawnRotation += 0.5f;
+    float spawnRotation = _model->spawnRotation += GEAR_SPEED;
     _model->faces[faceIndex]->setTileSpinning(tileIndex, spawnRotation);
     
     sceneGraph = ((Converter*)converter)->convert(_model);
@@ -308,18 +327,18 @@ enum {
     _model->up[0] = -cy * sz;
     _model->up[1] = cz;
     _model->up[2] = sy * sz;
-    
-    /* Uncomment to re-enable self-righting of camera
-     if(up[1]<0){
-     up[0] = -up[0];
-     up[1] = -up[1];
-     up[2] = -up[2];
-     } */
+}
+
+-(void)dragEnded {
+    Model * _model = (Model*) model;
+    _model->isSnapping = true;
+    _model->destTheta = ((int)((_model->theta+M_PI_4)/M_PI_2))*M_PI_2;
+    _model->destPhi = ((int)((_model->phi+M_PI_4)/M_PI_2))*M_PI_2;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     Model * _model = (Model*) model;
-    if (_model->gameWon)
+    if (_model->gameWon||_model->isSnapping)
         return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
@@ -330,7 +349,7 @@ enum {
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     Model * _model = (Model*) model;
-    if (_model->gameWon)
+    if (_model->gameWon||_model->isSnapping)
         return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
@@ -359,21 +378,25 @@ enum {
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     Model * _model = (Model*) model;
-    if (_model->gameWon)
+    if (_model->gameWon||_model->isSnapping)
         return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    if(!_model->isDragging)
+    if (_model->isDragging)
+        [self dragEnded];
+    else
         [self gameClick: point];
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
     Model * _model = (Model*) model;
-    if (_model->gameWon)
+    if (_model->gameWon||_model->isSnapping)
         return;
 	UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
-    if (!_model->isDragging)
+    if (_model->isDragging)
+        [self dragEnded];
+    else
         [self gameClick: point]; 
 }
 

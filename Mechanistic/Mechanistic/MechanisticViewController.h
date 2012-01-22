@@ -37,4 +37,5 @@
 -(void)stopAnimation;
 
 -(void)calcEyePosition;
+-(void)dragEnded;
 @end

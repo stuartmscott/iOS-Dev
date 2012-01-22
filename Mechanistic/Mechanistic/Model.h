@@ -13,6 +13,8 @@
 #define HEIGHT 480.0f
 #define NEAR_CLIP 0.01f
 #define FAR_CLIP 100.0f
+#define SNAP_INTERVAL 0.05f
+#define GEAR_SPEED 2.0f
 
 class Model
 {
@@ -23,7 +25,9 @@ public:
     float startX, startY, currX, currY;
     float eye[3], up[3];
     float radius, theta, phi;
+    float destTheta, destPhi;
     bool isDragging;
+    bool isSnapping;
     bool gameWon;
     Face* faces[6];
     Edge* edges[12];

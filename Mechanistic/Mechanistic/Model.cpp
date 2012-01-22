@@ -8,6 +8,7 @@
 
 #include "Model.h"
 #include <stdlib.h>
+#include <math.h>
 
 Tile** makeTiles(int num, int freeIndex)
 {
@@ -116,10 +117,13 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     edges[10]->tiles[0]->setGear(new Gear());
     edges[11] = be3;
     edges[11]->tiles[0]->setGear(new Gear());
-        
+    
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7
     phi = 0.5f;//0.5
+    destTheta = -M_PI_2;
+    destPhi = M_PI_2;
+    isSnapping = true;
     gameWon = false;
 }
 
