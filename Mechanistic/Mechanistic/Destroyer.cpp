@@ -7,6 +7,8 @@
 //
 
 #include "Destroyer.h"
+#include "TransformNode.h"
+#include "LightNode.h"
 #include <stack>
 #include <vector>
 #include <typeinfo>
@@ -57,7 +59,22 @@ void annihilate(SceneGraphNode* root, bool deleteMeshes)
     for (int i=0; i<victims.size(); i++)
     {
         SceneGraphNode* victim = victims.at(i);
-        delete victim;
+        if (typeid(*victim)==typeid(TransformNode))
+        {
+            delete (TransformNode*) victim;
+        } 
+        else if (typeid(*victim)==typeid(LightNode))  
+        {
+            delete (LightNode*) victim;
+        }
+        else if (typeid(*victim)==typeid(MeshNode))  
+        {
+            delete (MeshNode*) victim;
+        }
+        else
+        {
+            delete victim;
+        }
         int j = 0+1;
     }
 }

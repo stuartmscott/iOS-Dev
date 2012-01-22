@@ -27,6 +27,11 @@ LightNode::LightNode()
     quadraticAttenuation = 0;
 }
 
+LightNode::~LightNode()
+{
+    
+}
+
 void LightNode::doBeforeRender()
 {
     int lightID = GL_LIGHT0 + index;
