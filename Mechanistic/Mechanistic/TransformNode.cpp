@@ -13,7 +13,7 @@
 void TransformNode::doBeforeRender()
 {
     glPushMatrix();
-    for (int i = 0; i < transforms.size(); i++ )
+    for (int i = transforms.size()-1; i>=0; i-- )
     {
         transforms.at(i)->execute();
     }
