@@ -17,10 +17,10 @@ LightNode::LightNode()
     setPosition(0, 0, 1);
     setAmbientColour(0, 0, 0, 1);
     setDiffuseColour(1, 1, 1, 1);
-    setSpecularColour(1, 1, 1, 1);
+    setSpecularColour(1, 1, 1, 1);//1 1 1 1
     setSpotDirection(0, 0, -1);
     spotExponent = 0;
-    spotCutoffAngle = 180;
+    spotCutoffAngle = 15;
     constantAttenuation = 1;
     linearAttenuation = 0;
     quadraticAttenuation = 0;
@@ -30,12 +30,12 @@ void LightNode::doBeforeRender()
 {
     int lightID = GL_LIGHT0 + index;
     GLfloat lightPos[4] = { position[0], position[1], position[2], ((spotlight) ? 1 : 0) };
-    glLightfv(lightID, GL_POSITION, (const GLfloat*)&lightPos);
-    glLightfv(lightID, GL_AMBIENT, (const GLfloat*)&ambientColour);
-    glLightfv(lightID, GL_DIFFUSE, (const GLfloat*)&diffuseColour);
-    glLightfv(lightID, GL_SPECULAR, (const GLfloat*)&specularColour);
+    glLightfv(lightID, GL_POSITION, (const GLfloat*)lightPos);
+    glLightfv(lightID, GL_AMBIENT, (const GLfloat*)ambientColour);
+    glLightfv(lightID, GL_DIFFUSE, (const GLfloat*)diffuseColour);
+    glLightfv(lightID, GL_SPECULAR, (const GLfloat*)specularColour);
     glLightx(lightID, GL_SPOT_CUTOFF, spotCutoffAngle);
-    glLightfv(lightID, GL_SPOT_DIRECTION, (const GLfloat*)&spotDirection);
+    glLightfv(lightID, GL_SPOT_DIRECTION, (const GLfloat*)spotDirection);
     glLightx(lightID, GL_SPOT_EXPONENT, spotExponent);
     glLightx(lightID, GL_CONSTANT_ATTENUATION, constantAttenuation);
     glLightx(lightID, GL_LINEAR_ATTENUATION, linearAttenuation);
