@@ -90,17 +90,29 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     faces[5] = bot;
     
     edges[0] = te0;
+    edges[0]->tiles[0]->setGear(new Gear());
     edges[1] = te1;
+    edges[1]->tiles[0]->setGear(new Gear());
     edges[2] = te2;
+    edges[2]->tiles[0]->setGear(new Gear());
     edges[3] = te3;
+    edges[3]->tiles[0]->setGear(new Gear());
     edges[4] = se0;
+    edges[4]->tiles[0]->setGear(new Gear());
     edges[5] = se1;
+    edges[5]->tiles[0]->setGear(new Gear());
     edges[6] = se2;
+    edges[6]->tiles[0]->setGear(new Gear());
     edges[7] = se3;
+    edges[7]->tiles[0]->setGear(new Gear());
     edges[8] = be0;
+    edges[8]->tiles[0]->setGear(new Gear());
     edges[9] = be1;
+    edges[9]->tiles[0]->setGear(new Gear());
     edges[10] = be2;
+    edges[10]->tiles[0]->setGear(new Gear());
     edges[11] = be3;
+    edges[11]->tiles[0]->setGear(new Gear());
         
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7

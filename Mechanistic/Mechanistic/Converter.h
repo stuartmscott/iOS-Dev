@@ -14,9 +14,11 @@ class Converter
 {
 private:
     MeshNode* gear;
-    MeshNode* tile;
-    SceneGraphNode* makeTile(Tile* tileRef);
+    MeshNode* edgeTile;
+    MeshNode* faceTile;
+    SceneGraphNode* makeTile(Tile* tileRef, bool isEdge);
     SceneGraphNode* makeFace(Face* faceRef);
+    SceneGraphNode* makeEdge(Edge* edgeRef);
 public:
     Converter(string &directory);
     ~Converter();

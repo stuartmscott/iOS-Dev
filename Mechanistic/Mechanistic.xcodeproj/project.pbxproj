@@ -27,6 +27,9 @@
 		CEB7C23C14CAF2340026A97C /* Converter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB7C23A14CAF2330026A97C /* Converter.cpp */; };
 		CEBDA5A514C5EA540051E755 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A314C5EA540051E755 /* Transform.cpp */; };
 		CEBDA5AB14C619CC0051E755 /* EngineUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */; };
+		CEC881C214CC503D00EA1091 /* Cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = CEC881C114CC503D00EA1091 /* Cube.obj */; };
+		CEC881C414CC52CF00EA1091 /* EdgePrism.obj in Resources */ = {isa = PBXBuildFile; fileRef = CEC881C314CC52CF00EA1091 /* EdgePrism.obj */; };
+		CEC881C614CC558800EA1091 /* FacePrism.obj in Resources */ = {isa = PBXBuildFile; fileRef = CEC881C514CC558800EA1091 /* FacePrism.obj */; };
 		CEC9D7C914AC9BDB000F7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */; };
 		CEC9D7CB14AC9BDB000F7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */; };
 		CEC9D7CD14AC9BDB000F7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC9D7CC14AC9BDB000F7EE1 /* CoreGraphics.framework */; };
@@ -81,6 +84,9 @@
 		CEBDA5A414C5EA540051E755 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
 		CEBDA5A914C619CC0051E755 /* EngineUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EngineUtils.cpp; sourceTree = "<group>"; };
 		CEBDA5AA14C619CC0051E755 /* EngineUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineUtils.h; sourceTree = "<group>"; };
+		CEC881C114CC503D00EA1091 /* Cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cube.obj; sourceTree = "<group>"; };
+		CEC881C314CC52CF00EA1091 /* EdgePrism.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EdgePrism.obj; sourceTree = "<group>"; };
+		CEC881C514CC558800EA1091 /* FacePrism.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FacePrism.obj; sourceTree = "<group>"; };
 		CEC9D7C414AC9BDB000F7EE1 /* Mechanistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mechanistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC9D7C814AC9BDB000F7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEC9D7CA14AC9BDB000F7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,6 +128,9 @@
 		CE8BA26F14C9E8D300983958 /* Meshes */ = {
 			isa = PBXGroup;
 			children = (
+				CEC881C514CC558800EA1091 /* FacePrism.obj */,
+				CEC881C314CC52CF00EA1091 /* EdgePrism.obj */,
+				CEC881C114CC503D00EA1091 /* Cube.obj */,
 				CE8BA27014C9E8D300983958 /* Gear.obj */,
 				CEB7C23414CAF03D0026A97C /* Tile.obj */,
 			);
@@ -292,6 +301,9 @@
 				CEC9D7ED14AC9BDC000F7EE1 /* MechanisticViewController.xib in Resources */,
 				CE8BA27114C9E8D300983958 /* Gear.obj in Resources */,
 				CEB7C23514CAF03D0026A97C /* Tile.obj in Resources */,
+				CEC881C214CC503D00EA1091 /* Cube.obj in Resources */,
+				CEC881C414CC52CF00EA1091 /* EdgePrism.obj in Resources */,
+				CEC881C614CC558800EA1091 /* FacePrism.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
