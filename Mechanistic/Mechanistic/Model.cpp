@@ -40,8 +40,10 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     //Side faces
     Face *sf0 = new Face(makeTiles(9, 2), 2);
     Face *sf1 = new Face(makeTiles(9, 3), 3);
+    sf1->northInverted = true;
     Face *sf2 = new Face(makeTiles(9, 6), 6);
     Face *sf3 = new Face(makeTiles(9, 7), 7);
+    sf3->southInverted = true;
     sf3->tiles[4]->setGear(new Gear());
     
     //Side edges

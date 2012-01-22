@@ -47,7 +47,7 @@ SceneGraphNode* Converter::makeTile(Tile* tileRef, bool isEdge)
     {
         if (tileRef->hasGear)
         {
-            Transform* rotate = new Transform(ROTATE, tileRef->gear->rotation, 0.0f, 0.0f, 1.0f);
+            Transform* rotate = new Transform(ROTATE, tileRef->gear->rotation, 0.0f, 1.0f, 0.0f);
             Transform* translate = new Transform(TRANSLATE, 0.0f, LIFT_GEAR, 0.0f);
             TransformNode* positionGear = new TransformNode(rotate, translate);
             positionGear->getChildren()->push_back(gear);

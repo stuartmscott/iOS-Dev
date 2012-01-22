@@ -27,6 +27,8 @@ public:
 class Face
 {
 public:
+    bool northInverted;
+    bool southInverted;
     int freeTileIndex;
     Edge* north;
     Edge* south;
