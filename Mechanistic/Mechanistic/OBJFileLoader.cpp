@@ -118,7 +118,7 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
                 {
                     string str = indices.at(2);
                     poly->normalIndices[i] = (GLshort)(atoi(str.c_str())-1);
-                    if (poly->normalIndices[i] == 57)
+                    if (poly->normalIndices[i] > 60)
                     {
                         int kost = 1;
                     }

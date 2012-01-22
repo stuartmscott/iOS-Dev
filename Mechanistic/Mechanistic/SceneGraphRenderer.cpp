@@ -40,13 +40,6 @@ void processBeforeRender(stack<SceneGraphNode*>& nodeStack, stack<int>& counterS
     
     node->compile();
     
-    bool b;
-    b = (typeid(node)==typeid(MeshNode));
-    b = (typeid(*node)==typeid(MeshNode));
-    b = (typeid(node)==typeid(MeshNode*));
-    b = (typeid(&node)==typeid(MeshNode*));
-    b = (typeid(&node)==typeid(MeshNode));
-    
     // Geometry must be drawn after all lights are configured so it is
     // properly shaded
     if ((!lightsMode) && (typeid(*node)==typeid(MeshNode)))

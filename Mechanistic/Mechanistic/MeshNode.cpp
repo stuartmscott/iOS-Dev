@@ -17,6 +17,7 @@ MeshNode::~MeshNode()
 
 MeshNode::MeshNode()
 {
+    visitedByDeath = false;
     textured = false;
     material = new Material();
     setTexEnvMode(MODULATE);

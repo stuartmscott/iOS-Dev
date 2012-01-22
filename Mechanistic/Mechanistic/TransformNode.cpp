@@ -27,6 +27,7 @@ void TransformNode::doAfterRender()
 
 TransformNode::TransformNode(vector<Transform*>& trans)
 {
+    visitedByDeath = false;
     transforms.clear();
     for(int i=0; i<trans.size(); i++)
     {
@@ -36,12 +37,14 @@ TransformNode::TransformNode(vector<Transform*>& trans)
 
 TransformNode::TransformNode(Transform* trans1)
 {
+    visitedByDeath = false;
     transforms.clear();
     transforms.push_back(trans1);
 }
 
 TransformNode::TransformNode(Transform* trans1, Transform* trans2)
 {
+    visitedByDeath = false;
     transforms.clear();
     transforms.push_back(trans1);
     transforms.push_back(trans2);
@@ -49,6 +52,7 @@ TransformNode::TransformNode(Transform* trans1, Transform* trans2)
 
 TransformNode::TransformNode(Transform* trans1, Transform* trans2, Transform* trans3)
 {
+    visitedByDeath = false;
     transforms.clear();
     transforms.push_back(trans1);
     transforms.push_back(trans2);
@@ -57,6 +61,7 @@ TransformNode::TransformNode(Transform* trans1, Transform* trans2, Transform* tr
 
 TransformNode::TransformNode(TransformType transType, GLfloat param1, GLfloat param2, GLfloat param3)
 {
+    visitedByDeath = false;
     transforms.clear();
     Transform* trans = new Transform(transType, param1, param2, param3);
     transforms.push_back(trans);
@@ -64,6 +69,7 @@ TransformNode::TransformNode(TransformType transType, GLfloat param1, GLfloat pa
 
 TransformNode::TransformNode(TransformType transType, GLfloat param1, GLfloat param2, GLfloat param3, GLfloat param4)
 {
+    visitedByDeath = false;
     transforms.clear();
     Transform* trans = new Transform(transType, param1, param2, param3, param4);
     transforms.push_back(trans);

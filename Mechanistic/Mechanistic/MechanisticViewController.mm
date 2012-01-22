@@ -20,6 +20,7 @@
 #import "OBJFileLoader.h"
 #import "Model.h"
 #import "Converter.h"
+#import "Destroyer.h"
 
 // Uniform index.
 enum {
@@ -243,7 +244,6 @@ enum {
     float spawnRotation = _model->spawnRotation += 0.5f;
     _model->faces[faceIndex]->setTileSpinning(tileIndex, spawnRotation);
     
-    delete (SceneGraphNode*) sceneGraph;
     sceneGraph = ((Converter*)converter)->convert(_model);
 }
 
@@ -251,37 +251,43 @@ enum {
 {
     dispatch_async(self.updateQueue, ^{[self update];});
     
-    [(EAGLView *)self.view setFramebuffer];
-    
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
-    
-    Model * _model = (Model*) model;
-    float* eye = _model->eye;
-    float* up = _model->up;
-    
-    static bool loaded = false;
-    static LightNode* light;
-    if (!loaded)
+    if (sceneGraph)
     {
-        light = new LightNode();
-        light->spotlight = false;
-        light->setPosition(1.0f, 1.0f, 6000.0f);
-        light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);
-        light->setSpotDirection(0, 0, 0);
-        loaded = true;
-    }
-    light->doBeforeRender();
-    gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
-    if (sceneGraph) {
-        glPushMatrix();
+        [(EAGLView *)self.view setFramebuffer];
+        
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glLoadIdentity();
+        
+        Model * _model = (Model*) model;
+        float* eye = _model->eye;
+        float* up = _model->up;
+        
+        static bool loaded = false;
+        static LightNode* light;
+        if (!loaded)
         {
-            render((SceneGraphNode*) sceneGraph);
+            light = new LightNode();
+            light->spotlight = false;
+            light->setPosition(1.0f, 1.0f, 6000.0f);
+            light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);
+            light->setSpotDirection(0, 0, 0);
+            loaded = true;
         }
-        glPopMatrix();
+        light->doBeforeRender();
+        gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
+        if (sceneGraph) {
+            glPushMatrix();
+            {
+                render((SceneGraphNode*) sceneGraph);
+                //Destroyer of worlds
+                annihilate((SceneGraphNode*)sceneGraph, false);
+                sceneGraph = 0;
+            }
+            glPopMatrix();
+        }
+        
+        [(EAGLView *)self.view presentFramebuffer];
     }
-    
-    [(EAGLView *)self.view presentFramebuffer];
 }
 
 -(void)gameClick:(CGPoint) point {
