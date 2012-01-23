@@ -412,13 +412,11 @@ enum {
         }
         //NSLog(@"Rotation: %d, Relative: %d, Tile: %d", faceRotation, relativeTileIndex, tileIndex);
         
-        /*
         Face *currentFace = _model->faces[faceIndex];
         Tile *currentTile = currentFace->tiles[tileIndex];
         
         if (currentFace->isNextToFree(tileIndex)&&currentTile->moveable)
             currentFace->moveTile(tileIndex);
-         */
     }
 }
 

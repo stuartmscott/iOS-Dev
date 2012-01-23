@@ -135,4 +135,5 @@ void Face::moveTile(int tileIndex) {
     Tile* temp = tiles[tileIndex];
     tiles[tileIndex] = tiles[freeTileIndex];
     tiles[freeTileIndex] = temp;
+    freeTileIndex = tileIndex;
 }
