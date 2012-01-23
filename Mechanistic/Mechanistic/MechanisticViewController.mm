@@ -49,6 +49,7 @@ enum {
 
 - (void)viewDidLoad
 {
+    quitting = NO;
     EAGLContext * aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
     
     if (!aContext)
@@ -86,6 +87,10 @@ enum {
         [EAGLContext setCurrentContext:nil];
     
     [context release];
+    if (sceneGraph)
+    {
+        annihilate((SceneGraphNode*)sceneGraph, false);
+    }
     delete (Converter*)converter;
     delete (Model*)model;
     [super dealloc];
@@ -299,6 +304,18 @@ enum {
 
 - (void)drawFrame
 {
+    static bool loaded = false;
+    static LightNode* light;
+    if (!loaded)
+    {
+        light = new LightNode();
+        light->spotlight = false;
+        light->setPosition(1.0f, 1.0f, 6000.0f);
+        light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);
+        light->setSpotDirection(0, 0, 0);
+        loaded = true;
+    }
+    
     [self update];
     
     if (sceneGraph)
@@ -312,17 +329,7 @@ enum {
         float* eye = _model->eye;
         float* up = _model->up;
         
-        static bool loaded = false;
-        static LightNode* light;
-        if (!loaded)
-        {
-            light = new LightNode();
-            light->spotlight = false;
-            light->setPosition(1.0f, 1.0f, 6000.0f);
-            light->setSpecularColour(0.4f, 0.4f, 0.4f, 1.0f);
-            light->setSpotDirection(0, 0, 0);
-            loaded = true;
-        }
+        
         light->doBeforeRender();
         gluLookAt(eye[0], eye[1], eye[2], 0.0f, 0.0f, 0.0f, up[0], up[1], up[2]);
         if (sceneGraph) {
@@ -337,6 +344,13 @@ enum {
         }
         
         [(EAGLView *)self.view presentFramebuffer];
+    }
+    
+    if (quitting)
+    {
+        //delete light;
+        [self.view removeFromSuperview];
+        return;
     }
 }
 
@@ -467,6 +481,11 @@ enum {
     if (_model->gameWon||_model->isSnapping)
         return;
 	UITouch *touch = [touches anyObject];
+    if (touch.tapCount>1)
+    {
+        [self.view removeFromSuperview];
+        return;
+    }
 	CGPoint point = [touch locationInView:self.view];
     _model->startX = point.x;
     _model->startY = point.y;

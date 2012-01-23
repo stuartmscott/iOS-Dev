@@ -26,6 +26,7 @@
     void* model;
     void* converter;
     void* sceneGraph;
+    BOOL quitting;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
