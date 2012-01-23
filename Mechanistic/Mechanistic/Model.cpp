@@ -87,13 +87,15 @@ Model::Model(const int * level)
     //Side faces
     Face *sf1 = loadFace(level, position, 1, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
     Face *sf2 = loadFace(level, position, 2, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    sf2->nInverted = true;
+    sf2->eInverted = true;
     Face *sf3 = loadFace(level, position, 3, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
-    sf3->inverted = true;
     Face *sf4 = loadFace(level, position, 4, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    sf4->sInverted = true;
+    sf4->wInverted = true;
     
     //Bottom face
     Face *bot = loadFace(level, position, 5, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
-    bot->inverted = true;
     
     //Top edges
     Edge *e0 = loadEdge(level, position);

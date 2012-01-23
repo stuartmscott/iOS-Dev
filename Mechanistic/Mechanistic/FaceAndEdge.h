@@ -29,7 +29,10 @@ public:
 class Face
 {
 public:
-    bool inverted;
+    bool nInverted;
+    bool eInverted;
+    bool sInverted;
+    bool wInverted;
     int freeTileIndex;
     Edge* north;
     Edge* south;
