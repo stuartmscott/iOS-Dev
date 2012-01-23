@@ -9,6 +9,8 @@
 #pragma once
 #include "Tile.h"
 #define NEIGHBOUR_DIFFERENCE 22.5f
+#define TILES_PER_FACE 9
+#define TILES_PER_EDGE 3
 
 class Face;
 

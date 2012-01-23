@@ -9,6 +9,11 @@
 #include "Model.h"
 #include <stdlib.h>
 #include <math.h>
+#define IS_EMPTY 0
+#define IS_TILE 1
+#define IS_GEAR 2
+#define IS_START 3
+#define IS_END 4
 
 Tile** makeTiles(int num, int freeIndex)
 {
@@ -21,54 +26,101 @@ Tile** makeTiles(int num, int freeIndex)
     return tiles;
 }
 
-Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
+Face* loadFace(const int * level, int & position, int currentFaceIndex, int & startFaceIndex, int & startTileIndex, int & endFaceIndex, int & endTileIndex)
 {
-    spawnTileFace = sFaceIndex;
-    spawnTileIndex = sTileIndex;
+    int freeTileIndex = 0;
+    Tile** tiles = (Tile**)malloc(sizeof(Tile)*TILES_PER_FACE);
+    for (int i=0;i<TILES_PER_FACE;i++){
+        tiles[i] = new Tile();
+        int value = level[position+i];
+        if (value==IS_EMPTY)
+        {
+            freeTileIndex = i;
+            tiles[i]->empty = true;
+        }
+        if (value>=IS_GEAR)
+        {
+            tiles[i]->setGear(new Gear());
+        }
+        if (value==IS_START)
+        {
+            startFaceIndex = currentFaceIndex;
+            startTileIndex = i;
+            tiles[i]->moveable = false;
+        }
+        if (value==IS_END)
+        {
+            endFaceIndex = currentFaceIndex;
+            endTileIndex = i;
+            tiles[i]->moveable = false;
+        }
+    }
+    position+=TILES_PER_FACE;
+    return new Face(tiles, freeTileIndex);
+}
+
+Edge* loadEdge(const int * level,  int & position)
+{
+    Tile** tiles = (Tile**)malloc(sizeof(Tile)*TILES_PER_EDGE);
+    for (int i=0;i<TILES_PER_EDGE;i++){
+        tiles[i] = new Tile();
+        if (level[position+i]==IS_EMPTY)
+        {
+            tiles[i]->empty = true;
+        }
+        if (level[position+i]>=IS_GEAR)
+        {
+            tiles[i]->setGear(new Gear());
+        }
+    }
+    position+=TILES_PER_EDGE;
+    return new Edge(tiles);
+}
+
+Model::Model(const int * level)
+{
+    int position = 0;
+    //spawnTileFace = sFaceIndex;
+    //spawnTileIndex = sTileIndex;
     spawnRotation = 0.0f;
-    targetTileFace = tFaceIndex;
-    targetTileIndex = tTileIndex;
+    //targetTileFace = tFaceIndex;
+    //targetTileIndex = tTileIndex;
     //Top face
-    Face *top = new Face(makeTiles(9, 4), 4);
-    top->tiles[0]->setGear(new Gear());
-    top->tiles[1]->setGear(new Gear());
-    top->tiles[2]->setGear(new Gear());
-    top->tiles[3]->setGear(new Gear());
-    top->tiles[4]->setGear(new Gear());
-    top->tiles[5]->setGear(new Gear());
-    top->tiles[6]->setGear(new Gear());
-    top->tiles[7]->setGear(new Gear());
-    top->tiles[8]->setGear(new Gear());
-        
-    //Top edges
-    Edge *te0 = new Edge(makeTiles(3, -1));
-    Edge *te1 = new Edge(makeTiles(3, -1));
-    Edge *te2 = new Edge(makeTiles(3, -1));
-    Edge *te3 = new Edge(makeTiles(3, -1));
+    Face *top = loadFace(level, position, 0, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
     
     //Side faces
-    Face *sf0 = new Face(makeTiles(9, 2), 2);
-    Face *sf1 = new Face(makeTiles(9, 3), 3);
+    Face *sf0 = loadFace(level, position, 1, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    Face *sf1 = loadFace(level, position, 2, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
     sf1->northInverted = true;
-    Face *sf2 = new Face(makeTiles(9, 6), 6);
-    Face *sf3 = new Face(makeTiles(9, 7), 7);
+    Face *sf2 = loadFace(level, position, 3, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    Face *sf3 = loadFace(level, position, 4, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
     sf3->southInverted = true;
-    sf3->tiles[4]->setGear(new Gear());
-    
-    //Side edges
-    Edge *se0 = new Edge(makeTiles(3, -1));
-    Edge *se1 = new Edge(makeTiles(3, -1));
-    Edge *se2 = new Edge(makeTiles(3, -1));
-    Edge *se3 = new Edge(makeTiles(3, -1));
-    
-    //Bottom edges
-    Edge *be0 = new Edge(makeTiles(3, -1));
-    Edge *be1 = new Edge(makeTiles(3, -1));
-    Edge *be2 = new Edge(makeTiles(3, -1));
-    Edge *be3 = new Edge(makeTiles(3, -1));
+    //sf3->tiles[4]->setGear(new Gear());
     
     //Bottom face
-    Face *bot = new Face(makeTiles(9, 1), 1);
+    Face *bot = loadFace(level, position, 5, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    
+    //Top edges
+    Edge *te0 = loadEdge(level, position);
+    Edge *te1 = loadEdge(level, position);
+    Edge *te2 = loadEdge(level, position);
+    Edge *te3 = loadEdge(level, position);
+    
+    
+    
+    //Side edges
+    Edge *se0 = loadEdge(level, position);
+    Edge *se1 = loadEdge(level, position);
+    Edge *se2 = loadEdge(level, position);
+    Edge *se3 = loadEdge(level, position);
+    
+    //Bottom edges
+    Edge *be0 = loadEdge(level, position);
+    Edge *be1 = loadEdge(level, position);
+    Edge *be2 = loadEdge(level, position);
+    Edge *be3 = loadEdge(level, position);
+    
+    
     
     top->setEdges(te2, te1, te0, te3);
     
@@ -102,34 +154,21 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     faces[5] = bot;
     
     edges[0] = te0;
-    edges[0]->tiles[0]->setGear(new Gear());
-    edges[0]->tiles[1]->setGear(new Gear());
-    edges[0]->tiles[2]->setGear(new Gear());
     edges[1] = te1;
-    edges[1]->tiles[0]->setGear(new Gear());
     edges[2] = te2;
-    edges[2]->tiles[0]->setGear(new Gear());
     edges[3] = te3;
-    edges[3]->tiles[0]->setGear(new Gear());
     edges[4] = se0;
-    edges[4]->tiles[0]->setGear(new Gear());
     edges[5] = se1;
-    edges[5]->tiles[0]->setGear(new Gear());
     edges[6] = se2;
-    edges[6]->tiles[0]->setGear(new Gear());
     edges[7] = se3;
-    edges[7]->tiles[0]->setGear(new Gear());
     edges[8] = be0;
-    edges[8]->tiles[0]->setGear(new Gear());
     edges[9] = be1;
-    edges[9]->tiles[0]->setGear(new Gear());
     edges[10] = be2;
-    edges[10]->tiles[0]->setGear(new Gear());
     edges[11] = be3;
-    edges[11]->tiles[0]->setGear(new Gear());
     
-    faces[spawnTileFace]->tiles[spawnTileIndex]->moveable = false;
-    faces[targetTileFace]->tiles[targetTileIndex]->moveable = false;
+    //Moved to loadFace()
+    //faces[spawnTileFace]->tiles[spawnTileIndex]->moveable = false;
+    //faces[targetTileFace]->tiles[targetTileIndex]->moveable = false;
     
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7

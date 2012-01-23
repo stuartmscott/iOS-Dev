@@ -32,6 +32,6 @@ public:
     bool gameWon;
     Face* faces[6];
     Edge* edges[12];
-    Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex);
+    Model(const int* level);
     ~Model();
 };
