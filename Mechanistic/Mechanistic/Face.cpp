@@ -41,7 +41,7 @@ void Face::setSpinning(Edge* src, int srcIndex, float rotation) {
     if (src==north) {
         if (northInverted) {
             //0 1 2 = 2 1 0
-            //TODO
+            tileIndex = 2-srcIndex;
         }else{
             //0 1 2 = 0 1 2
             tileIndex = srcIndex;
@@ -52,7 +52,7 @@ void Face::setSpinning(Edge* src, int srcIndex, float rotation) {
     } else if (src==south) {
         if (southInverted) {
             //0 1 2 = 8 7 6
-            //TODO
+            tileIndex = (2-srcIndex)+6;
         }else{
             //0 1 2 = 6 7 8
             tileIndex = 6+srcIndex;
@@ -92,7 +92,7 @@ void Face::setTileSpinning(int tileIndex, float rotation) {
             }
             //Right
             if (tileIndex%3==2) {
-                west->setSpinning(this, (tileIndex-2)/3, newRotation);
+                east->setSpinning(this, (tileIndex-2)/3, newRotation);
             } else {
                 setTileSpinning(tileIndex+1, newRotation);
             }

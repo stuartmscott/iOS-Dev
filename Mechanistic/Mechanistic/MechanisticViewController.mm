@@ -184,6 +184,8 @@ enum {
     float left = fAspect * bottom;
     float right = fAspect * top;
     
+    NSLog(@"t:%f, b:%f, l:%f, r:%f", top, bottom, left, right);
+    
     //TODO calculate where the dimensions of the cube will be in pixels, and size of tile in screen pixels
     
     glFrustumf(left, right, bottom, top, NEAR_CLIP, FAR_CLIP);
