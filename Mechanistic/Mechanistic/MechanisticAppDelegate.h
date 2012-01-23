@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class MechanisticViewController;
+@class RootViewController;
 
 @interface MechanisticAppDelegate : NSObject <UIApplicationDelegate> {
 
@@ -16,6 +16,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) IBOutlet MechanisticViewController *viewController;
+@property (nonatomic, retain) IBOutlet RootViewController *viewController;
 
 @end

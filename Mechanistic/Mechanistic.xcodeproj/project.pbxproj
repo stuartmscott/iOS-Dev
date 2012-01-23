@@ -48,6 +48,8 @@
 		CECE773F14CD06E100A3251E /* test.lvl in Resources */ = {isa = PBXBuildFile; fileRef = CECE773E14CD06E100A3251E /* test.lvl */; };
 		CEDFFF1E14CCE710007ED359 /* 1.lvl in Resources */ = {isa = PBXBuildFile; fileRef = CEDFFF1D14CCE710007ED359 /* 1.lvl */; };
 		CEDFFF2114CCF957007ED359 /* LevelReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEDFFF1F14CCF954007ED359 /* LevelReader.cpp */; };
+		CEDFFF3914CD4069007ED359 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDFFF3814CD4069007ED359 /* RootViewController.m */; };
+		CEDFFF3D14CD407A007ED359 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFFF3B14CD407A007ED359 /* RootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +119,9 @@
 		CEDFFF1D14CCE710007ED359 /* 1.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.lvl; sourceTree = "<group>"; };
 		CEDFFF1F14CCF954007ED359 /* LevelReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelReader.cpp; sourceTree = "<group>"; };
 		CEDFFF2014CCF955007ED359 /* LevelReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelReader.h; sourceTree = "<group>"; };
+		CEDFFF3714CD4068007ED359 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		CEDFFF3814CD4069007ED359 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		CEDFFF3C14CD407A007ED359 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +229,9 @@
 		CEC9D7D214AC9BDB000F7EE1 /* Mechanistic */ = {
 			isa = PBXGroup;
 			children = (
+				CEDFFF3714CD4068007ED359 /* RootViewController.h */,
+				CEDFFF3814CD4069007ED359 /* RootViewController.m */,
+				CEDFFF3B14CD407A007ED359 /* RootViewController.xib */,
 				CEDFFF1B14CCE6FE007ED359 /* Levels */,
 				CEC4602C14C9C12E009900D0 /* Model */,
 				CE2B6F6014C9B381005F81F6 /* gluLookAt.h */,
@@ -232,8 +240,8 @@
 				CEC9D7DC14AC9BDB000F7EE1 /* MechanisticAppDelegate.m */,
 				CEC9D7DE14AC9BDC000F7EE1 /* MainWindow.xib */,
 				CEC9D7E114AC9BDC000F7EE1 /* Shader.fsh */,
-				CE8BA26F14C9E8D300983958 /* Meshes */,
 				CEC9D7E314AC9BDC000F7EE1 /* Shader.vsh */,
+				CE8BA26F14C9E8D300983958 /* Meshes */,
 				CEC9D7E514AC9BDC000F7EE1 /* EAGLView.h */,
 				CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */,
 				CEC9D7E814AC9BDC000F7EE1 /* MechanisticViewController.h */,
@@ -330,6 +338,7 @@
 				CEC881C614CC558800EA1091 /* FacePrism.obj in Resources */,
 				CEDFFF1E14CCE710007ED359 /* 1.lvl in Resources */,
 				CECE773F14CD06E100A3251E /* test.lvl in Resources */,
+				CEDFFF3D14CD407A007ED359 /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +373,7 @@
 				CE8D909B14CB04CB007B332E /* Tile.cpp in Sources */,
 				CEC881C914CC62B400EA1091 /* Destroyer.cpp in Sources */,
 				CEDFFF2114CCF957007ED359 /* LevelReader.cpp in Sources */,
+				CEDFFF3914CD4069007ED359 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +402,14 @@
 				CEC9D7EC14AC9BDC000F7EE1 /* en */,
 			);
 			name = MechanisticViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEDFFF3B14CD407A007ED359 /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFFF3C14CD407A007ED359 /* en */,
+			);
+			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

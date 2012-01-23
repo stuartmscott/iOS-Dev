@@ -45,9 +45,9 @@ enum {
 
 @implementation MechanisticViewController
 
-@synthesize animating, context, displayLink;
+@synthesize animating, context, displayLink, window;
 
-- (void)awakeFromNib
+- (void)viewDidLoad
 {
     EAGLContext * aContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
     
@@ -481,7 +481,9 @@ enum {
     if (!_model->isDragging) {
         float distMoved = sqrtf((dx*dx)+(dy*dy));
         if(distMoved <= MOVE_PLAY)
+        {
             return;
+        }
         _model->isDragging = true;
     }
     //If the camera is upside down, reverse x
