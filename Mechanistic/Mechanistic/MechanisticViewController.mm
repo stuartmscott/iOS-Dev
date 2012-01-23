@@ -396,7 +396,7 @@ enum {
             //  0  1  0 = 0
             //  0 -1  0 = 180
             faceIndex = 3;
-            faceRotation = (up[1]<-0.5f)?180:0;
+            faceRotation = (up[1]<-0.5f)?0:180;
             //NSLog(@"LOOKING AT SIDE 3");
         }
         if (faceRotation==0) {
@@ -410,7 +410,7 @@ enum {
             int translate []={6,3,0,7,4,1,8,5,2};
             tileIndex = translate[relativeTileIndex];
         }
-        //NSLog(@"Rotation: %d, Relative: %d, Tile: %d", faceRotation, relativeTileIndex, tileIndex);
+        NSLog(@"Rotation: %d, Relative: %d, Tile: %d", faceRotation, relativeTileIndex, tileIndex);
         
         Face *currentFace = _model->faces[faceIndex];
         Tile *currentTile = currentFace->tiles[tileIndex];

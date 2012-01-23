@@ -64,7 +64,7 @@ void Face::setSpinning(Edge* src, int srcIndex, float rotation) {
         //0 1 2 = 0 3 6
         tileIndex = (srcIndex*3);
     }
-    setTileSpinning(tileIndex, -rotation);
+    setTileSpinning(tileIndex, rotation);
 }
 
 void Face::setTileSpinning(int tileIndex, float rotation) {
@@ -125,7 +125,7 @@ bool Face::isNextToFree(int tileIndex) {
     if (tileIndex<6)
         s = tileIndex+3;
     if ((tileIndex%3)>0)
-        e = tileIndex-1;
+        w = tileIndex-1;
     
     int f = freeTileIndex;
     return (n==f||e==f||s==f||w==f);
