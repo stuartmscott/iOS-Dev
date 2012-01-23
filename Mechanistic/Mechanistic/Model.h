@@ -15,6 +15,11 @@
 #define FAR_CLIP 100.0f
 #define SNAP_INTERVAL 0.05f
 #define GEAR_SPEED 2.0f
+#define IS_EMPTY 0
+#define IS_TILE 1
+#define IS_GEAR 2
+#define IS_START 3
+#define IS_END 4
 
 class Model
 {
