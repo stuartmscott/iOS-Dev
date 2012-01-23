@@ -67,6 +67,11 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
     vector<Triangle*> triangles;
     vector<GLfloat*> texCoords;
     vector<string> tokens;
+    vertices.clear();
+    normals.clear();
+    triangles.clear();
+    texCoords.clear();
+    tokens.clear();
     string line;
     ifstream in(fileName.c_str());
     string doubleSpace = "  ";
@@ -142,4 +147,5 @@ void loadMesh(const string &fileName, MeshNode * destination, bool textured)
     {
         destination->setNormals(normals);
     }
+    in.close();
 }

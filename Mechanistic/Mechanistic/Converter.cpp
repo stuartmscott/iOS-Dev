@@ -14,9 +14,15 @@
 Converter::Converter(string &directory)
 {
     gear = new MeshNode();
+    startGear = new MeshNode();
+    endGear = new MeshNode();
     string gfn = directory+"/Gear.obj";
     loadMesh(gfn, gear, false);
     gear->material->setAmbient(0.5f, 0.5f, 0.5f, 1.0f);
+    loadMesh(gfn, startGear, false);
+    startGear->material->setAmbient(0.5f, 0.5f, 1.0f, 1.0f);
+    loadMesh(gfn, endGear, false);
+    endGear->material->setAmbient(1.0f, 0.5f, 0.5f, 1.0f);
     faceTile = new MeshNode();
     string tfn = directory+"/FacePrism.obj";
     loadMesh(tfn, faceTile, false);
@@ -30,11 +36,13 @@ Converter::Converter(string &directory)
 Converter::~Converter()
 {
     delete gear;
+    delete startGear;
+    delete endGear;
     delete faceTile;
     delete edgeTile;
 }
 
-SceneGraphNode* Converter::makeTile(Tile* tileRef, bool isEdge)
+SceneGraphNode* Converter::makeTile(Tile* tileRef,int gearType, bool isEdge)
 {
     SceneGraphNode* tileGroup = new SceneGraphNode();
     if (!tileRef->empty)
@@ -44,7 +52,18 @@ SceneGraphNode* Converter::makeTile(Tile* tileRef, bool isEdge)
             Transform* rotate = new Transform(ROTATE, tileRef->gear->rotation, 0.0f, 1.0f, 0.0f);
             Transform* translate = new Transform(TRANSLATE, 0.0f, LIFT_GEAR, 0.0f);
             TransformNode* positionGear = new TransformNode(rotate, translate);
-            positionGear->getChildren()->push_back(gear);
+            switch (gearType) {
+                case IS_START:
+                    positionGear->getChildren()->push_back(startGear);
+                    break;
+                case IS_END:
+                    positionGear->getChildren()->push_back(endGear);
+                    break;
+                default:
+                    positionGear->getChildren()->push_back(gear);
+                    break;
+            }
+            
             tileGroup->getChildren()->push_back(positionGear);
         }
         if(isEdge)
@@ -55,12 +74,21 @@ SceneGraphNode* Converter::makeTile(Tile* tileRef, bool isEdge)
     return tileGroup;
 }
 
-SceneGraphNode* Converter::makeFace(Face* faceRef)
+SceneGraphNode* Converter::makeFace(Face* faceRef, int currentFace, int startFace, int startTile, int endFace, int endTile)
 {
     SceneGraphNode* faceGroup = new SceneGraphNode();
     for(int i=0; i<9; i++)
     {
-        SceneGraphNode* tileGroup = makeTile(faceRef->tiles[i], false);
+        int gearType = IS_GEAR;
+        if ((currentFace==startFace)&&(i==startTile))
+        {
+            gearType = IS_START;
+        } 
+        else if ((currentFace==endFace)&&(i==endTile))
+        {
+            gearType = IS_END;
+        }
+        SceneGraphNode* tileGroup = makeTile(faceRef->tiles[i],gearType, false);
         TransformNode* positionTileGroup = new TransformNode(TRANSLATE, ((i%3)-1.0f)*TC_TO_TC_ON_FACE, 0.0f, ((i/3)-1.0f)*TC_TO_TC_ON_FACE);
         positionTileGroup->getChildren()->push_back(tileGroup);
         faceGroup->getChildren()->push_back(positionTileGroup);
@@ -73,7 +101,7 @@ SceneGraphNode* Converter::makeEdge(Edge* edgeRef)
     SceneGraphNode* edgeGroup = new SceneGraphNode();
     for(int i=0; i<3; i++)
     {
-        SceneGraphNode* tileGroup = makeTile(edgeRef->tiles[i], true);
+        SceneGraphNode* tileGroup = makeTile(edgeRef->tiles[i],IS_GEAR, true);
         TransformNode* positionTileGroup = new TransformNode(TRANSLATE, ((i%3)-1.0f)*TC_TO_TC_ON_FACE, 0.0f, 0.0f);
         positionTileGroup->getChildren()->push_back(tileGroup);
         edgeGroup->getChildren()->push_back(positionTileGroup);
@@ -86,12 +114,12 @@ SceneGraphNode* Converter::convert(Model *m)
     SceneGraphNode* root = new SceneGraphNode();
     TransformNode* scaleEverything = new TransformNode(SCALE, SCALE_FACTOR, SCALE_FACTOR, SCALE_FACTOR);
     //Faces
-    SceneGraphNode* faceTop = makeFace(m->faces[0]);
-    SceneGraphNode* faceSide1 = makeFace(m->faces[1]);
-    SceneGraphNode* faceSide2 = makeFace(m->faces[2]);
-    SceneGraphNode* faceSide3 = makeFace(m->faces[3]);
-    SceneGraphNode* faceSide4 = makeFace(m->faces[4]);
-    SceneGraphNode* faceBottom = makeFace(m->faces[5]);
+    SceneGraphNode* faceTop = makeFace(m->faces[0],0,m->spawnTileFace,m->spawnTileIndex,m->targetTileFace,m->targetTileIndex);
+    SceneGraphNode* faceSide1 = makeFace(m->faces[1],1,m->spawnTileFace,m->spawnTileIndex,m->targetTileFace,m->targetTileIndex);
+    SceneGraphNode* faceSide2 = makeFace(m->faces[2],2,m->spawnTileFace,m->spawnTileIndex,m->targetTileFace,m->targetTileIndex);
+    SceneGraphNode* faceSide3 = makeFace(m->faces[3],3,m->spawnTileFace,m->spawnTileIndex,m->targetTileFace,m->targetTileIndex);
+    SceneGraphNode* faceSide4 = makeFace(m->faces[4],4,m->spawnTileFace,m->spawnTileIndex,m->targetTileFace,m->targetTileIndex);
+    SceneGraphNode* faceBottom = makeFace(m->faces[5],5,m->spawnTileFace,m->spawnTileIndex,m->targetTileFace,m->targetTileIndex);
     //Top face
     TransformNode* positionFaceTop = new TransformNode(TRANSLATE, 0.0f, FACE_DISTANCE_FROM_ORIGIN, 0.0f);
     positionFaceTop->getChildren()->push_back(faceTop);

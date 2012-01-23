@@ -21,10 +21,12 @@ class Converter
 {
 private:
     MeshNode* gear;
+    MeshNode* startGear;
+    MeshNode* endGear;
     MeshNode* edgeTile;
     MeshNode* faceTile;
-    SceneGraphNode* makeTile(Tile* tileRef, bool isEdge);
-    SceneGraphNode* makeFace(Face* faceRef);
+    SceneGraphNode* makeTile(Tile* tileRef,int gearType, bool isEdge);
+    SceneGraphNode* makeFace(Face* faceRef, int currentFace, int startFace, int startTile, int endFace, int endTile);
     SceneGraphNode* makeEdge(Edge* edgeRef);
 public:
     Converter(string &directory);
