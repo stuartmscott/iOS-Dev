@@ -32,6 +32,7 @@
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
 @property (nonatomic) NSInteger animationFrameInterval;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property int levelNumber;
 
 -(float)toRadians:(float)degrees;
 

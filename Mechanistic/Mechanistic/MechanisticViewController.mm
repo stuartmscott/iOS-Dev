@@ -16,6 +16,7 @@
 #import "SceneGraphRenderer.h"
 #import "TransformNode.h"
 #import <vector>
+#import <sstream>
 #import <string>
 #import "OBJFileLoader.h"
 #import "Model.h"
@@ -45,7 +46,7 @@ enum {
 
 @implementation MechanisticViewController
 
-@synthesize animating, context, displayLink, window;
+@synthesize animating, context, displayLink, window, levelNumber;
 
 - (void)viewDidLoad
 {
@@ -61,9 +62,13 @@ enum {
 	[aContext release];
     NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
     string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
-    string lvl1 = directory+"/1.lvl";
-    //string lvl1 = directory+"/test.lvl";
-    int * level = readLevel(lvl1);
+    stringstream s;
+    s << directory+"/";
+    s<< self.levelNumber;
+    s << ".lvl";
+    string path = s.str();
+    NSLog(@"%s",path.c_str());
+    int * level = readLevel(path);
     model = new Model(level);
     delete level;
     [self calcEyePosition];
@@ -189,7 +194,7 @@ enum {
     float left = fAspect * bottom;
     float right = fAspect * top;
     
-    NSLog(@"t:%f, b:%f, l:%f, r:%f", top, bottom, left, right);
+    //NSLog(@"t:%f, b:%f, l:%f, r:%f", top, bottom, left, right);
     
     Model * _model = (Model*) model;
     float cubeHeight = (SCALE_FACTOR * TILE_HEIGHT * 3.0f) + (SCALE_FACTOR * TILE_GAP * 2.0f);
@@ -238,7 +243,7 @@ enum {
     if (_model->gameWon) {
         //Stop clock
         _model->endTime = time(NULL);
-        NSLog(@"Completed in %d moves in %f seconds.", _model->numMoves, (_model->endTime-_model->startTime)/3600.0f);
+        //NSLog(@"Completed in %d moves in %f seconds.", _model->numMoves, (_model->endTime-_model->startTime)/3600.0f);
         _model->theta += 0.01f;
         _model->phi += 0.01f;
         [self calcEyePosition];
@@ -434,7 +439,7 @@ enum {
             int translate []={6,3,0,7,4,1,8,5,2};
             tileIndex = translate[relativeTileIndex];
         }
-        NSLog(@"Rotation: %d, Relative: %d, Tile: %d", faceRotation, relativeTileIndex, tileIndex);
+        //NSLog(@"Rotation: %d, Relative: %d, Tile: %d", faceRotation, relativeTileIndex, tileIndex);
         
         Face *currentFace = _model->faces[faceIndex];
         Tile *currentTile = currentFace->tiles[tileIndex];

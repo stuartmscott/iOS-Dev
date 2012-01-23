@@ -7,9 +7,6 @@
 //
 
 #import "RootViewController.h"
-//#import "HighscoresViewController.h"
-//#import "LevelSelection.h"
-#import "MechanisticViewController.h"
 
 @implementation RootViewController
 
@@ -138,26 +135,15 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 	*/
-    switch (indexPath.row)
-    {
-            UIViewController* controller;
-        case 0:
-            // New game
-            controller = [[MechanisticViewController alloc]init];
-            [self.window addSubview:controller.view];
-            [controller release];
-            break;
-        case 1:
-            // Highscores
-            /*
-            controller = [[HighscoresViewController alloc]init];
-            [self.navigationController pushViewController:controller animated:YES];
-            [controller release];
-             */
-            break;
-        default:
-            // Exit
-            break;
+    if (indexPath.row==0){
+        // New game
+        LevelSelection *levelSelection = [[LevelSelection alloc]init];
+        levelSelection.window = self.window;
+        [self.window addSubview:levelSelection.view];
+    }else if (indexPath.row==1){
+        // Highscores
+        HighscoresViewController *highScores = [[HighscoresViewController alloc]init];
+        [self.window addSubview:highScores.view];
     }
 }
 
