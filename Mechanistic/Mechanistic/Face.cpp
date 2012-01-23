@@ -100,8 +100,20 @@ void Face::setTileSpinning(int tileIndex, float rotation) {
     }
 }
 
-bool isNextToFree(int tileIndex) {
-    //TODO returns true is tile is adjacent to free
+bool Face::isNextToFree(int tileIndex) {
+    int n, e, s, w;
+    n = e = s = w = -1;
+    if (tileIndex>2)
+        n = tileIndex-3;
+    if ((tileIndex%3)<2)
+        e = tileIndex+1;
+    if (tileIndex<6)
+        s = tileIndex+3;
+    if ((tileIndex%3)>0)
+        e = tileIndex-1;
+    
+    int f = freeTileIndex;
+    return (n==f||e==f||s==f||w==f);
 }
 
 void Face::moveTile(int tileIndex) {

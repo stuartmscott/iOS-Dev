@@ -317,7 +317,7 @@ enum {
     Face *currentFace = _model->faces[faceIndex];
     Tile *currentTile = currentFace->tiles[tileIndex];
     
-    if (currentFace->tileNextToFree(tileIndex)&&currentTile->moveable)
+    if (currentFace->isNextToFree(tileIndex)&&currentTile->moveable)
         currentFace->moveTile(tileIndex);
 }
 
