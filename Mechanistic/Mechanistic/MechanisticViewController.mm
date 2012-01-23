@@ -184,6 +184,8 @@ enum {
     float left = fAspect * bottom;
     float right = fAspect * top;
     
+    //TODO calculate where the dimensions of the cube will be in pixels, and size of tile in screen pixels
+    
     glFrustumf(left, right, bottom, top, NEAR_CLIP, FAR_CLIP);
     glMatrixMode(GL_MODELVIEW);
     glEnable(GL_DEPTH_TEST);
@@ -308,7 +310,15 @@ enum {
 }
 
 -(void)gameClick:(CGPoint) point {
-    //TODO generate a click, figure out which tile is clicked
+    Model * _model = (Model*) model;
+    //TODO figure out which tile is clicked
+    int faceIndex;
+    int tileIndex;
+    Face *currentFace = _model->faces[faceIndex];
+    Tile *currentTile = currentFace->tiles[tileIndex];
+    
+    if (currentFace->tileNextToFree(tileIndex)&&currentTile->moveable)
+        currentFace->moveTile(tileIndex);
 }
 
 //Adapted from code from Dr. Steve Maddock

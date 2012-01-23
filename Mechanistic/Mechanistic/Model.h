@@ -33,5 +33,4 @@ public:
     Edge* edges[12];
     Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex);
     ~Model();
-    void moveTile(int faceIndex, int tileIndex);
 };

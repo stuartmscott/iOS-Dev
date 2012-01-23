@@ -16,6 +16,7 @@ void Tile::setGear(Gear* g){
 
 Tile::Tile()
 {
+    moveable = true;
     hasGear = false;
     empty = false;
 }

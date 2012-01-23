@@ -12,6 +12,7 @@
 class Tile 
 {
 public:
+    bool moveable;
     bool empty;
     bool hasGear;
     Gear *gear;

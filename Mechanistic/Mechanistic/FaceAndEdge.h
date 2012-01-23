@@ -40,4 +40,6 @@ public:
     void setEdges(Edge* n, Edge* e, Edge* s, Edge* w);
     void setSpinning(Edge* src, int srcIndex, float rotation);
     void setTileSpinning(int tileIndex, float rotation);
+    void moveTile(int tileIndex);
+    bool isNextToFree(int tileIndex);
 };

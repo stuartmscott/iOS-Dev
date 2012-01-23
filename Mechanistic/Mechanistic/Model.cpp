@@ -128,6 +128,9 @@ Model::Model(int sFaceIndex, int sTileIndex, int tFaceIndex, int tTileIndex)
     edges[11] = be3;
     edges[11]->tiles[0]->setGear(new Gear());
     
+    faces[spawnTileFace]->tiles[spawnTileIndex]->moveable = false;
+    faces[targetTileFace]->tiles[targetTileIndex]->moveable = false;
+    
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7
     phi = 0.5f;//0.5
@@ -147,12 +150,4 @@ Model::~Model()
     {
         delete edges[i];
     }
-}
-
-void Model::moveTile(int faceIndex, int tileIndex) {
-    Face* f = faces[faceIndex];
-    Tile** tiles = f->tiles;
-    Tile* temp = tiles[tileIndex];
-    tiles[tileIndex] = tiles[f->freeTileIndex];
-    tiles[f->freeTileIndex] = temp;
 }
