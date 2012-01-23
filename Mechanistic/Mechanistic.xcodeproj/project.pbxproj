@@ -45,6 +45,7 @@
 		CEC9D7E714AC9BDC000F7EE1 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E614AC9BDC000F7EE1 /* EAGLView.m */; };
 		CEC9D7EA14AC9BDC000F7EE1 /* MechanisticViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.mm */; };
 		CEC9D7ED14AC9BDC000F7EE1 /* MechanisticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC9D7EB14AC9BDC000F7EE1 /* MechanisticViewController.xib */; };
+		CECE773F14CD06E100A3251E /* test.lvl in Resources */ = {isa = PBXBuildFile; fileRef = CECE773E14CD06E100A3251E /* test.lvl */; };
 		CEDFFF1E14CCE710007ED359 /* 1.lvl in Resources */ = {isa = PBXBuildFile; fileRef = CEDFFF1D14CCE710007ED359 /* 1.lvl */; };
 		CEDFFF2114CCF957007ED359 /* LevelReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEDFFF1F14CCF954007ED359 /* LevelReader.cpp */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,7 @@
 		CEC9D7E814AC9BDC000F7EE1 /* MechanisticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MechanisticViewController.h; sourceTree = "<group>"; };
 		CEC9D7E914AC9BDC000F7EE1 /* MechanisticViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MechanisticViewController.mm; sourceTree = "<group>"; };
 		CEC9D7EC14AC9BDC000F7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MechanisticViewController.xib; sourceTree = "<group>"; };
+		CECE773E14CD06E100A3251E /* test.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lvl; sourceTree = "<group>"; };
 		CEDFFF1D14CCE710007ED359 /* 1.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.lvl; sourceTree = "<group>"; };
 		CEDFFF1F14CCF954007ED359 /* LevelReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelReader.cpp; sourceTree = "<group>"; };
 		CEDFFF2014CCF955007ED359 /* LevelReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelReader.h; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDFFF1D14CCE710007ED359 /* 1.lvl */,
+				CECE773E14CD06E100A3251E /* test.lvl */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				CEC881C414CC52CF00EA1091 /* EdgePrism.obj in Resources */,
 				CEC881C614CC558800EA1091 /* FacePrism.obj in Resources */,
 				CEDFFF1E14CCE710007ED359 /* 1.lvl in Resources */,
+				CECE773F14CD06E100A3251E /* test.lvl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

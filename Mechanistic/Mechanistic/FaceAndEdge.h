@@ -22,15 +22,14 @@ public:
     Tile* tiles[3];
     Edge(Tile** newTiles);
     ~Edge();
-    void setFaces(Face* f1, Face* s);
+    void setFaces(Face* f1, Face* f2);
     void setSpinning(Face* sender, int tileIndex, float rotation);
 };
 
 class Face
 {
 public:
-    bool northInverted;
-    bool southInverted;
+    bool inverted;
     int freeTileIndex;
     Edge* north;
     Edge* south;

@@ -80,95 +80,82 @@ Edge* loadEdge(const int * level,  int & position)
 Model::Model(const int * level)
 {
     int position = 0;
-    //spawnTileFace = sFaceIndex;
-    //spawnTileIndex = sTileIndex;
     spawnRotation = 0.0f;
-    //targetTileFace = tFaceIndex;
-    //targetTileIndex = tTileIndex;
     //Top face
     Face *top = loadFace(level, position, 0, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
     
     //Side faces
-    Face *sf0 = loadFace(level, position, 1, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
-    Face *sf1 = loadFace(level, position, 2, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
-    sf1->northInverted = true;
-    Face *sf2 = loadFace(level, position, 3, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
-    Face *sf3 = loadFace(level, position, 4, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
-    sf3->southInverted = true;
-    //sf3->tiles[4]->setGear(new Gear());
+    Face *sf1 = loadFace(level, position, 1, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    Face *sf2 = loadFace(level, position, 2, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    Face *sf3 = loadFace(level, position, 3, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    sf3->inverted = true;
+    Face *sf4 = loadFace(level, position, 4, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
     
     //Bottom face
     Face *bot = loadFace(level, position, 5, spawnTileFace, spawnTileIndex, targetTileFace, targetTileIndex);
+    bot->inverted = true;
     
     //Top edges
-    Edge *te0 = loadEdge(level, position);
-    Edge *te1 = loadEdge(level, position);
-    Edge *te2 = loadEdge(level, position);
-    Edge *te3 = loadEdge(level, position);
-    
-    
+    Edge *e0 = loadEdge(level, position);
+    Edge *e1 = loadEdge(level, position);
+    Edge *e2 = loadEdge(level, position);
+    Edge *e3 = loadEdge(level, position);
     
     //Side edges
-    Edge *se0 = loadEdge(level, position);
-    Edge *se1 = loadEdge(level, position);
-    Edge *se2 = loadEdge(level, position);
-    Edge *se3 = loadEdge(level, position);
+    Edge *e4 = loadEdge(level, position);
+    Edge *e5 = loadEdge(level, position);
+    Edge *e6 = loadEdge(level, position);
+    Edge *e7 = loadEdge(level, position);
     
     //Bottom edges
-    Edge *be0 = loadEdge(level, position);
-    Edge *be1 = loadEdge(level, position);
-    Edge *be2 = loadEdge(level, position);
-    Edge *be3 = loadEdge(level, position);
+    Edge *e8 = loadEdge(level, position);
+    Edge *e9 = loadEdge(level, position);
+    Edge *e10 = loadEdge(level, position);
+    Edge *e11 = loadEdge(level, position);
     
+    top->setEdges(e2, e1, e0, e3);
     
+    e0->setFaces(top, sf1);
+    e1->setFaces(top, sf2);
+    e2->setFaces(top, sf3);
+    e3->setFaces(top, sf4);
     
-    top->setEdges(te2, te1, te0, te3);
+    sf1->setEdges(e0, e4, e8, e7);
+    sf2->setEdges(e1, e5, e9, e4);
+    sf3->setEdges(e10, e5, e2, e6);
+    sf4->setEdges(e3, e7, e11, e6);
     
-    te0->setFaces(top, sf0);
-    te1->setFaces(top, sf1);
-    te2->setFaces(top, sf2);
-    te3->setFaces(top, sf3);
+    e4->setFaces(sf1, sf2);
+    e5->setFaces(sf2, sf3);
+    e6->setFaces(sf3, sf4);
+    e7->setFaces(sf4, sf1);
     
-    sf0->setEdges(te0, se0, be0, se3);
-    sf1->setEdges(te1, se1, be1, se0);
-    sf2->setEdges(te2, se2, be2, se1);
-    sf3->setEdges(te3, se3, be3, se2);
+    e8->setFaces(sf1, bot);
+    e9->setFaces(sf2, bot);
+    e10->setFaces(sf3, bot);
+    e11->setFaces(sf4, bot);
     
-    se0->setFaces(sf1, sf0);
-    se1->setFaces(sf2, sf1);
-    se2->setFaces(sf3, sf2);
-    se3->setFaces(sf0, sf3);
-    
-    te0->setFaces(sf0, bot);
-    te1->setFaces(sf1, bot);
-    te2->setFaces(sf2, bot);
-    te3->setFaces(sf3, bot);
-    
-    bot->setEdges(te0, te1, te2, te3);
+    bot->setEdges(e8, e9, e10, e11);
     
     faces[0] = top;
-    faces[1] = sf0;
-    faces[2] = sf1;
-    faces[3] = sf2;
-    faces[4] = sf3;
+    faces[1] = sf1;
+    faces[2] = sf2;
+    faces[3] = sf3;
+    faces[4] = sf4;
     faces[5] = bot;
     
-    edges[0] = te0;
-    edges[1] = te1;
-    edges[2] = te2;
-    edges[3] = te3;
-    edges[4] = se0;
-    edges[5] = se1;
-    edges[6] = se2;
-    edges[7] = se3;
-    edges[8] = be0;
-    edges[9] = be1;
-    edges[10] = be2;
-    edges[11] = be3;
-    
-    //Moved to loadFace()
-    //faces[spawnTileFace]->tiles[spawnTileIndex]->moveable = false;
-    //faces[targetTileFace]->tiles[targetTileIndex]->moveable = false;
+    edges[0] = e0;
+    edges[1] = e1;
+    edges[2] = e2;
+    edges[3] = e3;
+    edges[4] = e4;
+    edges[5] = e5;
+    edges[6] = e6;
+    edges[7] = e7;
+    edges[8] = e8;
+    edges[9] = e9;
+    edges[10] = e10;
+    edges[11] = e11;
     
     radius = 2.0f;//8.0
     theta = -1.5f;//-0.7

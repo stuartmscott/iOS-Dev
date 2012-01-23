@@ -60,7 +60,8 @@ enum {
 	[aContext release];
     NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
     string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
-    string lvl1 = directory+"/1.lvl";
+    //string lvl1 = directory+"/1.lvl";
+    string lvl1 = directory+"test.lvl";
     int * level = readLevel(lvl1);
     model = new Model(level);
     delete level;

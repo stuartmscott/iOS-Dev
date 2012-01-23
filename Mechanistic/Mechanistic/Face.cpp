@@ -10,7 +10,7 @@
 
 Face::Face(Tile** newTiles, int freeIndex)
 {
-    northInverted = southInverted = false;
+    inverted = false;
     freeTileIndex = freeIndex;
     for (int i=0; i<9; i++)
     {
@@ -39,25 +39,21 @@ void Face::setSpinning(Edge* src, int srcIndex, float rotation) {
     //depending on src's direction (nesw) the actual index will vary
     int tileIndex;
     if (src==north) {
-        if (northInverted) {
-            //0 1 2 = 2 1 0
-            tileIndex = 2-srcIndex;
-        }else{
             //0 1 2 = 0 1 2
             tileIndex = srcIndex;
-        }
     } else if (src==east) {
+        if (inverted)
+            //0 1 2 = 8 5 2
+            srcIndex = 2-srcIndex;
         //0 1 2 = 2 5 8
         tileIndex = (srcIndex*3)+2;
     } else if (src==south) {
-        if (southInverted) {
-            //0 1 2 = 8 7 6
-            tileIndex = (2-srcIndex)+6;
-        }else{
-            //0 1 2 = 6 7 8
-            tileIndex = 6+srcIndex;
-        }
+        //0 1 2 = 6 7 8
+        tileIndex = 6+srcIndex;
     } else {
+        if (inverted)
+            //0 1 2 = 6 3 0
+            srcIndex = 2-srcIndex;
         //0 1 2 = 0 3 6
         tileIndex = (srcIndex*3);
     }
@@ -86,13 +82,19 @@ void Face::setTileSpinning(int tileIndex, float rotation) {
                 setTileSpinning(newIndex, newRotation);
             //Left
             if (tileIndex%3==0) {
-                west->setSpinning(this, tileIndex/3, newRotation);
+                int tInd = tileIndex/3;
+                if(inverted)
+                    tInd = 2-tInd;
+                west->setSpinning(this, tInd, newRotation);
             } else {
                 setTileSpinning(tileIndex-1, newRotation);
             }
             //Right
             if (tileIndex%3==2) {
-                east->setSpinning(this, (tileIndex-2)/3, newRotation);
+                int tInd = (tileIndex-2)/3;
+                if(inverted)
+                    tInd = 2-tInd;
+                east->setSpinning(this, tInd, newRotation);
             } else {
                 setTileSpinning(tileIndex+1, newRotation);
             }
