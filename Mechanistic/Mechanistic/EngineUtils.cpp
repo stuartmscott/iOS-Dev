@@ -40,7 +40,7 @@ void appendToStringVector(string &fileName, vector<string>& container)
 void appendToTxtFile(const string &fileName, const string &text)
 {
     fstream out;
-    out.open(fileName.c_str(), fstream::in | fstream::out | fstream::app);
+    out.open(fileName.c_str(), fstream::out | fstream::ate | fstream::app);
     out<<text.c_str()<<"\n";
     out.close();
 }

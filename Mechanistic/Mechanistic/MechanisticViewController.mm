@@ -502,14 +502,14 @@ enum {
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     Model * _model = (Model*) model;
-    if (_model->gameWon||_model->isSnapping)
-        return;
 	UITouch *touch = [touches anyObject];
-    if (touch.tapCount>2)
+    if (touch.tapCount>3)
     {
         quitting = true;
         return;
     }
+    if (_model->gameWon||_model->isSnapping)
+        return;
 	CGPoint point = [touch locationInView:self.view];
     _model->startX = point.x;
     _model->startY = point.y;

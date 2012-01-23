@@ -13,8 +13,6 @@
 		CE46A4FC14CD6B6800B7924C /* HighscoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE46A4F814CD6B6800B7924C /* HighscoresViewController.xib */; };
 		CE46A4FD14CD6B6800B7924C /* LevelSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE46A4FA14CD6B6800B7924C /* LevelSelection.xib */; };
 		CE46A4FF14CD724D00B7924C /* 0.lvl in Resources */ = {isa = PBXBuildFile; fileRef = CE46A4FE14CD724C00B7924C /* 0.lvl */; };
-		CE6609BE14CD831E00F25260 /* highscores0.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE6609BC14CD831E00F25260 /* highscores0.txt */; };
-		CE6609BF14CD831E00F25260 /* highscores1.txt in Resources */ = {isa = PBXBuildFile; fileRef = CE6609BD14CD831E00F25260 /* highscores1.txt */; };
 		CE833C4114BB102B00D0C413 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C3F14BB102B00D0C413 /* Vertex.cpp */; };
 		CE833C4514BB32A300D0C413 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4314BB32A300D0C413 /* Triangle.cpp */; };
 		CE833C4814BB360900D0C413 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE833C4614BB360900D0C413 /* SceneGraphNode.cpp */; };
@@ -69,8 +67,6 @@
 		CE46A4F914CD6B6800B7924C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HighscoresViewController.xib; sourceTree = "<group>"; };
 		CE46A4FB14CD6B6800B7924C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LevelSelection.xib; sourceTree = "<group>"; };
 		CE46A4FE14CD724C00B7924C /* 0.lvl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 0.lvl; sourceTree = "<group>"; };
-		CE6609BC14CD831E00F25260 /* highscores0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highscores0.txt; sourceTree = "<group>"; };
-		CE6609BD14CD831E00F25260 /* highscores1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = highscores1.txt; sourceTree = "<group>"; };
 		CE833C3F14BB102B00D0C413 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
 		CE833C4014BB102B00D0C413 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
 		CE833C4314BB32A300D0C413 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
@@ -245,8 +241,6 @@
 		CEC9D7D214AC9BDB000F7EE1 /* Mechanistic */ = {
 			isa = PBXGroup;
 			children = (
-				CE6609BC14CD831E00F25260 /* highscores0.txt */,
-				CE6609BD14CD831E00F25260 /* highscores1.txt */,
 				CE46A4F814CD6B6800B7924C /* HighscoresViewController.xib */,
 				CE46A4FA14CD6B6800B7924C /* LevelSelection.xib */,
 				CE46A4F214CD6B5B00B7924C /* HighscoresViewController.h */,
@@ -367,8 +361,6 @@
 				CE46A4FC14CD6B6800B7924C /* HighscoresViewController.xib in Resources */,
 				CE46A4FD14CD6B6800B7924C /* LevelSelection.xib in Resources */,
 				CE46A4FF14CD724D00B7924C /* 0.lvl in Resources */,
-				CE6609BE14CD831E00F25260 /* highscores0.txt in Resources */,
-				CE6609BF14CD831E00F25260 /* highscores1.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

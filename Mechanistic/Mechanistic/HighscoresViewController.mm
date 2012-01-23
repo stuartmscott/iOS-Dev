@@ -85,9 +85,9 @@
         split(lines.at(i).c_str(),' ',tokens);
         int time = atoi(tokens.at(1).c_str()) - atoi(tokens.at(0).c_str());;
         stringstream byTime;
-        byTime<<i<<" "<<time;
+        byTime<<i+1<<" "<<time;
         stringstream byMoves;
-        byMoves<<i<<" "<<atoi(tokens.at(2).c_str());
+        byMoves<<i+1<<" "<<atoi(tokens.at(2).c_str());
         [self.itemsByTime addObject:[NSString stringWithCString:byTime.str().c_str() encoding:NSASCIIStringEncoding]];
         [self.itemsByMoves addObject:[NSString stringWithCString:byMoves.str().c_str() encoding:NSASCIIStringEncoding]];
         tokens.clear();
