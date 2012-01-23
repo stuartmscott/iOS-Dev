@@ -8,6 +8,7 @@
 
 #pragma once
 #include "FaceAndEdge.h"
+#include "ctime"
 #define MOVE_PLAY 5.0f
 #define WIDTH 320.0f
 #define HEIGHT 480.0f
@@ -35,6 +36,8 @@ public:
     bool isDragging;
     bool isSnapping;
     bool gameWon;
+    int numMoves;
+    time_t startTime, endTime;
     Face* faces[6];
     Edge* edges[12];
     Model(const int* level);

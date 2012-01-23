@@ -235,6 +235,9 @@ enum {
     if (_model->faces[faceIndex]->tiles[tileIndex]->gear->isSpinning)
         _model->gameWon = true;
     if (_model->gameWon) {
+        //Stop clock
+        _model->endTime = time(NULL);
+        NSLog(@"Completed in %d moves in %f seconds.", _model->numMoves, (_model->endTime-_model->startTime)/3600.0f);
         _model->theta += 0.01f;
         _model->phi += 0.01f;
         [self calcEyePosition];
@@ -425,8 +428,10 @@ enum {
         Face *currentFace = _model->faces[faceIndex];
         Tile *currentTile = currentFace->tiles[tileIndex];
         
-        if (currentFace->isNextToFree(tileIndex)&&currentTile->moveable)
+        if (currentFace->isNextToFree(tileIndex)&&currentTile->moveable){
             currentFace->moveTile(tileIndex);
+            _model->numMoves++;
+        }
     }
 }
 
