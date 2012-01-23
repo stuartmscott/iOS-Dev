@@ -221,6 +221,12 @@ enum {
     return 1.0f;        
 }
 
+- (int) mod:(int)number by:(int) modulus{
+    int result = number % modulus;
+    if (result < 0) result += modulus;
+    return result;
+}
+
 - (void)update {
     Model * _model = (Model*) model;
     //if target gear is spinning, game won
@@ -326,25 +332,86 @@ enum {
     float cubeX = point.x - _model->screenCubeX;
     float cubeY = point.y - _model->screenCubeY;
     float cubeSize = _model->screenCubeSize;
+    float tileSize = cubeSize/3;
     if (cubeX<=cubeSize&&cubeX>=0&&cubeY<=cubeSize&&cubeY>=0) {
-        int thetaIndex = _model->theta/M_PI_2;
-        int phiIndex = _model->phi/M_PI_2;
+        float limit = sqrtf((_model->radius*_model->radius)/2.0f);
+        float* eye = _model->eye;
+        float* up = _model->up;
+        int col = cubeX/tileSize;
+        int row = cubeY/tileSize;
+        int relativeTileIndex = (row*3) + col;
         int faceRotation;
         int faceIndex;
         int tileIndex;
-        if (thetaIndex==0) {
-            //face 2
-            int i = 0;
-        } else if (thetaIndex==1) {
-            //face 3
-            int i = 0;
-        } else if (thetaIndex==2) {
-            //face 4
-            int i = 0;
+        //NSLog(@"%f %f %f",up[0], up[1], up[2]);
+        if (eye[1]>=limit) {
+            //  0  0 -1 = 0
+            //  1  0  0 = 90
+            //  0  0  1 = 180
+            //  -1 0  0 = 270
+            if(up[2]<-0.5f)
+                faceRotation = 0;
+            else if(up[0]>0.5f)
+                faceRotation = 90;
+            else if(up[2]>0.5f)
+                faceRotation = 180;
+            else
+                faceRotation = 270;
+            faceIndex = 0;
+            //NSLog(@"LOOKING AT TOP");
+        } else if (eye[1]<=-limit) {
+            //  0  0  1 = 0
+            //  1  0  0 = 90
+            //  0  0 -1 = 180
+            // -1  0  0 = 270
+            if(up[2]>0.5f)
+                faceRotation = 0;
+            else if(up[0]>0.5f)
+                faceRotation = 90;
+            else if(up[2]<-0.5f)
+                faceRotation = 180;
+            else
+                faceRotation = 270;
+            faceIndex = 5;
+            //NSLog(@"LOOKING AT BOTTOM");
+        } else if (eye[0]>=limit) {
+            //  0  1  0 = 0
+            //  0 -1  0 = 180
+            faceIndex = 2;
+            faceRotation = (up[1]<-0.5f)?180:0;
+            //NSLog(@"LOOKING AT SIDE 2");
+        } else if (eye[0]<=-limit) {
+            //  0  1  0 = 0
+            //  0 -1  0 = 180
+            faceIndex = 4;
+            faceRotation = (up[1]<-0.5f)?180:0;
+            //NSLog(@"LOOKING AT SIDE 4");
+        } else if (eye[2]>=limit) {
+            //  0  1  0 = 0
+            //  0  -1 0 = 180
+            faceIndex = 1;
+            faceRotation = (up[1]<-0.5f)?180:0;
+            //NSLog(@"LOOKING AT SIDE 1");
         } else {
-            //face top, 1, bot, 3
-            int i = 0;
+            //  0  1  0 = 0
+            //  0 -1  0 = 180
+            faceIndex = 3;
+            faceRotation = (up[1]<-0.5f)?180:0;
+            //NSLog(@"LOOKING AT SIDE 3");
         }
+        if (faceRotation==0) {
+            tileIndex = relativeTileIndex;
+        }else if(faceRotation==180){
+            tileIndex = 8-relativeTileIndex;
+        }else if(faceRotation==90){
+            int translate []={2,5,8,1,4,7,0,3,6};
+            tileIndex = translate[relativeTileIndex];
+        }else{
+            int translate []={6,3,0,7,4,1,8,5,2};
+            tileIndex = translate[relativeTileIndex];
+        }
+        //NSLog(@"Rotation: %d, Relative: %d, Tile: %d", faceRotation, relativeTileIndex, tileIndex);
+        
         /*
         Face *currentFace = _model->faces[faceIndex];
         Tile *currentTile = currentFace->tiles[tileIndex];
