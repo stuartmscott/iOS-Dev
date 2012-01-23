@@ -186,7 +186,13 @@ enum {
     
     NSLog(@"t:%f, b:%f, l:%f, r:%f", top, bottom, left, right);
     
-    //TODO calculate where the dimensions of the cube will be in pixels, and size of tile in screen pixels
+    Model * _model = (Model*) model;
+    float cubeHeight = (SCALE_FACTOR * TILE_HEIGHT * 3.0f) + (SCALE_FACTOR * TILE_GAP * 2.0f);
+    float camToCube = _model->radius - (SCALE_FACTOR * FACE_DISTANCE_FROM_ORIGIN);
+    float cubeSize = 2.0f*((cubeHeight/2.0f)*(NEAR_CLIP/(NEAR_CLIP+camToCube)));
+    _model->screenCubeSize = (cubeSize/(2.0f*top))*HEIGHT;
+    _model->screenCubeX = (WIDTH - _model->screenCubeSize)/2.0f;
+    _model->screenCubeY = (HEIGHT - _model->screenCubeSize)/2.0f;
     
     glFrustumf(left, right, bottom, top, NEAR_CLIP, FAR_CLIP);
     glMatrixMode(GL_MODELVIEW);
@@ -313,14 +319,36 @@ enum {
 
 -(void)gameClick:(CGPoint) point {
     Model * _model = (Model*) model;
-    //TODO figure out which tile is clicked
-    int faceIndex;
-    int tileIndex;
-    Face *currentFace = _model->faces[faceIndex];
-    Tile *currentTile = currentFace->tiles[tileIndex];
-    
-    if (currentFace->isNextToFree(tileIndex)&&currentTile->moveable)
-        currentFace->moveTile(tileIndex);
+    float cubeX = point.x - _model->screenCubeX;
+    float cubeY = point.y - _model->screenCubeY;
+    float cubeSize = _model->screenCubeSize;
+    if (cubeX<=cubeSize&&cubeX>=0&&cubeY<=cubeSize&&cubeY>=0) {
+        int thetaIndex = _model->theta/M_PI_2;
+        int phiIndex = _model->phi/M_PI_2;
+        int faceRotation;
+        int faceIndex;
+        int tileIndex;
+        if (thetaIndex==0) {
+            //face 2
+            int i = 0;
+        } else if (thetaIndex==1) {
+            //face 3
+            int i = 0;
+        } else if (thetaIndex==2) {
+            //face 4
+            int i = 0;
+        } else {
+            //face top, 1, bot, 3
+            int i = 0;
+        }
+        /*
+        Face *currentFace = _model->faces[faceIndex];
+        Tile *currentTile = currentFace->tiles[tileIndex];
+        
+        if (currentFace->isNextToFree(tileIndex)&&currentTile->moveable)
+            currentFace->moveTile(tileIndex);
+         */
+    }
 }
 
 //Adapted from code from Dr. Steve Maddock

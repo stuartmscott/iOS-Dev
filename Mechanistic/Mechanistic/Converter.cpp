@@ -10,12 +10,6 @@
 #include "OBJFileLoader.h"
 #include "TransformNode.h"
 #include "LightNode.h"
-#define TC_TO_TC_ON_FACE 20.4f
-#define SCALE_FACTOR 0.02f
-#define LIFT_GEAR 3.2f
-#define FACE_DISTANCE_FROM_ORIGIN 45.02498f
-#define EDGE_DISTANCE_FROM_ORIGIN 53.474935f
-
 
 Converter::Converter(string &directory)
 {
@@ -111,7 +105,7 @@ SceneGraphNode* Converter::convert(Model *m)
     positionFaceSide2->getChildren()->push_back(faceSide2);
     scaleEverything->getChildren()->push_back(positionFaceSide2);
     //Side face 3
-    TransformNode* positionFaceSide3 = new TransformNode(new Transform(TRANSLATE, 0.0f, FACE_DISTANCE_FROM_ORIGIN, 0.0f),new Transform(ROTATE, 180.0f, 0.0f, 0.0f, 1.0f), new Transform(ROTATE, 90.0f, 1.0f, 0.0f, 0.0f));
+    TransformNode* positionFaceSide3 = new TransformNode(new Transform(TRANSLATE, 0.0f, FACE_DISTANCE_FROM_ORIGIN, 0.0f),new Transform(ROTATE, -90.0f, 1.0f, 0.0f, 0.0f));
     positionFaceSide3->getChildren()->push_back(faceSide3);
     scaleEverything->getChildren()->push_back(positionFaceSide3);
     //Side face 4
@@ -119,7 +113,7 @@ SceneGraphNode* Converter::convert(Model *m)
     positionFaceSide4->getChildren()->push_back(faceSide4);
     scaleEverything->getChildren()->push_back(positionFaceSide4);
     //Bottom face
-    TransformNode* positionFaceBottom = new TransformNode(new Transform(TRANSLATE, 0.0f, FACE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 180.0f, 0.0f, 0.0f, 1.0f));
+    TransformNode* positionFaceBottom = new TransformNode(new Transform(TRANSLATE, 0.0f, FACE_DISTANCE_FROM_ORIGIN, 0.0f), new Transform(ROTATE, 180.0f, 1.0f, 0.0f, 0.0f));
     positionFaceBottom->getChildren()->push_back(faceBottom);
     scaleEverything->getChildren()->push_back(positionFaceBottom);
     //Edges

@@ -22,7 +22,7 @@ public:
     int spawnTileFace, spawnTileIndex;
     int targetTileFace, targetTileIndex;
     float spawnRotation;
-    int cubeFaceX, cubeFaceY;
+    float screenCubeX, screenCubeY, screenCubeSize;
     float startX, startY, currX, currY;
     float eye[3], up[3];
     float radius, theta, phi;

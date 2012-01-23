@@ -9,6 +9,13 @@
 #include "MeshNode.h"
 #include <string>
 #include "Model.h"
+#define TILE_HEIGHT 20.0f
+#define TILE_GAP 0.4f
+#define TC_TO_TC_ON_FACE 20.4f
+#define SCALE_FACTOR 0.02f
+#define LIFT_GEAR 3.2f
+#define FACE_DISTANCE_FROM_ORIGIN 45.02498f
+#define EDGE_DISTANCE_FROM_ORIGIN 53.474935f
 
 class Converter
 {
