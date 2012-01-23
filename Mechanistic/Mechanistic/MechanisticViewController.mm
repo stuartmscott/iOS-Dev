@@ -87,10 +87,6 @@ enum {
         [EAGLContext setCurrentContext:nil];
     
     [context release];
-    if (sceneGraph)
-    {
-        annihilate((SceneGraphNode*)sceneGraph, false);
-    }
     delete (Converter*)converter;
     delete (Model*)model;
     [super dealloc];
@@ -482,9 +478,9 @@ enum {
     if (_model->gameWon||_model->isSnapping)
         return;
 	UITouch *touch = [touches anyObject];
-    if (touch.tapCount>1)
+    if (touch.tapCount>2)
     {
-        [self.view removeFromSuperview];
+        quitting = true;
         return;
     }
 	CGPoint point = [touch locationInView:self.view];
