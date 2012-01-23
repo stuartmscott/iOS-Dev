@@ -306,6 +306,7 @@ enum {
 {
     static bool loaded = false;
     static LightNode* light;
+
     if (!loaded)
     {
         light = new LightNode();
@@ -316,7 +317,7 @@ enum {
         loaded = true;
     }
     
-    [self update];
+    [self update];        
     
     if (sceneGraph)
     {

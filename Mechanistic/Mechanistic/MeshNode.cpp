@@ -12,9 +12,25 @@
 MeshNode::~MeshNode()
 {
     freeBuffers();
+    for (int i=0; i<vertices.size(); i++)
+    {
+        delete vertices.at(i);
+    }
     vertices.clear();
+    for (int i=0; i<normals.size(); i++)
+    {
+        delete normals.at(i);
+    }
     normals.clear();
+    for (int i=0; i<textureCoords.size(); i++)
+    {
+        delete textureCoords.at(i);
+    }
     textureCoords.clear();
+    for (int i=0; i<triangles.size(); i++)
+    {
+        delete triangles.at(i);
+    }
     triangles.clear();
     delete material;
 }
