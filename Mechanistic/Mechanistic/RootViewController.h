@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HighscoresViewController.h"
 #import "LevelSelection.h"
-#import "MechanisticViewController.h"
 
 @interface RootViewController : UITableViewController {
 

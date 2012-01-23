@@ -135,16 +135,10 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 	*/
-    if (indexPath.row==0){
-        // New game
         LevelSelection *levelSelection = [[LevelSelection alloc]init];
         levelSelection.window = self.window;
+        levelSelection.forGame = (indexPath.row==0);
         [self.window addSubview:levelSelection.view];
-    }else if (indexPath.row==1){
-        // Highscores
-        HighscoresViewController *highScores = [[HighscoresViewController alloc]init];
-        [self.window addSubview:highScores.view];
-    }
 }
 
 - (void)didReceiveMemoryWarning

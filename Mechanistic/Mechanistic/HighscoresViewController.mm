@@ -7,7 +7,8 @@
 //
 
 #import "HighscoresViewController.h"
-
+#import "EngineUtils.h"
+#import "OBJFileLoader.h"
 
 @implementation HighscoresViewController
 
@@ -18,6 +19,7 @@
 @synthesize tableItems;
 @synthesize itemsByTime;
 @synthesize itemsByMoves;
+@synthesize levelNumber;
 
 - (id)init {
     self = [super init];
@@ -66,10 +68,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Highscores";
-    self.itemsByTime = [NSArray arrayWithObjects:
-     @"1. Kostadin 1:06:03",@"2. Stuart 1:07:01",nil];
-    self.itemsByMoves = [NSArray arrayWithObjects:
-                    @"1. Stuart 16",@"2. Kostadin 22",nil];
+    //fil
+    vector<string> lines;
+    NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
+    string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    stringstream f;
+    f << directory+"/highscores";
+    f << levelNumber;
+    f << ".txt";
+    string fn = f.str();
+    appendToStringVector(fn, lines);
+    self.itemsByTime = [NSMutableArray arrayWithCapacity:lines.size()];
+    self.itemsByMoves = [NSMutableArray arrayWithCapacity:lines.size()];
+    for (int i=0; i<lines.size(); i++) {
+        vector<string> tokens;
+        split(lines.at(i).c_str(),' ',tokens);
+        int time = atoi(tokens.at(1).c_str()) - atoi(tokens.at(0).c_str());;
+        stringstream byTime;
+        byTime<<i<<" "<<time;
+        stringstream byMoves;
+        byMoves<<i<<" "<<atoi(tokens.at(2).c_str());
+        [self.itemsByTime addObject:[NSString stringWithCString:byTime.str().c_str() encoding:NSASCIIStringEncoding]];
+        [self.itemsByMoves addObject:[NSString stringWithCString:byMoves.str().c_str() encoding:NSASCIIStringEncoding]];
+        tokens.clear();
+    }
     [self.selectionBar setSelectedItem:byTimeItem];
     [self tabBar:selectionBar didSelectItem:byTimeItem];
 }
@@ -128,6 +150,9 @@
             break;
         case 1:
             [self showItemsByMoves];
+            break;
+        case 2:
+            [self.view removeFromSuperview];
             break;
     }
 }

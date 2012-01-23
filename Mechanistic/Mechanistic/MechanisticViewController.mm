@@ -23,6 +23,7 @@
 #import "Converter.h"
 #import "Destroyer.h"
 #import "LevelReader.h"
+#import "EngineUtils.h"
 
 // Uniform index.
 enum {
@@ -233,17 +234,38 @@ enum {
     return result;
 }
 
+- (void) writeScore{
+    NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
+    string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    Model * _model = (Model*) model;
+    stringstream s;
+    s << _model->startTime;
+    s << " ";
+    s << _model->endTime;
+    s << " ";
+    s << _model->numMoves;
+    string score = s.str();
+    stringstream f;
+    f << directory+"/highscores";
+    f << levelNumber;
+    f << ".txt";
+    string fn = f.str();
+    appendToTxtFile(fn, score);
+}
+
 - (void)update {
     Model * _model = (Model*) model;
     //if target gear is spinning, game won
     int faceIndex = _model->targetTileFace;
     int tileIndex = _model->targetTileIndex;
-    if (_model->faces[faceIndex]->tiles[tileIndex]->gear->isSpinning)
-        _model->gameWon = true;
-    if (_model->gameWon) {
+    if (_model->faces[faceIndex]->tiles[tileIndex]->gear->isSpinning){
         //Stop clock
         _model->endTime = time(NULL);
-        //NSLog(@"Completed in %d moves in %f seconds.", _model->numMoves, (_model->endTime-_model->startTime)/3600.0f);
+        if(!_model->gameWon)
+            [self writeScore];
+        _model->gameWon = true;
+    }
+    if (_model->gameWon) {
         _model->theta += 0.01f;
         _model->phi += 0.01f;
         [self calcEyePosition];

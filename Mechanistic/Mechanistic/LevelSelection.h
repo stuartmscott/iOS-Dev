@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HighscoresViewController.h"
+#import "MechanisticViewController.h"
 
 @interface LevelSelection : UITableViewController {
     
 }
 
 @property (retain) NSArray* tableItems;
+@property BOOL forGame;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @end

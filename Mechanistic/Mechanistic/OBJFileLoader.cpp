@@ -7,7 +7,6 @@
 //
 
 #include "OBJFileLoader.h"
-#include <vector>
 #include <algorithm>
 #include <iostream>
 #include <fstream>

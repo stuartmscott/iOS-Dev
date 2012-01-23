@@ -7,11 +7,10 @@
 //
 
 #import "LevelSelection.h"
-#import "MechanisticViewController.h"
 
 @implementation LevelSelection
 
-@synthesize tableItems, window;
+@synthesize tableItems, window, forGame;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,7 +42,7 @@
     [super viewDidLoad];
 
     self.title = @"Level selection";
-    self.tableItems = [NSArray arrayWithObjects:@"Level 1",@"Level 2",nil];
+    self.tableItems = [NSArray arrayWithObjects:@"Back", @"Level 1",@"Level 2",nil];
     
 }
 
@@ -148,11 +147,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    
-    MechanisticViewController *gameViewController = [[MechanisticViewController alloc]init];
-    gameViewController.levelNumber = indexPath.row;
-    [self.window addSubview:gameViewController.view];
-    [gameViewController release];
+    if (indexPath.row==0)
+        [self.view removeFromSuperview];
+    else if(self.forGame){
+        MechanisticViewController *gameViewController = [[MechanisticViewController alloc]init];
+        gameViewController.levelNumber = indexPath.row-1;
+        [self.window addSubview:gameViewController.view];
+        [gameViewController release];
+    }else{
+        // Highscores
+        HighscoresViewController *highScores = [[HighscoresViewController alloc]init];
+        highScores.levelNumber = indexPath.row-1;
+        [self.window addSubview:highScores.view];
+    }
 }
 
 @end
