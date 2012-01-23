@@ -21,6 +21,7 @@
 #import "Model.h"
 #import "Converter.h"
 #import "Destroyer.h"
+#import "LevelReader.h"
 
 // Uniform index.
 enum {
@@ -57,8 +58,12 @@ enum {
     
 	self.context = aContext;
 	[aContext release];
-    
-    model = new Model(0, 0, 4, 4);
+    NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
+    string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    string lvl1 = directory+"/1.lvl";
+    int * level = readLevel(lvl1);
+    model = new Model(level);
+    delete level;
     [self calcEyePosition];
     
     [(EAGLView *)self.view setContext:context];
@@ -66,8 +71,6 @@ enum {
     
     [self initGLSettings];
 
-    NSString *nsGearPath = [[NSBundle mainBundle] resourcePath];
-    string directory = [nsGearPath cStringUsingEncoding:[NSString defaultCStringEncoding]];
     converter = new Converter(directory);
     
     animating = FALSE;
