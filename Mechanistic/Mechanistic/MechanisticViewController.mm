@@ -262,16 +262,26 @@ enum {
         f = _model->faces[i];
         for(int j = 0;j<9;j++){
             t = f->tiles[j];
-            if (t->hasGear)
+            if (t->hasGear){
                 t->gear->isSpinning = false;
+                if (j%2==0)
+                    t->gear->rotation = 0;
+                else
+                    t->gear->rotation = NEIGHBOUR_DIFFERENCE;
+            }
         }
     }
     for(int i = 0; i<12;i++){
         e = _model->edges[i];
         for(int j = 0;j<3;j++){
             t = e->tiles[j];
-            if (t->hasGear)
+            if (t->hasGear){
                 t->gear->isSpinning = false;
+                if (j%2==1)
+                    t->gear->rotation = 0;
+                else
+                    t->gear->rotation = NEIGHBOUR_DIFFERENCE;
+            }
         }
     }
     
