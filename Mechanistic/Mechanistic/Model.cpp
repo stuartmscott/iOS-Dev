@@ -166,6 +166,9 @@ Model::Model(const int * level)
     destPhi = M_PI_2;
     isSnapping = true;
     gameWon = false;
+    numMoves = 0;
+    startTime = time(NULL);
+    endTime = 0;
 }
 
 Model::~Model()
